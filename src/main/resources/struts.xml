@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 6.0//EN"
+"https://struts.apache.org/dtds/struts-6.0.dtd">
+<struts>
+  <constant name="struts.devMode" value="true" />
+  <constant name="struts.ui.theme" value="simple" />
+  <constant name="struts.action.excludePattern" value="/Login*,/VendorService*,/RedeemInvoice*,/ExportXml*,/GenerateChecks*,/AuditSheet*,/callback*,/LoginServlet*" />
+
+  <package name="default" extends="struts-default">
+    <!-- this is a global action that makes sure user is logged in -->
+    
+    <global-results>
+      <result name="login" type="redirect">welcome.action</result>
+    </global-results>
+    <action name="">
+      <interceptor-ref name="defaultStack"></interceptor-ref>
+      <result>/index.html</result>
+    </action>
+    <action name="Login">
+       <interceptor-ref name="defaultStack"></interceptor-ref>
+       <result>/Login</result>
+     </action>       
+    <action name="home">
+      <interceptor-ref name="defaultStack"></interceptor-ref>
+      <result>/Login</result>
+    </action>
+    <action name="help">
+      <interceptor-ref name="defaultStack"></interceptor-ref>
+      <result>/WEB-INF/jsp/help.jsp</result>
+    </action>
+    <action name="otherMenu">
+      <interceptor-ref name="defaultStack"></interceptor-ref>
+      <result>/WEB-INF/jsp/otherMenu.jsp</result>
+    </action>
+   <action name="settings">
+      <interceptor-ref name="defaultStack"></interceptor-ref>
+      <result>/WEB-INF/jsp/settings.jsp</result>
+    </action>    
+    <action name="training">
+      <interceptor-ref name="defaultStack"></interceptor-ref>
+      <result>/WEB-INF/jsp/training.jsp</result>
+   </action>	 
+   <action name="logout" class="bucks.action.LogoutAction">
+     <result>/WEB-INF/jsp/welcome.jsp</result>
+   </action>	 
+   
+   <action name="welcome" class="bucks.action.WelcomeAction">
+     <result name="success">/WEB-INF/jsp/welcome.jsp</result>
+     <result name="login">/Login</result>	   
+   </action>
+   <action name="buckConf" 
+           class="bucks.action.BuckConfAction" 
+           method="execute">
+     <result>/WEB-INF/jsp/buckConf.jsp</result> 
+     <result name="input">/WEB-INF/jsp/buckConf.jsp</result>
+     <result name="error">/WEB-INF/jsp/buckConf.jsp</result>		
+   </action>
+   
+   <action name="batchStart" 
+           class="bucks.action.BatchStartAction" 
+           method="execute">
+     <result>/WEB-INF/jsp/batchStart.jsp</result>
+     <result name="error">/WEB-INF/jsp/batchStart.jsp</result>
+     <result name="input">/WEB-INF/jsp/batchStart.jsp</result>		
+   </action>
+			
+   <action name="batchEdit" 
+           class="bucks.action.BatchAction" 
+           method="execute">
+     <result>/WEB-INF/jsp/batch.jsp</result>
+     <result name="error">/WEB-INF/jsp/batch.jsp</result>
+     <result name="input">/WEB-INF/jsp/batch.jsp</result>		
+     <result name="buckConf" type="chain">buckConf</result>		
+   </action>
+   
+   <action name="ebtAdd" 
+           class="bucks.action.EbtAction" 
+           method="execute">
+     <result>/WEB-INF/jsp/ebtAdd.jsp</result>
+     <result name="error">/WEB-INF/jsp/ebtAdd.jsp</result>
+     <result name="issue" type="chain">issueAdd</result>			
+   </action>
+   <action name="wicAdd" 
+           class="bucks.action.FmnpWicAction" 
+           method="execute">
+     <result>/WEB-INF/jsp/wicAdd.jsp</result>
+     <result name="error">/WEB-INF/jsp/wicAdd.jsp</result>
+     <result name="issue">/WEB-INF/jsp/wicAddMore.jsp</result>			
+   </action>
+   <action name="seniorAdd" 
+           class="bucks.action.FmnpSeniorAction" 
+           method="execute">
+     <result>/WEB-INF/jsp/seniorAdd.jsp</result>
+     <result name="error">/WEB-INF/jsp/seniorAdd.jsp</result>
+     <result name="issue">/WEB-INF/jsp/seniorAddMore.jsp</result>			
+   </action>				 
+   <action name="snap" 
+           class="bucks.action.SnapAction" 
+           method="execute">
+     <result>/WEB-INF/jsp/snap.jsp</result>
+     <result name="error">/WEB-INF/jsp/snap.jsp</result>
+     <result name="input">/WEB-INF/jsp/snap.jsp</result>
+     <result name="snapStart">/WEB-INF/jsp/snap.jsp</result>
+   </action>
+   <action name="snapStart" 
+           class="bucks.action.SnapAction" 
+           method="execute">
+     <result>/WEB-INF/jsp/snapStart.jsp</result>
+     <result name="snapStart">/WEB-INF/jsp/snapStart.jsp</result>
+     <result name="error">/WEB-INF/jsp/snapStart.jsp</result>
+   </action>      
+   <action name="rxAdd" 
+           class="bucks.action.MarketRxAction" 
+              method="execute">
+     <result>/WEB-INF/jsp/rxAdd.jsp</result>
+     <result name="error">/WEB-INF/jsp/rxAdd.jsp</result>
+     <result name="issue">/WEB-INF/jsp/rxAddMore.jsp</result>			
+   </action>
+   <action name="buckInfo" 
+           class="bucks.action.BuckAction" 
+           method="execute">
+     <result>/WEB-INF/jsp/buckInfo.jsp</result>
+     <result name="error">/WEB-INF/jsp/buckInfo.jsp</result>
+     <result name="input">/WEB-INF/jsp/buckInfo.jsp</result>		
+   </action>			
+   <action name="issueAdd" 
+           class="bucks.action.IssueAction" 
+           method="execute">
+     <result>/WEB-INF/jsp/issueAdd.jsp</result>
+     <result name="issue">/WEB-INF/jsp/issueAdd.jsp</result>		
+     <result name="error">/WEB-INF/jsp/issueAdd.jsp</result> 
+   </action>
+   <action name="giftAdd" 
+           class="bucks.action.GiftAction" 
+           method="execute">
+     <result>/WEB-INF/jsp/giftAdd.jsp</result>
+     <result name="error">/WEB-INF/jsp/giftAdd.jsp</result>
+     <result name="issue" type="chain">issueGiftAdd</result>			
+   </action>
+   <action name="issueGiftAdd" 
+           class="bucks.action.IssueGiftAction" 
+           method="execute">
+     <result>/WEB-INF/jsp/issueGiftAdd.jsp</result>
+     <result name="issue">/WEB-INF/jsp/issueGiftAdd.jsp</result>		
+     <result name="error">/WEB-INF/jsp/issueGiftAdd.jsp</result> 
+   </action>	  
+   <action name="redeemStart" 
+           class="bucks.action.RedeemStartAction" 
+           method="execute">
+     <result>/WEB-INF/jsp/redeemStart.jsp</result>
+     <result name="error">/WEB-INF/jsp/redeemStart.jsp</result>
+     <result name="redeem" type="chain">redeemAdd</result>			
+   </action>
+   <action name="redeemAdd" 
+           class="bucks.action.RedeemAction" 
+           method="execute">
+     <result>/WEB-INF/jsp/redeemAdd.jsp</result>
+     <result name="redeem">/WEB-INF/jsp/redeemAdd.jsp</result>		
+     <result name="error">/WEB-INF/jsp/redeemAdd.jsp</result>
+   </action>
+	 
+   <action name="redeemEdit" 
+           class="bucks.action.RedeemAction" 
+           method="execute">
+     <result>/WEB-INF/jsp/redeemEdit.jsp</result>
+     <result name="error">/WEB-INF/jsp/redeemEdit.jsp</result>
+     <result name="redeem" type="chain">redeemAdd</result>
+     <result name="cancel" type="chain">redeemStart</result>
+   </action>	  
+    <action name="disputeSearch" 
+            class="bucks.action.DisputeSearchAction" 
+            method="execute">
+      <result>/WEB-INF/jsp/disputeSearch.jsp</result>
+      <result name="error">/WEB-INF/jsp/disputeSearch.jsp</result>
+      <result name="single" type="chain">disputeEdit</result>			
+    </action>
+    <action name="cancelledSearch" 
+              class="bucks.action.CancelledSearchAction" 
+              method="execute">
+      <result>/WEB-INF/jsp/cancelledSearch.jsp</result>
+      <result name="error">/WEB-INF/jsp/cancelledSearch.jsp</result>
+      <result name="single" type="chain">disputeEdit</result>			
+    </action>	  
+    <action name="disputeEdit" 
+            class="bucks.action.DisputeAction" 
+              method="execute">
+      <result>/WEB-INF/jsp/disputeEdit.jsp</result>
+      <result name="error">/WEB-INF/jsp/disputeEdit.jsp</result>
+      <result name="search" type="chain">disputeSearch</result>			
+    </action>	  	  
+    <action name="exportStart" 
+            class="bucks.action.ExportStartAction" 
+            method="execute">
+      <result>/WEB-INF/jsp/exportStart.jsp</result>
+      <result name="error">/WEB-INF/jsp/exportStart.jsp</result>
+      <result name="export" type="chain">exportAdd</result>			
+    </action>
+    <action name="exportAdd" 
+            class="bucks.action.ExportAction" 
+            method="execute">
+      <result>/WEB-INF/jsp/export.jsp</result>
+      <result name="export">/WEB-INF/jsp/export.jsp</result>		
+      <result name="error">/WEB-INF/jsp/export.jsp</result> 
+    </action>	  
+    
+    <action name="resolutionEdit" 
+            class="bucks.action.ResolutionAction" 
+            method="execute">
+      <result name="error">/WEB-INF/jsp/resolutionEdit.jsp</result> 
+      <result>/WEB-INF/jsp/resolutionEdit.jsp</result>
+      <result name="view">/WEB-INF/jsp/resolutionView.jsp</result> 				
+    </action>
+    <action name="resolutionView" 
+            class="bucks.action.ResolutionAction" 
+            method="execute">
+      <result name="error">/WEB-INF/jsp/resolutionView.jsp</result> 
+      <result>/WEB-INF/jsp/resolutionView.jsp</result> 
+    </action>
+    <action name="redeemSearch" 
+            class="bucks.action.RedeemSearchAction" 
+            method="execute">
+      <result name="input">/WEB-INF/jsp/redeemSearch.jsp</result>		
+      <result name="error">/WEB-INF/jsp/redeemSearch.jsp</result>
+      <result name="success">/WEB-INF/jsp/redeemSearch.jsp</result>
+    </action>
+    <action name="vendorSearch" 
+            class="bucks.action.VendorSearchAction" 
+            method="execute">
+      <result name="input">/WEB-INF/jsp/vendorSearch.jsp</result>		
+      <result name="error">/WEB-INF/jsp/vendorSearch.jsp</result>
+      <result name="success">/WEB-INF/jsp/vendorSearch.jsp</result>
+    </action>		
+    <action name="fmnpSearch" 
+            class="bucks.action.FmnpSearchAction" 
+            method="execute">
+      <result name="input">/WEB-INF/jsp/fmnpSearch.jsp</result>		
+      <result name="error">/WEB-INF/jsp/fmnpSearch.jsp</result>
+      <result name="success">/WEB-INF/jsp/fmnpSearch.jsp</result>
+    </action>		
+    <action name="batchSearch" 
+            class="bucks.action.BatchSearchAction" 
+            method="execute">
+      <result name="input">/WEB-INF/jsp/batchSearch.jsp</result>		
+      <result name="error">/WEB-INF/jsp/batchSearch.jsp</result>
+      <result name="success">/WEB-INF/jsp/batchSearch.jsp</result>
+    </action>
+    <action name="buckSearch" 
+            class="bucks.action.BuckSearchAction" 
+            method="execute">
+      <result name="input">/WEB-INF/jsp/buckSearch.jsp</result>		
+      <result name="error">/WEB-INF/jsp/buckSearch.jsp</result>
+      <result name="success">/WEB-INF/jsp/buckSearch.jsp</result>
+    </action>
+    <action name="snapSearch" 
+            class="bucks.action.SnapSearchAction" 
+            method="execute">
+      <result name="input">/WEB-INF/jsp/snapSearch.jsp</result>		
+      <result name="error">/WEB-INF/jsp/snapSearch.jsp</result>
+      <result name="success">/WEB-INF/jsp/snapSearch.jsp</result>
+    </action>      
+    <action name="ebtSearch" 
+            class="bucks.action.EbtSearchAction" 
+            method="execute">
+      <result name="input">/WEB-INF/jsp/ebtSearch.jsp</result>		
+      <result name="error">/WEB-INF/jsp/ebtSearch.jsp</result>
+      <result name="success">/WEB-INF/jsp/ebtSearch.jsp</result>
+    </action>			
+    <action name="rxSearch" 
+            class="bucks.action.RxSearchAction" 
+            method="execute">
+      <result name="input">/WEB-INF/jsp/rxSearch.jsp</result>		
+      <result name="error">/WEB-INF/jsp/rxSearch.jsp</result>
+      <result name="success">/WEB-INF/jsp/rxSearch.jsp</result>
+    </action>
+		
+    <action name="giftSearch" 
+	    class="bucks.action.GiftSearchAction" 
+	    method="execute">
+      <result name="input">/WEB-INF/jsp/giftSearch.jsp</result>		
+      <result name="error">/WEB-INF/jsp/giftSearch.jsp</result>
+      <result name="success">/WEB-INF/jsp/giftSearch.jsp</result>
+    </action>	  	  
+    <action name="report" 
+            class="bucks.action.ReportAction" 
+            method="execute">
+      <result name="input">/WEB-INF/jsp/reportInput.jsp</result>		
+      <result name="error">/WEB-INF/jsp/reportInput.jsp</result>
+      <result name="success">/WEB-INF/jsp/reportResult.jsp</result>
+      <result name="csv">/WEB-INF/jsp/reportCsv.jsp</result>				
+    </action>
+    <action name="vendor" 
+            class="bucks.action.VendorAction" 
+            method="execute">
+      <result name="input">/WEB-INF/jsp/vendor.jsp</result>		
+      <result name="error">/WEB-INF/jsp/vendor.jsp</result>
+      <result name="success">/WEB-INF/jsp/vendor.jsp</result>
+    </action>
+    <action name="user" 
+	    class="bucks.action.UserAction" 
+            method="execute">
+      <result name="input">/WEB-INF/jsp/user.jsp</result>		
+      <result name="error">/WEB-INF/jsp/user.jsp</result>
+      <result name="success">/WEB-INF/jsp/user.jsp</result>
+    </action>						
+    <action name="mailNotification" 
+            class="bucks.action.InventoryAction" 
+            method="execute">
+      <result name="input">/WEB-INF/jsp/mailNotifications.jsp</result>		
+      <result name="error">/WEB-INF/jsp/mailNotifications.jsp</result>
+      <result name="success">/WEB-INF/jsp/mailNotifications.jsp</result>
+      </action>	  
+    </package>
+		
+  </struts>
