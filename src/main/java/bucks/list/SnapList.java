@@ -247,7 +247,7 @@ public class SnapList implements java.io.Serializable{
 				    rs.getString(7),
 				    rs.getString(8),
 				    rs.getString(9),
-				    rs.getString(10) != null && !rs.getString(10).isEmpty(),
+				    rs.getString(10),
 				    rs.getString(11),
 				    rs.getString(12)
 				    

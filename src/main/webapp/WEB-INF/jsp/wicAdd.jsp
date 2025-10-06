@@ -8,13 +8,13 @@
  *
 	-->
 <s:form action="wicAdd" method="post" onsubmit="return confirmForCancel()">
-  <s:if test="wic.id == ''">
+  <s:if test="!hasId()">
       <h3>Add New FMNP WIC Transaction</h3>
   </s:if>
   <s:else>
       <h3>Edit FMNP WIC Transaction</h3>
       <s:hidden name="wic.id" value="%{wic.id}" />
-      <s:hidden name="wic.wic_max_amount" value="%{wic.wic_max_amount}" />		
+      <s:hidden name="wic.wic_max_amount" value="%{wic_max_amount}" />		
       <s:if test="!wic.isCancelled()">
 	  <ul>
 	      <li>if you want to "Cancel" this transaction, first you need to collect all the issued MB's from the customer. These MB's will be retruned to the pool. Then click on Cancel.</li>
@@ -37,50 +37,50 @@
   <hr />
   <table border="0" width="90%">
       <caption> FMNP WIC</caption>
-      <s:if test="wic.id != ''">
+      <s:if test="hasId()">
 	  <tr>
 	      <th>
 		  <b>Transaction ID:</b>
 	      </th>
 	      <td align="left">
-		  <s:property value="%{wic.id}" />
+		  <s:property value="%{id}" />
 	      </td>
 	  </tr>
       </s:if>
       <tr>
 	  <th><label for="div5">Amount:</label></th>
-	  <td align="left">$<s:textfield name="wic.amount" maxlength="4" size="4" value="%{wic.amount}" id="div3" cssClass="need_focus" readonly="true" onchange="checkDivBy3(this)" />.00 (Must be multiple of $3)</td>
+	  <td align="left">$<s:textfield name="wic.amount" maxlength="4" size="4" value="%{amount}" id="div3" cssClass="need_focus" readonly="true" onchange="checkDivBy3(this)" />.00 (Must be multiple of $3)</td>
       </tr>
-      <s:if test="wic.id == ''">
+      <s:if test="!hasId()">
 	  <tr>
 	      <th><label for="tnum">Ticket #:</label></th>
-	      <td align="left"><s:textfield name="wic.ticketNum" maxlength="10" size="10" value="%{wic.ticketNum}" required="true" id="tnum" /> *</td>
+	      <td align="left"><s:textfield name="wic.ticketNum" maxlength="10" size="10" value="%{ticketNum}" required="true" id="tnum" /> *</td>
 	  </tr>
       </s:if>
       <s:else>
 	  <tr>
 	      <th><b>Ticket #:</b></th>
-	      <td align="left"><s:property value="%{wic.ticketNum}" /></td>
+	      <td align="left"><s:property value="%{ticketNum}" /></td>
 	  </tr>
 	  <tr>
 	      <th><b>Date & Time:</b></th>
-	      <td align="left"><s:property value="%{wic.date_time}" /></td>
+	      <td align="left"><s:property value="%{date_time}" /></td>
 	  </tr>
 	  <tr>
 	      <th><b>User:</b></th>
-	      <td align="left"><s:property value="%{wic.user}" /></td>
+	      <td align="left"><s:property value="%{wic_user}" /></td>
 	  </tr>
 	  <tr>
 	      <th><b>Total:</b></th>
-	      <td align="left">$<s:property value="%{wic.total}" />.00</td>
+	      <td align="left">$<s:property value="%{total}" />.00</td>
 	  </tr>
-	  <s:if test="wic.isCancelled()">
+	  <s:if test="isCancelled()">
 	      <tr>		      
 		  <th><b>Status:</b></th>
 		  <td align="left">Cancelled</td>
 	      </tr>
 	  </s:if>
-	  <s:if test="wic.isDispute_resolution()">
+	  <s:if test="isDispute_resolution()">
 	      <tr>
 		  <th><b>Status:</b></th>
 		  <td align="left">Dispute Resolution</td>
@@ -88,15 +88,15 @@
 	  </s:if>
       </s:else>
       <tr>
-	  <s:if test="wic.id == ''">
+	  <s:if test="!hasId()">
 	      <td>&nbsp;</td>	      
 	      <td>
 		  <s:submit name="action" type="button" id="next_button" value="Next" />
 	      </td>
 
 	  </s:if>
-	  <s:elseif test="!wic.isCancelled() && !wic.isDispute_resolution()">
-	      <s:if test="wic.hasBalance()">
+	  <s:elseif test="!isCancelled() && !isDispute_resolution()">
+	      <s:if test="hasBalance()">
 		  <th>					
 		      <s:submit name="action" type="button" id="next_button" value="Add Bucks" />
 		  </th>
@@ -153,13 +153,13 @@
 </s:form>
 For FMNP WIC/Senior search click <a href="<s:property value='#application.url'/>fmnpSearch.action"> here. </a>
 <br />
-<s:if test="wic.id == ''">
-	<s:if test="hasFmnpWics()">
-		<s:set var="fmnpWics" value="fmnpWics" />
-		<s:set var="fmnpWicsTitle" value="fmnpWicsTitle" />
-		<s:set var="showTotal" value="'false'" />
-		<%@  include file="fmnpWics.jsp" %>	
-	</s:if>
+<s:if test="hasId()">
+    <s:if test="hasFmnpWics()">
+	<s:set var="fmnpWics" value="fmnpWics" />
+	<s:set var="fmnpWicsTitle" value="fmnpWicsTitle" />
+	<s:set var="showTotal" value="'false'" />
+	<%@  include file="fmnpWics.jsp" %>	
+    </s:if>
 </s:if>
 <%@  include file="footer.jsp" %>	
 

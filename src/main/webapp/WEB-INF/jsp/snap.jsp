@@ -16,8 +16,8 @@
       <p>Note: if you make a mistake you can Update the record or Cancel.
 	  If Cancelled the record will not be deleted but marked as
 	  Cancelled (Inactive)</p>
-      <s:hidden name="snap.id" value="%{snap.id}" />
-      <s:hidden name="snap.dblMax" value="%{snap.dblMax}" />
+      <s:hidden name="snap.id" value="%{id}" />
+      <s:hidden name="snap.dblMax" value="%{dblMax}" />
   </s:else>
   <s:if test="hasActionErrors()">
       <div class="errors">
@@ -30,33 +30,40 @@
       </div>
   </s:elseif>
   <p>*indicates a required field</p>
-  <table width="90%" border="0"><caption>Online Purchase (SNAP)
+  <table width="90%" border="0">
+      <caption>
+	  Online Purchase (SNAP)
+	  <s:if test="hasId()"><s:property value="id" /></s:if>
+      </caption>
       <tr>
 	  <th><label for="amount">* Purchase Amount: </label></th>
-	  <td align=left">$<s:textfield name="snap.snapAmount" maxlength="8" size="8" required="true" value="%{snap.snapAmount}" id="amount" cssClass="need_focus" />(xx.xx format only)</td>
+	  <td align=left">$<s:textfield name="snap.snapAmount" maxlength="8" size="8" required="true" value="%{snapAmount}" id="amount" cssClass="need_focus" />(xx.xx format only)</td>
       </tr>
       <tr>
 	  <th><label for="dbl">Include Double:</label></th>
 	  <td align="left">
-		  <s:checkbox name="snap.includeDouble" value="%{snap.includeDouble}" id="dbl" />Yes (uncheck if not included)
+	      <s:radio name="snap.includeDouble"
+		       value="%{includeDouble}"
+		       list="#{'y':'Yes','n':'No'}" listKey="key"
+		       listValue="value" />	
 	  </td>
       </tr>
       <tr>	      
 	  <th><label for="cardnum">* Customer Card #: </label></th>
-	  <td align="left"><s:textfield name="snap.cardNumber" maxlength="4" size="4" required="true" value="%{snap.cardNumber}" id="cardnum" /></td>
+	  <td align="left"><s:textfield name="snap.cardNumber" maxlength="4" size="4" required="true" value="%{cardNumber}" id="cardnum" /></td>
       </tr>
       <tr>
 	  <th><label for="auth">* Authorization #: </label></th>
-	  <td align="left"><s:textfield name="snap.authorization" maxlength="10" size="10" required="true" value="%{snap.authorization}" id="auth" /></td>
+	  <td align="left"><s:textfield name="snap.authorization" maxlength="10" size="10" required="true" value="%{authorization}" id="auth" /></td>
       </tr>
       <tr>
 	  <th><b>Ebt Amount: </b></th>
-	  <td align="left">$<s:property value="snap.ebtAmount" /></td>
+	  <td align="left">$<s:property value="ebtAmount" /></td>
       </tr>
-      <s:if test="snap.canDouble()">
+      <s:if test="canDouble()">
 	  <tr>
 	      <th><b>Dbl Amount: </b></th>
-	      <td align="left">$<s:property value="snap.dblAmount" /></td>
+	      <td align="left">$<s:property value="dblAmount" /></td>
 	  </tr>
       </s:if>
       <s:else>
@@ -65,19 +72,19 @@
 	      <td align="left">No Double</td>
 	  </tr>
       </s:else>
-      <s:if test="snap.isCancelled()">
+      <s:if test="isCancelled()">
 	  <tr>
 	      <th><b>Status: </b></th>
 	      <td align="left">Cancelled</td>
 	  </tr>
       </s:if>
-      <s:if test="snap.hasUser()">
+      <s:if test="hasSnapUser()">
 	  <tr>
 	      <th><b>User: </b></th>
-	      <td align="left"><s:property value="snap.user" /></td>
+	      <td align="left"><s:property value="snap_user" /></td>
 	  </tr>
       </s:if>
-      <s:if test="snap.id == ''">
+      <s:if test="!hasId()">
 	  <tr>
 	      <td>&nbsp;</td>
 	      <td>
@@ -85,10 +92,10 @@
 	      </td>
 	  </tr>
       </s:if>
-      <s:elseif test="!snap.isCancelled()">
+      <s:elseif test="!isCancelled()">
 	  <tr>
 	      <th><label for="date">Date: </label></th> 
-	      <td align=left"><s:textfield name="snap.date" maxlength="10" size="10" required="true" value="%{snap.date}" cssClass="date" id="date" /> Time:<s:textfield name="snap.time" maxlength="5" size="5" required="true" value="%{snap.time}" /></td>
+	      <td align=left"><s:textfield name="snap.date" maxlength="10" size="10" required="true" value="%{date}" cssClass="date" id="date" /> Time:<s:textfield name="snap.time" maxlength="5" size="5" required="true" value="%{time}" /></td>
 			  
 	  </tr>
 	  <tr>

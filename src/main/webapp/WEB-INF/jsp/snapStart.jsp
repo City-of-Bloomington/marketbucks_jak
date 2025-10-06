@@ -30,7 +30,10 @@
 	<tr>
 	    <th><label for="dbl">Include Double? </label></th> 
 	    <td align="left">
-		<s:checkbox name="snap.includeDouble" id="dbl" value="%{snap.includeDouble}" />Yes (uncheck if not included)
+		<s:radio name="snap.includeDouble"
+			 value="%{includeDouble}"
+			 list="#{'y':'Yes','n':'No'}" listKey="key"
+			 listValue="value" />		
 	    </td>
 	</tr>
 	<tr>

@@ -9,8 +9,8 @@
 	-->
 <s:form action="wicAdd" method="post">    
   <h4>Issue FMNP WIC Bucks</h4>
-  <s:hidden name="wic.id" value="%{wic.id}" />
-  <s:hidden name="wic.ticketNum" value="%{wic.ticketNum}" />
+  <s:hidden name="wic.id" value="%{id}" />
+  <s:hidden name="wic.ticketNum" value="%{ticketNum}" />
   <s:if test="hasActionErrors()">
       <div class="errors">
 	  <s:actionerror/>
@@ -25,51 +25,51 @@
   <table border="0" width="90%">
       <caption>Issue FMNP WIC </caption>
       <tr>
-	  <th>Transaction ID: </td><td align="left"> <s:property value="%{wic.id}" /></td>
+	  <th>Transaction ID: </td><td align="left"> <s:property value="%{id}" /></td>
       </tr>
       <tr>
 	  <th><b>Amount:</b></td>
-	  <td align="left">$<s:property value="%{wic.amount}" />.00</td>
+	  <td align="left">$<s:property value="%{amount}" />.00</td>
       </tr>
       <tr>
 	  <th><b>Ticket #:</b></td>
-	  <td align="left"><s:property value="%{wic.ticketNum}" /></td>		  
+	  <td align="left"><s:property value="%{ticketNum}" /></td>		  
       </tr>
       <tr>
 	  <th><b>Date & Time:</b></td>
-	  <td align="left"><s:property value="%{wic.date_time}" /></td>		  
+	  <td align="left"><s:property value="%{date_time}" /></td>		  
       </tr>
       <tr>
 	  <th><b>User:</b></td>
-	  <td align="left"><s:property value="%{wic.user}" /></td>
+	  <td align="left"><s:property value="%{wic_user}" /></td>
 	  
       </tr>
       <tr>
 	  <th><b>Total:</b></td>
-	  <td align="left">$<s:property value="%{wic.total}" />.00</td>
+	  <td align="left">$<s:property value="%{total}" />.00</td>
       </tr>
       
-      <s:if test="wic.isCancelled()">
+      <s:if test="isCancelled()">
 	  <tr>			  
 	      <th><b>Status:</b></td>
 	      <td align="left">Cancelled</td>
 	  </tr>
       </s:if>
-      <s:if test="wic.isDispute_resolution()">
+      <s:if test="isDispute_resolution()">
 	  <tr>
 	      <th><b>Status:</b></td>
 	      <td align="left">Dispute resolution</td>
 	  </tr>
       </s:if>				
-      <s:elseif test="wic.hasBalance()">
+      <s:elseif test="hasBalance()">
 	  <tr>
 	      <th bgcolor="red">
 		  <b>Balance:</b></th> 
-	      <td>$<s:property value="%{wic.balance}" />.00</td>
+	      <td>$<s:property value="%{balance}" />.00</td>
 	  </tr>
       </s:elseif>
-      <s:if test="!wic.isCancelled() && !wic.isDispute_resolution()">
-	  <s:if test="wic.hasBalance()">
+      <s:if test="!isCancelled() && !isDispute_resolution()">
+	  <s:if test="hasBalance()">
 	      <tr>
 		  <th><label for="bar_code_id"> * Scan/Enter new Market Buck:</label></th>
 		  <td>
@@ -92,16 +92,16 @@
 	  <tr>
 	      <th>&nbsp;</th>
 	      <td>
-		  <a href="<s:property value='#application.url' />wicAdd.action?id=<s:property value='wic.id' />">To Edit/Cancel this transaction</a>.
+		  <a href="<s:property value='#application.url' />wicAdd.action?id=<s:property value='id' />">To Edit/Cancel this transaction</a>.
 	      </td>
 	  </tr>		  
       </s:if>
   </table>
   
-  <s:if test="wic.hasBucks()">
-      <s:set var="bucks" value="wic.bucks" />
+  <s:if test="hasBucks()">
+      <s:set var="bucks" value="bucks" />
       <s:set var="bucksTitle" value="bucksTitle" />
-      <s:set var="total" value="wic.bucksTotal" />
+      <s:set var="total" value="bucksTotal" />
       <%@  include file="bucks.jsp" %>
   </s:if>
 </s:form>

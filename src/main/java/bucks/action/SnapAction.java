@@ -105,7 +105,7 @@ public class SnapAction extends TopAction{
 	}
 	return ret;
     }
-    @StrutsParameter(depth = 1)
+    @StrutsParameter(depth = 2)
     public Snap getSnap(){ // starting a new snap
 	if(snap == null){
 	    if(id.equals(""))
@@ -120,7 +120,7 @@ public class SnapAction extends TopAction{
 	}		
 	return snap;
     }
-    @StrutsParameter(depth = 1)
+    @StrutsParameter(depth = 2)
     public List<Snap> getSnaps(){
 	if(snaps == null){
 	    SnapList bl = new SnapList(debug);
@@ -132,20 +132,49 @@ public class SnapAction extends TopAction{
 	}
 	return snaps;
     }
-    @StrutsParameter(depth = 1)
     public boolean hasSnaps(){
 	getSnaps();
 	return snaps != null && snaps.size() > 0;
     }
-    @StrutsParameter(depth = 1)
+    @StrutsParameter(depth = 2)
     public void setSnap(Snap val){
 	if(val != null)
 	    snap = val;
     }
-    @StrutsParameter(depth = 1)
+    public boolean hasId(){
+	return !id.isEmpty();
+    }
     public String getSnapsTitle(){
 	return snapsTitle;
-    }	
+    }
+    public String getDate(){
+	return snap.getDate();
+    }
+    public String getTime(){
+	return snap.getTime();
+    }
+    public String getIncludeDouble(){
+	return snap.getIncludeDouble();
+    }    
+    public String getCardNumber(){
+		
+	return snap.getCardNumber();
+    }
+    public String getAuthorization(){
+	return snap.getAuthorization();
+    }
+    public boolean isCancelled(){
+	return snap.isCancelled();
+    }
+    public boolean hasSnapUser(){
+	return snap.hasUser();
+    }
+    public boolean canDouble(){
+	return snap.canDouble();
+    }    
+    public User getSnap_user(){
+	return snap.getUser();
+    }
     public String populate(){
 	String ret = SUCCESS;
 	if(!id.equals("")){
@@ -157,7 +186,15 @@ public class SnapAction extends TopAction{
 	}
 	return ret;
     }
-    @StrutsParameter(depth = 1)
+    public String getSnapAmount(){
+	return snap.getSnapAmount();
+    }
+    public String getDblAmount(){
+	return snap.getDblAmount();
+    }
+    public String getEbtAmount(){
+	return snap.getEbtAmount();
+    }    
     public String getSnapTotal(){
 	if(hasSnaps()){
 	    if(snapTotal == 0){
@@ -172,13 +209,11 @@ public class SnapAction extends TopAction{
 	}
 	return dblf.format(snapTotal);
     }
-    @StrutsParameter(depth = 1)
     public String getDblTotal(){
 	if(snapTotal == 0)
 	    getSnapTotal();
 	return dblf.format(dblTotal);
     }
-    @StrutsParameter(depth = 1)
     public String getEbtTotal(){
 	if(snapTotal == 0)
 	    getSnapTotal();

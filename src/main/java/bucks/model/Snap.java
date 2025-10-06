@@ -53,7 +53,7 @@ public class Snap implements java.io.Serializable{
 		String val7,
 		String val8,
 		String val9,
-		boolean val10,
+		String val10,
 		String val11,
 		String val12
 		){
@@ -83,7 +83,7 @@ public class Snap implements java.io.Serializable{
 		   String val7,
 		   String val8,
 		   String val9,
-		   boolean val10,
+		   String val10,
 		   String val11,
 		   String val12
 		   ){
@@ -113,8 +113,8 @@ public class Snap implements java.io.Serializable{
 	if(val != null)
 	    time = val;
     }
-    public void setIncludeDouble(boolean val){
-	if(val)
+    public void setIncludeDouble(String val){
+	if(val != null && val.equals("y"))
 	    includeDouble = "y";
 	else
 	    includeDouble = "";
@@ -173,8 +173,8 @@ public class Snap implements java.io.Serializable{
     public String getTime(){
 	return time;
     }
-    public boolean getIncludeDouble(){
-	return !includeDouble.isEmpty();
+    public String getIncludeDouble(){
+	return includeDouble.isEmpty()?"n":"y";
     }    
     public String getCardNumber(){
 		
@@ -460,7 +460,7 @@ public class Snap implements java.io.Serializable{
 			  rs.getString(7),
 			  rs.getString(8),
 			  rs.getString(9),
-			  rs.getString(10) != null && !rs.getString(10).isEmpty(),
+			  rs.getString(10),
 			  rs.getString(11),
 			  rs.getString(12)
 			  );

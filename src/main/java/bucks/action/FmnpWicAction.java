@@ -71,7 +71,7 @@ public class FmnpWicAction extends TopAction{
 	    }
 	}
 	else if(action.equals("Add")){ // adding a buck
-	    ret = SUCCESS;			
+	    ret = SUCCESS;
 	    back = wic.doSelect();
 	    if(!back.equals("")){
 		addActionError(back);
@@ -159,7 +159,7 @@ public class FmnpWicAction extends TopAction{
 	}
 	return ret;
     }
-    @StrutsParameter
+    @StrutsParameter(depth = 2)
     public FmnpWic getWic(){ // starting a new wic
 	if(wic == null){
 	    wic = new FmnpWic(debug);
@@ -172,7 +172,7 @@ public class FmnpWicAction extends TopAction{
 	}		
 	return wic;
     }
-    @StrutsParameter
+    @StrutsParameter(depth = 2)
     public List<FmnpWic> getFmnpWics(){
 	FmnpWicList bl = new FmnpWicList(debug);
 	bl.setLimit("10");
@@ -185,12 +185,11 @@ public class FmnpWicAction extends TopAction{
 	}
 	return fmnpWics;
     }
-    @StrutsParameter
     public boolean hasFmnpWics(){
 	getFmnpWics();
 	return fmnpWics != null && fmnpWics.size() > 0;
     }
-    @StrutsParameter
+    @StrutsParameter(depth = 2)
     public void setWic(FmnpWic val){
 	if(val != null)
 	    wic = val;
@@ -199,7 +198,12 @@ public class FmnpWicAction extends TopAction{
 	    wic.doSelect();
 	}
     }
-    @StrutsParameter
+    @Override
+    public void setId(String val){
+	if(val != null){
+	    id = val;
+	}
+    }    
     @Override
     public String getId(){
 	if(id.equals("") && wic != null){
@@ -207,7 +211,57 @@ public class FmnpWicAction extends TopAction{
 	}
 	return id;
     }
-    @StrutsParameter
+    public String getAmount(){
+	return wic.getAmount();
+    }
+    public String getDate_time(){
+		
+	return wic.getDate_time();
+    }
+    public User getWic_user(){
+		
+	return wic.getUser();
+    }
+    public String getTicketNum(){
+	return wic.getTicketNum();
+    }		
+    public String getBuck_type_id(){
+		
+	return wic.getBuck_type_id();
+    }
+    public String getCancelled(){
+		
+	return wic.getCancelled();
+    }
+    public boolean isDispute_resolution(){
+	return wic.isDispute_resolution();
+    }	    
+    public boolean hasId(){
+	return !id.isEmpty();
+    }
+    public String getTotal(){
+	return wic.getTotal();
+    }
+    public String getBalance(){
+	return wic.getBalance();
+    }
+    public boolean hasBalance(){
+	return wic.hasBalance();
+    }
+    public boolean hasBucks(){
+	return wic.hasBucks();
+    }
+    public List<Buck> getBucks(){
+	return wic.getBucks();
+    }
+    public String getBucksTotal(){
+	return wic.getBucksTotal();
+    }
+    //	
+    public boolean needMoreIssue(){
+	//
+	return wic.needMoreIssue();
+    }    
     public String getFmnpWicsTitle(){
 	return fmnpWicsTitle;
     }
