@@ -14,18 +14,18 @@
   </div>
 </s:if>
 <s:elseif test="hasActionMessages()">
-  <div class="welcome">
-    <s:actionmessage/>
-  </div>
+    <div class="welcome">
+	<s:actionmessage/>
+    </div>
 </s:elseif>
 <p>To start a new batch of MB or GC, click on the 'Generate New Batch' that corresponds to the related configuration in the table below:</p>
+<s:if test="hasBuckConfs()">
+    <s:set var="buckConfs" value="buckConfs" />
+    <%@  include file="buckConfs.jsp" %>	
+</s:if>	
+
+
 <table border="1" width="80%">
-  <tr><td> 
-      <s:if test="buckConfs != null && buckConfs.size() > 0">
-	  <s:set var="buckConfs" value="buckConfs" />
-	  <%@  include file="buckConfs.jsp" %>	
-      </s:if>	
-  </td></tr>
   <s:if test="hasRecentDate()">
       <tr>
 	  <th><label for="printable"> The audit sheet for the most recent prints of <s:property value="recentBatchDate" /></label>

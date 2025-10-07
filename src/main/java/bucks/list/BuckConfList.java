@@ -105,7 +105,7 @@ public class BuckConfList implements java.io.Serializable{
 	}
 	if(excludeOldYears){
 	    if(!qw.equals("")) qw += " and ";
-	    qw += " year(b.date) >= year(curdate()) "; 
+	    qw += " year(b.date) >= (year(curdate()) - 5) "; 
 	}
 	qq += qf;
 	if(!qw.equals(""))
@@ -113,7 +113,7 @@ public class BuckConfList implements java.io.Serializable{
 	if(!sortBy.equals("")){
 	    qq += " order by "+sortBy;
 	}
-	qq += " limit 10 ";		
+	qq += " limit 20 ";		
 	logger.debug(qq);
 	try{
 	    con = Helper.getConnection();

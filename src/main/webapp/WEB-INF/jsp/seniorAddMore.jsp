@@ -23,57 +23,57 @@
   </s:elseif>
   <p>*indicate a required field </p>
   <table border="0" width="90%">
-      <caption> Issue FMNP</caption>
+      <caption> Issue FMNP </caption>
       <tr>
 	  <th>
 	      <b>Transaction ID: </b></th>
-	  <td align="left"> <s:property value="%{senior.id}" />
+	  <td align="left"> <s:property value="%{id}" />
 	  </td>
       </tr>
       <tr>
 	  <th><b>Amount:</b></th>
-	  <td align="left">$<s:property value="%{senior.amount}" />.00</td>
+	  <td align="left">$<s:property value="%{amount}" />.00</td>
       </tr>
       <tr>		  
 	  <th><b>Ticket #:</b></th>
-	  <td align="left"><s:property value="%{senior.ticketNum}" /></td>
+	  <td align="left"><s:property value="%{ticketNum}" /></td>
       </tr>
       <tr>		  
 	  <th><b>Date & Time:</b></th>
-	  <td align="left"><s:property value="%{senior.date_time}" /></td>
+	  <td align="left"><s:property value="%{date_time}" /></td>
       </tr>
       <tr>		      
 	  <th><b>User:</b></th>
-	  <td align="left"><s:property value="%{senior.user}" /></td>
+	  <td align="left"><s:property value="%{senior_user}" /></td>
       </tr>
       <tr>
 	  <th><b>Total:</b></th>
-	  <td align="left">$<s:property value="%{senior.total}" />.00</td>
+	  <td align="left">$<s:property value="%{total}" />.00</td>
       </tr>
-      <s:if test="senior.isCancelled()">
+      <s:if test="isCancelled()">
 	  <tr>
 	      <th><b>Status:</b></th>
 	      <td align="left" align="left" colspan="3">Cancelled</td>
 	  </tr>
       </s:if>
-      <s:if test="senior.isDispute_resolution()">
+      <s:if test="isDispute_resolution()">
 	  <tr>
 	      <th><b>Status:</b></th>
 	      <td align="left">In Dispute</td>
 	  </tr>
       </s:if>				
-      <s:elseif test="senior.hasBalance()">
+      <s:elseif test="hasBalance()">
 	  <tr>
 	      <th><b>Balance:</b></th>
-	      <td align="left">$<s:property value="%{senior.balance}" />.00</td>
+	      <td align="left">$<s:property value="%{balance}" />.00</td>
 	  </tr>
       </s:elseif>
-      <s:if test="!senior.isCancelled() && !senior.isDispute_resolution()">
-	  <s:if test="senior.hasBalance()">
+      <s:if test="!isCancelled() && !isDispute_resolution()">
+	  <s:if test="hasBalance()">
 	      <tr>
 		  <th><label for="bar_code_id">* Scan/Enter new Market Buck:</label></th>
 		  <td align="left">
-		      <s:textfield name="senior.buck_id" value="" size="20" maxlength="20" required="true" id="bar_code_id" autofocus="true" /></td>
+		      <s:textfield name="senior.buck_id" size="20" maxlength="20" required="true" id="bar_code_id" autofocus="true" /></td>
 	      </tr>
 	      <tr>
 		  <td>&nbsp;</td>
@@ -87,15 +87,15 @@
 	  </s:else>
 	  <tr>
 	      <td>&nbsp;</td>
-	      <td><a href="<s:property value='#application.url' />seniorAdd.action?id=<s:property value='senior.id' />">Edit/Cancel Transaction <s:property value="id" /></a>.
+	      <td><a href="<s:property value='#application.url' />seniorAdd.action?id=<s:property value='id' />">Edit/Cancel Transaction <s:property value="id" /></a>.
 	      </td>
 	  </tr>		  
       </s:if>
   </table>
-  <s:if test="senior.hasBucks()">
-      <s:set var="bucks" value="senior.bucks" />
+  <s:if test="hasBucks()">
+      <s:set var="bucks" value="bucks" />
       <s:set var="bucksTitle" value="bucksTitle" />
-      <s:set var="total" value="senior.bucksTotal" />
+      <s:set var="total" value="bucksTotal" />
       <%@  include file="bucks.jsp" %>
   </s:if>
 </s:form>

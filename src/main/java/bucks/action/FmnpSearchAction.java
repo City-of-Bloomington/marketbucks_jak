@@ -74,22 +74,13 @@ public class FmnpSearchAction extends TopAction{
 	}		
 	return ret;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public FmnpSearch getFmnp(){ 
 	if(fmnp == null){
 	    fmnp = new FmnpSearch(debug);
 	}		
 	return fmnp;
     }
-    @StrutsParameter
-    public List<FmnpWic> getWics(){
-	return wics;
-    }
-    @StrutsParameter
-    public List<FmnpSenior> getSeniors(){
-	return seniors;
-    }
-    @StrutsParameter
     public int getWicsTotal(){
 	if(hasWics()){
 	    if(wicsTotal == 0){
@@ -102,7 +93,6 @@ public class FmnpSearchAction extends TopAction{
 	}
 	return wicsTotal;
     }
-    @StrutsParameter
     public int getSeniorsTotal(){
 	if(hasSeniors()){
 	    if(seniorsTotal == 0){
@@ -115,19 +105,56 @@ public class FmnpSearchAction extends TopAction{
 	}
 	return seniorsTotal;
     }
-    @StrutsParameter
+    public String getId(){
+	return fmnp.getId();
+    }
+    public String getTicketNum(){
+	return fmnp.getTicketNum();
+    }		
+    public String getBuck_id(){
+	return fmnp.getBuck_id();
+    }
+    public String getAmount(){
+	return fmnp.getAmount();
+    }
+    public String getWhich_date(){
+	return fmnp.getWhich_date();
+    }
+    public String getDate_from(){
+	return fmnp.getDate_from() ;
+    }
+    public String getDate_to(){
+	return fmnp.getDate_to() ;
+    }
+    public String getType(){
+	return fmnp.getType() ;
+    }
+    public String getStatus(){
+	return fmnp.getStatus() ;
+    }		
+    public String getSortBy(){
+	return fmnp.getSortBy() ;
+    }
+    public String getDispute_resolution(){
+	return fmnp.getDispute_resolution() ;
+    }
+    @StrutsParameter(depth=2)    
+    public List<FmnpWic> getWics(){
+	return wics;
+    }
+    @StrutsParameter(depth=2)
+    public List<FmnpSenior> getSeniors(){
+	return seniors;
+    }    
     public boolean hasWics(){
 	return wics != null && wics.size() > 0;
     }
-    @StrutsParameter
     public boolean hasSeniors(){
 	return seniors != null && seniors.size() > 0;
     }
-    @StrutsParameter
     public String getWicsTitle(){
 	return wicsTitle;
     }
-    @StrutsParameter
     public String getSeniorsTitle(){
 	return seniorsTitle;
     }

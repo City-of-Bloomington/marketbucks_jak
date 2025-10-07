@@ -191,6 +191,10 @@ public class Batch implements java.io.Serializable{
 	}
 	return seq_list;
     }
+    public boolean hasSeqList(){
+	getSeq_list();
+	return seq_list != null && seq_list.size() > 0;
+    }
     public BuckConf getConf(){
 	if(conf == null && !conf_id.equals("")){
 	    BuckConf one = new BuckConf(debug, conf_id);

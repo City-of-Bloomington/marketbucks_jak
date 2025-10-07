@@ -153,7 +153,7 @@
 </s:form>
 For FMNP WIC/Senior search click <a href="<s:property value='#application.url'/>fmnpSearch.action"> here. </a>
 <br />
-<s:if test="hasId()">
+<s:if test="!hasId()">
     <s:if test="hasFmnpWics()">
 	<s:set var="fmnpWics" value="fmnpWics" />
 	<s:set var="fmnpWicsTitle" value="fmnpWicsTitle" />

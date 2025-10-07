@@ -26,6 +26,7 @@ public class BuckConfAction extends TopAction{
     static final long serialVersionUID = 20L;	
     static Logger logger = LogManager.getLogger(BuckConfAction.class);
     BuckConf buckConf = null;
+    List<Batch> batches = null;
     List<BuckConf> buckConfs = null; // most recent confs
     private List<Type> buck_types = null;
     private List<Type> gl_accounts = null;
@@ -92,19 +93,33 @@ public class BuckConfAction extends TopAction{
 	}
 	return ret;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public BuckConf getBuckConf(){
 	if(buckConf == null){
 	    buckConf = new BuckConf(debug);
 	}		
 	return buckConf;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public void setBuckConf(BuckConf val){
 	if(val != null)
 	    buckConf = val;
     }
-    @StrutsParameter
+    public String getName(){
+	//
+	return buckConf.getName();
+    }	
+    public String getValue(){
+	return buckConf.getValue();
+    }
+    public String getType_id(){
+	return buckConf.getType_id();
+    }
+    @StrutsParameter(depth=1)
+    public Type getType(){
+	return buckConf.getType();
+    }	    
+    @StrutsParameter(depth=1)
     @Override
     public String getId(){
 	if(id.equals("") && buckConf != null){
@@ -112,11 +127,37 @@ public class BuckConfAction extends TopAction{
 	}
 	return id;
     }
-    @StrutsParameter
+    public String getDate(){
+		
+	return buckConf.getDate();
+    }
+    public String getDonor_max_value(){
+		
+	return buckConf.getDonor_max_value();
+    }
+    @StrutsParameter(depth=1)    
+    public User getConf_user(){
+	return buckConf.getUser();
+    }	
+    public boolean isCurrent(){
+	return buckConf.isCurrent();
+    }
+    public boolean isExpired(){
+	return buckConf.isExpired();
+    }		
+    public String getGl_account(){
+	return buckConf.getGl_account();
+    }	    
     public String getBatchesTitle(){
 	return "Current batches in this Configuration";
     }
-    @StrutsParameter
+    public boolean hasBatches(){
+	return buckConf.hasBatches();
+    }
+    public List<Batch> getBatches(){
+	return buckConf.getBatches();
+    }
+    @StrutsParameter(depth=2)
     public List<BuckConf> getBuckConfs(){
 	if(buckConfs == null){
 	    BuckConfList bcl = new BuckConfList(debug);
@@ -127,7 +168,7 @@ public class BuckConfAction extends TopAction{
 	}		
 	return buckConfs;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public List<Type> getBuck_types(){
 	if(buck_types == null){
 	    TypeList bcl = new TypeList(debug, "buck_types");
@@ -139,7 +180,7 @@ public class BuckConfAction extends TopAction{
 	}		
 	return buck_types;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public List<Type> getGl_accounts(){
 	if(gl_accounts == null){
 	    TypeList bcl = new TypeList(debug, "gl_accounts");

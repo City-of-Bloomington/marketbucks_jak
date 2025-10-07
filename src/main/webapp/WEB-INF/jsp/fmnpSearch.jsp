@@ -27,29 +27,29 @@
 	</tr>
 	<tr>
  	    <th><label for="tikect_id">Ticket #:</label></th>
-	    <td align="left"><s:textfield name="fmnp.ticketNum" value="%{fmnp.ticketNum}" size="10" maxlength="10" id="ticket_id" /> </td>
+	    <td align="left"><s:textfield name="fmnp.ticketNum" value="%{ticketNum}" size="10" maxlength="10" id="ticket_id" /> </td>
 	</tr>
 	<tr>
 	    <th><label for="amount">Amount ($):</label></th>
-	    <td align="left"><s:textfield name="fmnp.amount" value="%{fmnp.amount}" size="4" maxlength="4" id="amount" /> </td>
+	    <td align="left"><s:textfield name="fmnp.amount" value="%{amount}" size="4" maxlength="4" id="amount" /> </td>
 	</tr>
 	<tr>
 	    <th><label for="type">FMNP Type:</label></th>
-	    <td align="left"><s:radio name="fmnp.type" value="%{fmnp.type}" list="#{'-1':'All','wic':'WIC','senior':'Senior'}" id="type" /> </td>
+	    <td align="left"><s:radio name="fmnp.type" value="%{type}" list="#{'-1':'All','wic':'WIC','senior':'Senior'}" id="type" /> </td>
 	</tr>
 	<tr>
 	    <th><label for="status">Status:</label></th>
-	    <td align="left"><s:radio name="fmnp.status" value="%{fmnp.status}" list="#{'-1':'All','Active':'Active','Cancelled':'Cancelled'}" id="status" /> </td>
+	    <td align="left"><s:radio name="fmnp.status" value="%{status}" list="#{'-1':'All','Active':'Active','Cancelled':'Cancelled'}" id="status" /> </td>
 	</tr>
 	<tr>
 	    <th><b>Date:</b></th>
-	    <td align="left"><label for="from"> From</label><s:textfield name="fmnp.date_from" value="%{fmnp.date_from}" id="from" size="10" maxlength="10" cssClass="date" /><label for="to"> To </label><s:textfield name="fmnp.date_to" value="%{fmnp.date_to}" size="10" maxlength="10" cssClass="date" id="to" />(mm/dd/yyyy)</td>
+	    <td align="left"><label for="from"> From</label><s:textfield name="fmnp.date_from" value="%{date_from}" id="from" size="10" maxlength="10" cssClass="date" /><label for="to"> To </label><s:textfield name="fmnp.date_to" value="%{date_to}" size="10" maxlength="10" cssClass="date" id="to" />(mm/dd/yyyy)</td>
 	</tr>
 	<tr>
 	    <th><label for="sortby">Sort by:</label></th> 
 	    <td align="left">
 		<s:select name="fmnp.sortBy" id="sortby"
-			      value="%{fmnp.sortBy}"
+			      value="%{sortBy}"
 			  list="#{'-1':'ID','date':'Date & Time'}" headerKey="-1" headerValue="ID" /></td>
 	</tr>
 	<tr>

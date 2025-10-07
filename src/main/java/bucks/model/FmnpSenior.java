@@ -164,12 +164,6 @@ public class FmnpSenior implements java.io.Serializable{
     public String getId(){
 	return id;
     }
-    public String getAmount(){
-	if(id.equals("")){
-	    return ""+senior_max_amount;
-	}
-	return amountStr;
-    }
     public void setSenior_max_amount(Integer val){
 	if(val != null && val > 0)
 	    senior_max_amount = val;
@@ -182,17 +176,24 @@ public class FmnpSenior implements java.io.Serializable{
 
 	    }								
 	}
-    }		
+    }
     public int getAmountInt(){
 	return amount;
+    }    
+    public String getUser_id(){
+		
+	return user_id;
+    }
+
+    public String getAmount(){
+	if(id.equals("")){
+	    return ""+senior_max_amount;
+	}
+	return amountStr;
     }
     public String getDate_time(){
 		
 	return date_time;
-    }
-    public String getUser_id(){
-		
-	return user_id;
     }
     public String getTicketNum(){
 	if(id.equals("")){
@@ -203,13 +204,6 @@ public class FmnpSenior implements java.io.Serializable{
     public String getBuck_type_id(){
 		
 	return buck_type_id;
-    }
-    public String getCancelled(){
-		
-	return cancelled;
-    }
-    public String getDispute_resolution(){
-	return dispute_resolution;
     }
     public boolean isCancelled(){
 	boolean ret = !cancelled.equals("");
@@ -240,6 +234,13 @@ public class FmnpSenior implements java.io.Serializable{
 	return buck_type;
     }
 	
+    public String getCancelled(){
+		
+	return cancelled;
+    }
+    public String getDispute_resolution(){
+	return dispute_resolution;
+    }
     public String toString(){
 	return ticket_num+" $"+amountStr+" "+date_time;
     }

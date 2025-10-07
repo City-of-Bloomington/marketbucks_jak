@@ -199,6 +199,7 @@ public class FmnpWicAction extends TopAction{
 	}
     }
     @Override
+    @StrutsParameter(depth = 1)    
     public void setId(String val){
 	if(val != null){
 	    id = val;

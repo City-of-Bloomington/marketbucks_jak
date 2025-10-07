@@ -8,14 +8,14 @@
  *
 	-->
 <s:form action="seniorAdd" method="post" onsubmit="return confirmForCancel()">
-  <s:if test="senior.id == ''">
+  <s:if test="!hasId()">
       <h3>Add New FMNP SENIOR Transaction</h3>
   </s:if>
   <s:else>
       <h3>Edit FMNP SENIOR Transaction</h3>
-      <s:hidden name="senior.id" value="%{senior.id}" />
-      <s:hidden name="senior.senior_max_amount" value="%{senior.senior_max_amount}" />		
-      <s:if test="!senior.isCancelled()">
+      <s:hidden name="senior.id" value="%{id}" />
+      <s:hidden name="senior.senior_max_amount" value="%{senior_max_amount}" />		
+      <s:if test="!isCancelled()">
 	  <ul>
 	      <li>if you want to "Cancel" this transaction, first you need to collect all the issued MB's from the customer. These MB's will be retruned to the pool. Then click on Cancel.</li>
 	      <li>If you want to Cancel certain MB's only. Check the corresponding checkbox(es) and then click on "Cancel Selected MB's".</li>
@@ -37,53 +37,53 @@
   <hr />
   <table border="0" width="90%">
       <caption>FMNP Senior</caption>
-      <s:if test="senior.id != ''">
+      <s:if test="hasId()">
 	  <tr>
 	      <th><b>Transaction ID:</b></th>
-	      <td align="left"> <s:property value="%{senior.id}" /></td>
+	      <td align="left"> <s:property value="%{id}" /></td>
 	  </tr>
       </s:if>
       <tr>
 	  <th><label for="div5">FMNP Senior Amount:</label></th>
-	  <td align="left">$<s:textfield name="senior.amount" maxlength="4" size="4" value="%{senior.amount}" id="div5" readonly="true" />.00 (Must be multiple of $3)</td>
+	  <td align="left">$<s:textfield name="senior.amount" maxlength="4" size="4" value="%{amount}" id="div5" readonly="true" />.00 (Must be multiple of $3)</td>
       </tr>
-      <s:if test="senior.id == ''">
+      <s:if test="!hasId()">
 	  <tr>
 	      <th><label for="tnum">Ticket #:</label></th>
-	      <td align="left"><s:textfield name="senior.ticketNum" maxlength="10" size="10" value="%{senior.ticketNum}" required="true" id="tnum" /> *</td>
+	      <td align="left"><s:textfield name="senior.ticketNum" maxlength="10" size="10" value="%{ticketNum}" required="true" id="tnum" /> *</td>
 	  </tr>
       </s:if>
       <s:else>
 	  <tr>
 	      <th><b>Ticket #:</b></th>
-	      <td align="left"><s:property value="%{senior.ticketNum}" /></td>
+	      <td align="left"><s:property value="%{ticketNum}" /></td>
 	  </tr>
 	  <tr>
 	      <th><b>Date & Time:</b></th>
-	      <td align="left"><s:property value="%{senior.date_time}" /></td>
+	      <td align="left"><s:property value="%{date_time}" /></td>
 	  </tr>
 	  <tr>	      
 	      <th><b>User:</b></th>
-	      <td align="left"><s:property value="%{senior.user}" /></td>
+	      <td align="left"><s:property value="%{senior_user}" /></td>
 	  </tr>
 	  <tr>
 	      <th><b>Total:</b></th>
-	      <td align="left">$<s:property value="%{senior.total}" />.00</td>
+	      <td align="left">$<s:property value="%{total}" />.00</td>
 	  </tr>
-	  <s:if test="senior.isCancelled()">
+	  <s:if test="isCancelled()">
 	      <tr>
 		  <th><b>Status:</b></th>
 		  <td align="left">Cancelled</td>
 	      </tr>
 	  </s:if>
-	  <s:if test="senior.isDispute_resolution()">
+	  <s:if test="isDispute_resolution()">
 	      <tr>
 		  <th><b>Status:</b></th>
 		  <td align="left">Dispute Resolution</td>
 	      </tr>
 	  </s:if>
       </s:else>
-      <s:if test="senior.id == ''">
+      <s:if test="!hasId()">
 	  <tr>
 	      <td>&nbsp;</td>
 	      <td>
@@ -91,8 +91,8 @@
 	      </td>
 	  </tr>
       </s:if>
-      <s:elseif test="!senior.isCancelled() && !senior.isDispute_resolution()">
-	  <s:if test="senior.hasBalance()">
+      <s:elseif test="!isCancelled() && !isDispute_resolution()">
+	  <s:if test="hasBalance()">
 	      <tr>
 	    	  <td>&nbsp;</td>
 		  <td>
@@ -109,7 +109,7 @@
       </s:elseif>
   </table>
   <hr />
-  <s:if test="senior.hasBucks()">
+  <s:if test="hasBucks()">
       <table border="1" width="90%">
 	  <caption><s:property value="bucksTitle" /></caption>
 	  <tr>
@@ -121,9 +121,9 @@
 	  </tr>
 	  <tr>
 	      <td colspan="4" align="right">Total</td>
-	      <th>$<s:property value="senior.bucksTotal" />.00</td>
+	      <th>$<s:property value="bucksTotal" />.00</td>
 	  </tr>
-	  <s:iterator var="one" value="senior.bucks">
+	  <s:iterator var="one" value="bucks">
 	      <tr>
 		  <td>&nbsp;
 		      <s:if test="!isVoided()">
@@ -147,7 +147,7 @@
 </s:form>
 For FMNP SENIOR/Senior search click <a href="<s:property value='#application.url'/>fmnpSearch.action"> here. </a>
 <br />
-<s:if test="senior.id == ''">
+<s:if test="!hasId()">
     <s:if test="hasFmnpSeniors()">
 	<s:set var="fmnpSeniors" value="fmnpSeniors" />
 	<s:set var="fmnpSeniorsTitle" value="fmnpSeniorsTitle" />

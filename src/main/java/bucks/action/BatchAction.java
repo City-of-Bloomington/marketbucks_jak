@@ -34,6 +34,7 @@ public class BatchAction extends TopAction{
     boolean needBuckConf = false;
     Batch batch = null;
     List<Batch> batches = null;
+    List<BuckConf> buckConfs = null;
     public String execute(){
 	String ret = INPUT;
 	String back = doPrepare();
@@ -93,14 +94,18 @@ public class BatchAction extends TopAction{
 	}
 	return ret;
     }
-    @StrutsParameter
+    public boolean hasId(){
+	return id != null && !id.isEmpty();
+    }
+
+    @StrutsParameter(depth=2)
     public Batch getBatch(){ // starting a new batch
 	if(batch == null){
 	    batch = new Batch(debug);
 	}		
 	return batch;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public List<Batch> getBatches(){
 	BatchList bl = new BatchList(debug);
 	String back = bl.find();
@@ -109,12 +114,12 @@ public class BatchAction extends TopAction{
 	}
 	return batches;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=1)
     public void setBatch(Batch val){
 	if(val != null)
 	    batch = val;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     @Override
     public String getId(){
 	if(id.equals("") && batch != null){
@@ -122,22 +127,64 @@ public class BatchAction extends TopAction{
 	}
 	return id;
     }
-    @StrutsParameter
     public String getConf_id(){
 	if(conf_id.equals("") && batch != null){
 	    conf_id = batch.getConf_id();
 	}
 	return conf_id;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=1)
     public void setConf_id(String val){
 	if(val != null)
 	    conf_id = val;
     }
-    @StrutsParameter
+
     public String getBatchesTitle(){
 	return "Most recent batches";
-    }	
+    }
+    public String getBatch_size(){
+		
+	return batch.getBatch_size();
+    }
+    public String getPages(){
+		
+	return batch.getPages();
+    }
+    public String getStart_seq(){
+	return batch.getStart_seq();
+    }
+    public String getEnd_seq(){
+	return batch.getEnd_seq();
+    }    
+    public String getStatus(){
+	return batch.getStatus();
+    }
+    public String getDate(){
+	return batch.getDate();
+    }
+    public List<String> getSeq_list(){
+	return batch.getSeq_list();
+    }
+    public BuckConf getConf(){
+	return batch.getConf();
+    }
+    public boolean hasSeqList(){
+	return batch.hasSeqList();
+    }
+    public User getBatch_user(){
+	return batch.getUser();
+
+    }
+    public String getValue(){
+	return batch.getValue();
+    }
+    public int getTotal(){
+	return batch.getTotal();
+    }
+    public Type getType(){
+	return batch.getType();
+
+    }    
     public String populate(){
 	String ret = SUCCESS;
 	if(!id.equals("")){
@@ -148,6 +195,18 @@ public class BatchAction extends TopAction{
 	    }
 	}
 	return ret;
+    }
+    private void findBuckConfs(){
+	BuckConfList bcl = new BuckConfList();
+	// bcl.setExcludeOldYears();
+	String back = bcl.find();
+	if(back.isEmpty()){
+	    List<BuckConf> ones = bcl.getBuckConfs();
+	    if(ones != null && ones.size() > 0){
+		buckConfs = ones;
+	    }
+	}
+
     }
     @Override
     public void withServletContext(ServletContext ctx) {

@@ -40,6 +40,9 @@
 	<a href="<s:property value='#application.url'/>buckSearch.action">Buck Search</a>
     </li>
     <li>
+	<a href="<s:property value='#application.url'/>settings.action">Settings (Admin only)</a>
+    </li>    
+    <li>
 	<a href="<s:property value='#application.url'/>help.action">User Guide</a>
     </li>
 </ul>

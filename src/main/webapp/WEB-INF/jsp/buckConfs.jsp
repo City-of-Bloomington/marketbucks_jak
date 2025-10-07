@@ -28,9 +28,7 @@
 		<td><s:property value="date" /></td>
 		<td><s:property value="user" /></td>
 		<td>&nbsp;
-		    <s:if test="isCurrent()">
-			<button onclick="document.location='<s:property value='#application.url' />batchEdit.action?conf_id=<s:property value='id' />';return false;">Generate New Batch</button>
-		    </s:if>
+		    <button onclick="document.location='<s:property value='#application.url' />batchEdit.action?conf_id=<s:property value='id' />';return false;">Generate New Batch</button>
 		</td>		
 	    </tr>
 	</s:iterator>

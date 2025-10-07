@@ -55,19 +55,22 @@ public class BatchStartAction extends TopAction{
 	}
 	return ret;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=1)
     public BuckConf getBuckConf(){
 	if(buckConf == null){
 	    buckConf = new BuckConf(debug);
 	}		
 	return buckConf;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=1)
     public void setBuckConf(BuckConf val){
 	if(val != null)
 	    buckConf = val;
     }
-    @StrutsParameter
+    public boolean hasId(){
+	return !id.isEmpty();
+    }
+    @StrutsParameter(depth=1)
     @Override
     public String getId(){
 	if(id.equals("") && buckConf != null){
@@ -75,16 +78,19 @@ public class BatchStartAction extends TopAction{
 	}
 	return id;
     }
-    @StrutsParameter
     public String getBatchesTitle(){
 	return "Current batches in this Configuration";
     }
-    @StrutsParameter
     public boolean hasRecentDate(){
-		
 	return !getRecentBatchDate().equals("");
     }
-    @StrutsParameter
+    @StrutsParameter(depth = 1)
+    public boolean hasBuckConfs(){
+	System.err.println(" cheking confs");
+	getBuckConfs();
+	return buckConfs != null && buckConfs.size() > 0;
+    }    
+    @StrutsParameter(depth = 1)
     public String getRecentBatchDate(){
 	String ret = "";
 	if(recentBatch == null){
@@ -99,19 +105,22 @@ public class BatchStartAction extends TopAction{
 	}
 	return ret;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public List<BuckConf> getBuckConfs(){
 	if(buckConfs == null){
 	    BuckConfList bcl = new BuckConfList(debug);
-	    bcl.setExcludeOldYears();
+	    // bcl.setExcludeOldYears();
 	    String back = bcl.find();
-	    if(back.equals("") && (bcl.getBuckConfs() != null)){
-		buckConfs = bcl.getBuckConfs();
+	    if(back.isEmpty()){
+		List<BuckConf> ones =  bcl.getBuckConfs();
+		if(ones != null && ones.size() > 0){
+		    buckConfs = ones;
+		}
 	    }
-	}		
+	}
 	return buckConfs;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=1)
     public List<Type> getBuck_types(){
 	if(buck_types == null){
 	    TypeList bcl = new TypeList(debug, "buck_types");
@@ -122,7 +131,7 @@ public class BatchStartAction extends TopAction{
 	}		
 	return buck_types;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public List<Batch> getBatches(){
 	BatchList bl = new BatchList(debug);
 	String back = bl.find();

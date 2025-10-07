@@ -151,7 +151,8 @@ public class FmnpSeniorAction extends TopAction{
 	    }
 	}		
 	else if(!id.equals("")){
-	    ret = populate();
+	    populate();
+	    return "issue";
 	}
 	else{
 	    getSenior();						
@@ -159,7 +160,7 @@ public class FmnpSeniorAction extends TopAction{
 	}
 	return ret;
     }
-    @StrutsParameter
+    @StrutsParameter(depth = 2)
     public FmnpSenior getSenior(){ // starting a new senior
 	if(senior == null){
 	    senior = new FmnpSenior(debug);
@@ -172,7 +173,7 @@ public class FmnpSeniorAction extends TopAction{
 	}		
 	return senior;
     }
-    @StrutsParameter
+    @StrutsParameter(depth = 2)
     public List<FmnpSenior> getFmnpSeniors(){
 	if(fmnpSeniors == null){
 	    FmnpSearch bl = new FmnpSearch(debug);
@@ -188,12 +189,11 @@ public class FmnpSeniorAction extends TopAction{
 	}
 	return fmnpSeniors;
     }
-    @StrutsParameter
     public boolean hasFmnpSeniors(){
 	getFmnpSeniors();
 	return fmnpSeniors != null && fmnpSeniors.size() > 0;
     }
-    @StrutsParameter
+    @StrutsParameter(depth = 2)
     public void setSenior(FmnpSenior val){
 	if(val != null)
 	    senior = val;
@@ -202,7 +202,6 @@ public class FmnpSeniorAction extends TopAction{
 	    senior.doSelect();
 	}
     }
-    @StrutsParameter
     @Override
     public String getId(){
 	if(id.equals("") && senior != null){
@@ -210,7 +209,64 @@ public class FmnpSeniorAction extends TopAction{
 	}
 	return id;
     }
-    @StrutsParameter
+    @Override
+    @StrutsParameter(depth = 1)
+    public void setId(String val){
+	if(val != null){
+	    id = val;
+	}
+    }
+
+    public boolean hasId(){
+	return !id.isEmpty();
+    }
+    public String getAmount(){
+	return senior.getAmount();
+    }
+    public String getDate_time(){
+		
+	return senior.getDate_time();
+    }
+    public String getTicketNum(){
+	return senior.getTicketNum();
+    }
+    public boolean isCancelled(){
+	return senior.isCancelled();
+    }
+    public boolean isDispute_resolution(){
+	return senior.isDispute_resolution();
+    }
+    public User getSenior_user(){
+	return senior.getUser();
+    }
+    public Type getBuck_type(){
+	return senior.getBuck_type();
+    }
+    public String getTotal(){
+	return senior.getTotal();
+    }
+    public String getBucksTotal(){
+	return senior.getBucksTotal();
+    }
+    public String getBalance(){
+	return senior.getBalance();
+    }
+    public boolean hasBalance(){
+	return senior.hasBalance();
+    }
+    public boolean hasBucks(){
+	return senior.hasBucks();
+    }
+    public List<Buck> getBucks(){
+	return senior.getBucks();
+    }
+    //	
+    public boolean needMoreIssue(){
+	//
+	return senior.needMoreIssue();
+    }
+
+    
     public String getFmnpSeniorsTitle(){
 	return fmnpSeniorsTitle;
     }
