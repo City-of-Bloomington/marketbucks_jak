@@ -170,18 +170,12 @@ public class Gift implements java.io.Serializable{
 		
 	return check_no;
     }
-
     public String getDate_time(){
 		
 	return date_time;
     }
-    public String getUser_id(){
-		
-	return user_id;
-    }
-    public String getBuck_type_id(){
-		
-	return buck_type_id;
+    public boolean hasCheck_no(){
+	return !check_no.isEmpty();
     }
     public String getCancelled(){
 		
@@ -196,7 +190,16 @@ public class Gift implements java.io.Serializable{
     }
     public boolean isDispute_resolution(){
 	return !dispute_resolution.equals("");
-    }		
+    }
+    public String getUser_id(){
+		
+	return user_id;
+    }
+    public String getBuck_type_id(){
+		
+	return buck_type_id;
+    }
+    
     //
     public User getUser(){
 	if(!user_id.equals("") && user == null){

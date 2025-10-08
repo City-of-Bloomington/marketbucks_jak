@@ -75,6 +75,7 @@ public class GiftAction extends TopAction{
 	}
 	else if(action.equals("Cancel")){
 	    ret = SUCCESS;
+	    populate();
 	    back = gift.doCancel();
 	    if(!back.equals("")){
 		addActionError(back);
@@ -140,18 +141,22 @@ public class GiftAction extends TopAction{
 	    }
 	}		
 	else if(!id.equals("")){
-	    ret = populate();
+	    back = populate();
+	    if(!back.equals("")){
+		addActionError(back);
+	    }	    
+	    ret ="issue"; 	
 	}
 	return ret;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public Gift getGift(){ // starting a new ebt
 	if(gift == null){
 	    gift = new Gift(debug);
 	}		
 	return gift;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public List<Gift> getGifts(){
 	GiftList bl = new GiftList(debug);
 	String back = bl.find();
@@ -160,17 +165,17 @@ public class GiftAction extends TopAction{
 	}
 	return gifts;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=1)
     public boolean hasGifts(){
 	getGifts();
 	return gifts != null && gifts.size() > 0;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public void setGift(Gift val){
 	if(val != null)
 	    gift = val;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=1)
     @Override
     public String getId(){
 	if(id.equals("") && gift != null){
@@ -178,11 +183,72 @@ public class GiftAction extends TopAction{
 	}
 	return id;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=1)
+    @Override
+    public void setId(String val){
+	if(val != null){
+	    id = val;
+	}
+    }    
+    @StrutsParameter(depth=2)
+    public List<Buck> getBucks(){
+	return gift.getBucks();
+    }
+    public boolean hasBucks(){
+	List<Buck> bucks = gift.getBucks();
+	return bucks != null && bucks.size() > 0;
+    }
+    
+    public String getAmount(){
+	return gift.getAmount();
+    }
+    public String getPay_type(){
+	return gift.getPay_type();
+    }
+    public String getCheck_no(){
+		
+	return gift.getCheck_no();
+    }
+    public boolean hasCheck_no(){
+	return gift.hasCheck_no();
+    }
+    public String getDate_time(){
+		
+	return gift.getDate_time();
+    }
+
+    public boolean isCancelled(){
+	return gift.isCancelled();
+    }
+    public boolean isDispute_resolution(){
+	return gift.isDispute_resolution();
+    }
+    public User getGift_user(){
+	return gift.getUser();
+    }
+    public Type getBuck_type(){
+	return gift.getBuck_type();
+    }
+    public String getTotal(){
+	return gift.getTotal();
+    }
+    public String getBucksTotal(){
+	return gift.getBucksTotal();
+    }
+    public String getBalance(){
+	return gift.getBalance();
+    }
+    public boolean hasBalance(){
+	return gift.hasBalance();
+    }
+    //	
+    public boolean needMoreIssue(){
+	return gift.needMoreIssue();
+    }
+    
     public String getBucksTitle(){
 	return bucksTitle;
     }
-    @StrutsParameter
     public String getGiftsTitle(){
 	return giftsTitle;
     }	

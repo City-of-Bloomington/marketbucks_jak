@@ -151,7 +151,8 @@ public class FmnpWicAction extends TopAction{
 	    }
 	}		
 	else if(!id.equals("")){
-	    ret = populate();
+	    populate();
+	    ret = "issue";
 	}
 	else{
 	    getWic();

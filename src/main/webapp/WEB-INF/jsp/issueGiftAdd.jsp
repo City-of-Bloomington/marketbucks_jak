@@ -8,9 +8,7 @@
  *
 	-->
 <s:form action="issueGiftAdd" method="post">    
-    <h3>Issue Gift Certificates</h3>
-    <hr />
-  <s:hidden name="gift.id" value="%{gift.id}" />
+  <s:hidden name="gift.id" value="%{id}" />
   <s:if test="hasActionErrors()">
       <div class="errors">
 	  <s:actionerror/>
@@ -23,45 +21,47 @@
   </s:elseif>
   <p>*indicates required field</p>
   <table width="90%">
-      <caption>GC Payment ID:<s:property value="gift.id" /></caption>
+      <caption>GC Payment ID:<s:property value="id" /></caption>
       <tr>
 	  <th><b>Payment Type:</b></th>
-	  <td align="left"><s:property value="gift.pay_type" /></td>
+	  <td align="left"><s:property value="pay_type" /></td>
       </tr>
-      <tr>
-	  <th><b>Check #:</b></th>
-	  <td align="left"><s:property value="gift.check_no" /></td>
-      </tr>
+      <s:if test="hasCheck_no()">
+	  <tr>
+	      <th><b>Check #:</b></th>
+	      <td align="left"><s:property value="check_no" /></td>
+	  </tr>
+      </s:if>
       <tr>
 	  <th><b>User:</b></th>
-	  <td align="left"><s:property value="gift.user" /></td>
+	  <td align="left"><s:property value="gift_user" /></td>
       </tr>
       <tr>
 	  <th><b>Requested:</b></th>
-	  <td align="left">$<s:property value="gift.amount" />.00</td>
+	  <td align="left">$<s:property value="amount" />.00</td>
       </tr>
       <tr>
 	  <th><b>Date & Time:</b></th>
-	  <td align="left"><s:property value="gift.date_time" /></td>
+	  <td align="left"><s:property value="date_time" /></td>
       </tr>
       <tr>
 	  <th><b>Total:</b></th>
-	  <td align="left">$<s:property value="gift.bucksTotal" />.00</td>
+	  <td align="left">$<s:property value="bucksTotal" />.00</td>
       </tr>
-      <s:if test="gift.isCancelled()">
+      <s:if test="isCancelled()">
 	  <tr>
 	      <th><b>Status:</b></th>
 	      <td align="left">Cancelled</td>
 	  </tr>
       </s:if>				
-      <s:if test="gift.hasBalance()">
+      <s:if test="hasBalance()">
 	  <tr bgcolor="red">
 	      <th><b>Balance:</b></th>
-	      <td align="left">$<s:property value="gift.balance" />.00</td>
+	      <td align="left">$<s:property value="balance" />.00</td>
 	  </tr>
       </s:if>
-      <s:if test="!gift.isCancelled()">
-	  <s:if test="gift.needMoreIssue()">
+      <s:if test="!isCancelled()">
+	  <s:if test="needMoreIssue()">
 	      <tr>
 		  <th><label for="bar_code_id">* Scan/Enter new gift certificate:</label>
 		  </th>
@@ -75,7 +75,7 @@
 		  <td>&nbsp;</td>
 	      </tr>
 	  </s:else>
-	  <s:if test="gift.needMoreIssue()">
+	  <s:if test="needMoreIssue()">
 	      <tr>
 		  <td>&nbsp;</td>			  
 		  <td>
@@ -86,15 +86,15 @@
 	  <tr>
 	      <th>&nbsp;</th>
 	      <td>
-		 <a href="<s:property value='#application.url' />giftAdd.action?id=<s:property value='gift.id' />">Edit This Transaction </a>.
+		 <a href="<s:property value='#application.url' />giftAdd.action?id=<s:property value='id' />&action=Cancel">Cancel This Transaction </a>.
 	      </td>
 	  </tr>		  
       </s:if>
   </table>      
-  <s:if test="gift.bucks != null && gift.bucks.size() > 0">
-      <s:set var="bucks" value="gift.bucks" />
+  <s:if test="hasBucks()">
+      <s:set var="bucks" value="bucks" />
       <s:set var="bucksTitle" value="bucksTitle" />
-      <s:set var="total" value="gift.bucksTotal" />
+      <s:set var="total" value="bucksTotal" />
       <%@  include file="giftBucks.jsp" %>
   </s:if>
   

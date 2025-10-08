@@ -154,11 +154,12 @@ public class MarketRxAction extends TopAction{
 	    }
 	}		
 	else if(!id.equals("")){
-	    ret = populate();
+	    populate();
+	    ret = "issue";
 	}
 	return ret;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public MarketRx getRx(){ // starting a new rx
 	if(rx == null){
 	    rx = new MarketRx(debug);
@@ -168,7 +169,7 @@ public class MarketRxAction extends TopAction{
 	}		
 	return rx;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public List<MarketRx> getMarketRxes(){
 	MarketRxList bl = new MarketRxList(debug);
 	bl.setLimit("10");
@@ -181,19 +182,18 @@ public class MarketRxAction extends TopAction{
 	}
 	return marketRxes;
     }
-    @StrutsParameter
     public boolean hasMarketRxes(){
 	getMarketRxes();
 	boolean ret = marketRxes != null && marketRxes.size() > 0;
 	System.err.println(" ret "+ret);
 	return ret;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public void setMarketRx(MarketRx val){
 	if(val != null)
 	    rx = val;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=1)
     @Override
     public String getId(){
 	if(id.equals("") && rx != null){
@@ -201,11 +201,65 @@ public class MarketRxAction extends TopAction{
 	}
 	return id;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=1)
+    @Override
+    public void setId(String val){
+	if(val != null){
+	    id = val;
+	}
+    }
+    public String getAmount(){
+	return rx.getAmount();
+    }    
+    public String getDate_time(){
+		
+	return rx.getDate_time();
+    }
+    public String getVoucherNum(){
+	return rx.getVoucherNum();
+    }		
+    public boolean isCancelled(){
+	return rx.isCancelled();
+    }
+    public boolean isDispute_resolution(){
+	return rx.isDispute_resolution();
+    }		
+    //
+    public User getRx_user(){
+	return rx.getUser();
+    }
+    public Type getBuck_type(){
+	return rx.getBuck_type();
+    }
+	
+    public String getTotal(){
+	return rx.getTotal();
+    }
+    public String getBucksTotal(){
+	return rx.getBucksTotal();
+    }
+    public String getBalance(){
+	return rx.getBalance();
+    }
+    public boolean hasBalance(){
+	return rx.hasBalance();
+    }
+    public boolean hasBucks(){
+	return rx.hasBucks();
+    }
+    //	
+    public boolean needMoreIssue(){
+	//
+	return rx.needMoreIssue();
+    }
+    @StrutsParameter(depth=2)
+    public List<Buck> getBucks(){
+	return rx.getBucks();
+    }
     public String getBucksTitle(){
 	return bucksTitle;
     }
-    @StrutsParameter
+    
     public String getMarketRxesTitle(){
 	return marketRxesTitle;
     }	

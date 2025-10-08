@@ -9,7 +9,7 @@
 	-->
 <s:form action="rxAdd" method="post">    
   <h4>Issue MarketRx Bucks</h4>
-  <s:hidden name="rx.id" value="%{rx.id}" />
+  <s:hidden name="rx.id" value="%{id}" />
   <s:if test="hasActionErrors()">
       <div class="errors">
 	  <s:actionerror/>
@@ -22,43 +22,43 @@
   </s:elseif>
   <p>* Indicate a required field </p>
   <table border="0" width="90%">
-      <caption>Transaction ID:<s:property value="%{rx.id}" /></caption>
+      <caption>Transaction ID:<s:property value="%{id}" /></caption>
       <tr>
 	  <th><b>Amount:</b></th>
-	  <td>$<s:property value="%{rx.amount}" />.00</td>
+	  <td>$<s:property value="%{amount}" />.00</td>
       </tr>
       <tr>
 	  <th><b>Date & Time:</b></td>
-	  <td align="left"><s:property value="%{rx.date_time}" /></td>		  
+	  <td align="left"><s:property value="%{date_time}" /></td>		  
       </tr>
       <tr>
 	  <th><b>User:</b></th>
-	  <td align="left"><s:property value="%{rx.user}" /></td>
+	  <td align="left"><s:property value="%{rx_user}" /></td>
       </tr>
       <tr>
 	  <th><b>Total:</b></th>
-	  <td>$<s:property value="%{rx.total}" />.00</td>
+	  <td>$<s:property value="%{total}" />.00</td>
       </tr>
-      <s:if test="rx.isCancelled()">
+      <s:if test="isCancelled()">
 	  <tr>
 	      <th><b>Status:</b></th>
 	      <td>Cancelled</td>
 	  </tr>
       </s:if>
-      <s:if test="rx.isDispute_resolution()">
+      <s:if test="isDispute_resolution()">
 	  <tr>
 	      <th><b>Type:</b></th>
 	      <td>Dispute resolution Rx</td>
 	  </tr>
       </s:if>				
-      <s:elseif test="rx.hasBalance()">
+      <s:elseif test="hasBalance()">
 	  <tr bgcolor="red">
 	      <th><b>Balance:</b></th>
-	      <td>$<s:property value="%{rx.balance}" />.00</td>
+	      <td>$<s:property value="%{balance}" />.00</td>
 	  </tr>
       </s:elseif>
-      <s:if test="!rx.isCancelled() && !rx.isDispute_resolution()">
-	  <s:if test="rx.hasBalance()">
+      <s:if test="!isCancelled() && !isDispute_resolution()">
+	  <s:if test="hasBalance()">
 	      <tr>
 		  <th><label for="bar_code_id">*Scan/Enter new Market Buck:</label></th>
 		  <td><s:textfield name="rx.buck_id" value="" size="20" maxlength="20" required="true" id="bar_code_id"  autofocus="true" /></td>
@@ -77,15 +77,15 @@
 	      </tr>
 	  </s:else>
 	  <tr>
-	      <th><a href="<s:property value='#application.url' />rxAdd.action?id=<s:property value='rx.id' />">Edit/Cancel This Transaction </a>
+	      <th><a href="<s:property value='#application.url' />rxAdd.action?id=<s:property value='id' />">Edit/Cancel This Transaction </a>
 	      </td>
 	  </tr>		  
       </s:if>
-      <s:if test="rx.hasBucks()">
+      <s:if test="hasBucks()">
 	  <tr><td align="center">	  
-	      <s:set var="bucks" value="rx.bucks" />
+	      <s:set var="bucks" value="bucks" />
 	      <s:set var="bucksTitle" value="bucksTitle" />
-	      <s:set var="total" value="rx.bucksTotal" />
+	      <s:set var="total" value="bucksTotal" />
 	      <%@  include file="bucks.jsp" %>
 	  </td></tr>
       </s:if>

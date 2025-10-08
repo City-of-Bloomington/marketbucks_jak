@@ -365,6 +365,7 @@ public class FmnpWic implements java.io.Serializable{
     }
     public String addNewBuck(Buck buck){
 	String msg="";
+	System.err.println(" adding buck ");
 	//
 	// expire date on gifts is one year from issue date
 	//
@@ -373,6 +374,7 @@ public class FmnpWic implements java.io.Serializable{
 	msg = buck.doUpdate();
 	if(!msg.equals("")){
 	    msg =" Could not save data "+msg;
+	    System.err.println(" update wic buck "+msg);
 	    return msg;
 	}
 	Connection con = null;

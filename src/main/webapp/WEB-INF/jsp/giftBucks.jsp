@@ -23,7 +23,7 @@
 		<tr>
 		    <td><s:property value="id" /></td>
 		    <td><s:property value="expire_date" /></td>
-		    <td><s:if test="#one.isVoided()">Voided</s:if></td>	
+		    <td><s:if test="#isVoided()">Voided</s:if></td>	
 		    <td align="right">$<s:property value="value" />.00</td>
 		</tr>
 	</s:iterator>

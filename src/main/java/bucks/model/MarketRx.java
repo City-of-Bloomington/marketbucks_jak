@@ -168,12 +168,7 @@ public class MarketRx implements java.io.Serializable{
     public String getId(){
 	return id;
     }
-    public String getAmount(){
-	if(id.equals("")){
-	    return ""+rx_max_amount;
-	}
-	return amountStr;
-    }
+
     public void setRx_max_amount(Integer val){
 	if(val != null && val > 0)
 	    rx_max_amount = val;
@@ -186,17 +181,31 @@ public class MarketRx implements java.io.Serializable{
 
 	    }								
 	}
-    }		
+    }
+    public String getDispute_resolution(){
+	return dispute_resolution;
+    }    
     public int getAmountInt(){
 	return amount;
-    }
-    public String getDate_time(){
-		
-	return date_time;
     }
     public String getUser_id(){
 		
 	return user_id;
+    }
+    public String getCancelled(){
+		
+	return cancelled;
+    }
+    
+    public String getAmount(){
+	if(id.equals("")){
+	    return ""+rx_max_amount;
+	}
+	return amountStr;
+    }    
+    public String getDate_time(){
+		
+	return date_time;
     }
     public String getVoucherNum(){
 	if(id.equals("")){
@@ -208,13 +217,7 @@ public class MarketRx implements java.io.Serializable{
 		
 	return buck_type_id;
     }
-    public String getCancelled(){
-		
-	return cancelled;
-    }
-    public String getDispute_resolution(){
-	return dispute_resolution;
-    }
+
     public boolean isCancelled(){
 	boolean ret = !cancelled.equals("");
 	return ret;
@@ -244,9 +247,6 @@ public class MarketRx implements java.io.Serializable{
 	return buck_type;
     }
 	
-    public String toString(){
-	return voucher_num+" $"+amountStr+" "+date_time;
-    }
     public String getTotal(){
 	return ""+amount;
     }
@@ -280,6 +280,10 @@ public class MarketRx implements java.io.Serializable{
 	//
 	return needMoreIssue;
     }
+    public String toString(){
+	return voucher_num+" $"+amountStr+" "+date_time;
+    }
+    
     //
     /**
 
