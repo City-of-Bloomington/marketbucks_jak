@@ -10,6 +10,7 @@
 <s:form action="issueAdd" method="post">    
     <h4>Issue Market Bucks</h4>
     <s:hidden name="ebt.id" value="%{id}" />
+    <s:hidden name="id" value="%{id}" />    
     <s:if test="hasActionErrors()">
 	<div class="errors">
 	    <s:actionerror/>
@@ -100,16 +101,16 @@
 	    </s:else>
 	    <tr>
 		<th>
-		    <a href="<s:property value='#application.url' />ebtAdd.action?id=<s:property value='ebt.id' />">Edit/Cancel this Transaction </a>
+		    <a href="<s:property value='#application.url' />ebtAdd.action?id=<s:property value='id' />">Edit/Cancel this Transaction </a>
 		</th>
 		<td>&nbsp;</td>
 	    </tr>		  
 	</s:if>
     </table>	
     <s:if test="hasBucks()">
-	<s:set var="bucks" value="ebt.bucks" />
+	<s:set var="bucks" value="bucks" />
 	<s:set var="bucksTitle" value="bucksTitle" />
-	<s:set var="total" value="ebt.bucksTotal" />
+	<s:set var="total" value="bucksTotal" />
 	<%@  include file="bucks.jsp" %>
     </s:if>
 

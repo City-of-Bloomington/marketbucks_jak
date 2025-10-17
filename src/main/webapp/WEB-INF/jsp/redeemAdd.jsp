@@ -9,7 +9,7 @@
 	-->
 <s:form action="redeemAdd" id="form_1" method="post">    
   <h3>Redeem MB & GC</h3>
-  <s:hidden name="redeem.id" value="%{redeem.id}" />
+  <s:hidden name="redeem.id" value="%{id}" />
   <s:if test="hasActionErrors()">
 	<div class="errors">
       <s:actionerror/>
@@ -22,32 +22,32 @@
   </s:elseif>
   <p>*indicates a required field</p>
   <table border="0" width="90%">
-      <caption>Redemption ID:<s:property value="redeem.id" /></caption>
+      <caption>Redemption ID:<s:property value="id" /></caption>
       <tr>
 	  <th><b>Vendor:</b></th>
-	  <td align="left"><s:property value="redeem.vendor" /></td>
+	  <td align="left"><s:property value="vendor" /></td>
       </tr>
       <tr>
 	  <th><b>User:</b></th>
-	  <td align="left"><s:property value="redeem.user" /></td>		  
+	  <td align="left"><s:property value="redeemUser" /></td>		  
       </tr>
       <tr>
 	  <th><b>Date & time:</b></th>
-	  <td align="left"><s:property value="redeem.date_time" /></td>
+	  <td align="left"><s:property value="date_time" /></td>
       </tr>
       <tr>
 	  <th><b>Total:</b></th>
-	  <td align="left">$<s:property value="redeem.total" />.00</td>
+	  <td align="left">$<s:property value="total" />.00</td>
       </tr>
       <tr>
 	  <th valign="top"><b>Invoice notes:</b></th>
-	  <td align="left"><s:property value="redeem.notes" /></td>
+	  <td align="left"><s:property value="notes" /></td>
       </tr>
       <tr>
 	  <th><b>Count:</b></th>
-	  <td align="left"><s:property value="redeem.count" /></td>
+	  <td align="left"><s:property value="count" /></td>
       </tr>		
-      <s:if test="redeem.status == 'Open'">
+      <s:if test="status == 'Open'">
 	  <tr>
 	      <th><label for="bar_code_id">* Scan/Enter new MB/GC:</label></th>
 	      		<td>  <s:textfield name="redeem.buck_id" value="" size="20" maxlength="20" required="true" id="bar_code_id" autofocus="true" /></td>
@@ -67,16 +67,16 @@
       <s:else>
 	  <tr>
 	      <th>
-		  <button onclick="document.location='<s:property value='#application.url' />RedeemInvoice.do?id=<s:property value='redeem.id' />';return false;">Generate Invoice</button>		
+		  <button onclick="document.location='<s:property value='#application.url' />RedeemInvoice.do?id=<s:property value='id' />';return false;">Generate Invoice</button>		
 	      </th>
 	      <td>&nbsp;</td>
 	  </tr>
       </s:else>
   </table>
 </s:form>
-<s:if test="redeem.canFinalize()">
+<s:if test="canFinalize()">
   <s:form action="redeemAdd" id="form_2" method="post">
-      <s:hidden name="redeem.id" value="%{redeem.id}" />
+      <s:hidden name="redeem.id" value="%{id}" />
       <table border="1" width="90%">
 	  <caption> Final Action</caption>
 	  <tr>
@@ -87,7 +87,7 @@
       </table>
   </s:form>
 </s:if>
-<s:if test="hasBucks">
+<s:if test="hasBucks()">
   <table border="1" width="90%">
       <tr><td align="center">
 	  <s:set var="bucks" value="bucks" />

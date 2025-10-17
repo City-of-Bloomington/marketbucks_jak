@@ -49,7 +49,12 @@ public class MailUser extends User implements java.io.Serializable{
 	    super_user="y";
 	}
     }
-	
+    public String getId(){
+	return super.getId();
+    }
+    public String getFullName(){
+	return super.getFullName();
+    }	
     //
     // getters
     //
@@ -80,7 +85,8 @@ public class MailUser extends User implements java.io.Serializable{
 	}
 	final User other = (User) obj;
 	return this.id.equals(other.id);
-    }		
+    }
+    
     //
     @Override  	
     public String doSelect(){

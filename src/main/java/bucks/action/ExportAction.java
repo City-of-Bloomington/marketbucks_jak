@@ -95,19 +95,19 @@ public class ExportAction extends TopAction{
 	}
 	return ret;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public Export getExport(){ // starting a new redeem
 	if(export == null){
 	    export = new Export(debug);
 	}		
 	return export;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public void setExport(Export val){
 	if(val != null)
 	    export = val;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=1)
     @Override
     public String getId(){
 	if(id.equals("") && export != null){
@@ -115,15 +115,21 @@ public class ExportAction extends TopAction{
 	}
 	return id;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=1)
+    @Override
+    public void setId(String val){
+	if(val != null){
+	    id = val;
+	}
+    }        
     public String getRedeemsTitle(){
 	return redeemsTitle;
     }
-    @StrutsParameter
+    
     public String getExportsTitle(){
 	return exportsTitle;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public List<Redeem> getRedeems(){
 	return redeems;
     }
@@ -138,7 +144,12 @@ public class ExportAction extends TopAction{
 	}
 	return ret;
     }
-    @StrutsParameter
+    public boolean hasExports(){
+	getExports();
+	return exports != null && exports.size() > 0;
+    }
+	
+    @StrutsParameter(depth=2)
     public List<Export> getExports(){
 	if(exports == null){
 	    ExportList el = new ExportList(debug);
@@ -151,7 +162,31 @@ public class ExportAction extends TopAction{
 	    }
 	}
 	return exports;
-    }	
+    }
+    public String getNw_batch_name(){
+	return export.getNw_batch_name();
+    }
+    public String getDate_time(){
+		
+	return export.getDate_time();
+    }
+    public String getUser_id(){
+		
+	return export.getUser_id();
+    }
+    public String getTotal(){
+	return export.getTotal();
+    }
+    public String getStatus(){
+	return export.getStatus();
+    }
+    public boolean isOpen(){
+	return export.isOpen();
+    }
+    public User getExport_user(){
+	return export.getUser();
+
+    }    
     @Override
     public void withServletContext(ServletContext ctx) {
         this.ctx = ctx;

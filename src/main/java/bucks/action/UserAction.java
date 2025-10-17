@@ -72,12 +72,11 @@ public class UserAction extends TopAction{
 	}
 	return ret;
     }
-    @StrutsParameter
     public boolean hasUsers(){
 	getUsers();
 	return users != null && users.size() > 0;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public List<User> getUsers(){
 	if(users == null){
 	    UserList tl = new UserList(debug);
@@ -88,31 +87,48 @@ public class UserAction extends TopAction{
 	}
 	return users;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=1)
     public void setPerson(User val){
 	if(val != null)
 	    person = val;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public User getPerson(){
 	if(person == null){
 	    person = new User();
 	}
 	return person;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=1)
     @Override
     public String getId(){
 	if(id.equals("") && person != null){
 	    id = person.getId();
 	}
 	return id;
-    }		
+    }
+    public String getUsername(){
+	return person.getUsername();
+    }
+    public String getFullName(){
+	return person.getFullName();
+    }
+    public String getDept(){
+	return person.getDept();
+    }
+    public String getRole(){
+	return person.getRole();
+    }
+    public String getRoleText(){
+	return person.getRoleText();
+    }
+    public boolean getInactive(){
+	return person.getInactive();
+    }
     public String populate(){
 	String ret = SUCCESS;
 	return ret;
     }
-    @StrutsParameter
     public String getUsersTitle(){
 	return usersTitle;
     }

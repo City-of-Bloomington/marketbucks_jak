@@ -67,36 +67,77 @@ public class DisputeSearchAction extends TopAction{
 		    disputes = list;
 		}
 	    }
-	}		
+	}
+	else{
+	    findDisputes();
+	}
 	return ret;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public DisputeList getDisputeList(){ // starting a new redeem
 	if(disputeList == null){
 	    disputeList = new DisputeList(debug);
 	}		
 	return disputeList;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=1)
     public void setDisputeList(DisputeList val){
 	if(val != null)
 	    disputeList = val;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public List<Dispute> getDisputes(){ // starting a new redeem
 	if(disputes == null){
 	    disputes = new ArrayList<Dispute>();
 	}		
 	return disputes;
     }
-    @StrutsParameter
+    public boolean hasDisputes(){
+	getDisputes();
+	return disputes != null && disputes.size() > 0;
+    }
+    public String getRedeem_id(){
+	return disputeList.getRedeem_id();
+    }	
+    public String getWhich_date(){
+	return disputeList.getWhich_date();
+    }
+    public String getDate_from(){
+	return disputeList.getDate_from() ;
+    }
+    public String getDate_to(){
+	return disputeList.getDate_to() ;
+    }
+    public String getSortBy(){
+	return disputeList.getSortBy() ;
+    }
+    public String getStatus(){
+	return disputeList.getStatus();
+    }
+    public String getReason(){
+	return disputeList.getReason();
+    }	    
     public String getBucksTitle(){
 	return bucksTitle;
     }
-    @StrutsParameter
     public String getDisputesTitle(){
 	return disputesTitle;
-    }	
+    }
+    public String getAction(){
+	return action;
+    }
+    private void findDisputes(){
+	if(disputes == null){
+	    DisputeList dl = new DisputeList();
+	    dl.setLimit("30");
+	    String back = dl.find();
+	    if(back.isEmpty()){
+		List<Dispute> ones = dl.getDisputes();
+		if(ones != null && ones.size() > 0);
+		disputes = ones;
+	    }
+	}
+    }
     @Override
     public void withServletContext(ServletContext ctx) {
         this.ctx = ctx;

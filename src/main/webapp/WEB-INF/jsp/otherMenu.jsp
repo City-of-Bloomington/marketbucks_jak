@@ -1,11 +1,12 @@
 <%@  include file="header.jsp" %>
+<%@ page session="false" %>
 <!--  
- * @copyright Copyright (C) 2014-2016 City of Bloomington, Indiana. All rights reserved.
- * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.txt
- * @author W. Sibo <sibow@bloomington.in.gov>
- *
- *
-	-->
+     * @copyright Copyright (C) 2014-2016 City of Bloomington, Indiana. All rights reserved.
+     * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.txt
+     * @author W. Sibo <sibow@bloomington.in.gov>
+     *
+     *
+-->
 <h3>Other Menu Options</h3>
 <s:if test="hasActionErrors()">
   <div class="errors">

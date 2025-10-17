@@ -112,18 +112,18 @@ public class InventoryAction extends TopAction{
 	}
 	return back;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public void setMailUserList(MailUserList val){
 	mailUserList = val;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public MailUserList getMailUserList(){
 	if(mailUserList == null){
 	    mailUserList = new MailUserList();
 	}
 	return mailUserList;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=1)
     public List<User> getUsers(){
 	if(users == null){
 	    UserList userList = new UserList();
@@ -134,7 +134,7 @@ public class InventoryAction extends TopAction{
 	}
 	return users;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public List<MailUser> getMailUsers(){
 	MailUserList mlist = new MailUserList();
 	String back = mlist.find();
@@ -143,7 +143,7 @@ public class InventoryAction extends TopAction{
 	}
 	return mailUsers;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public List<User> getNonMailUsers(){
 	List<User> list = new ArrayList<User>();
 	MailUserList mlist = new MailUserList();
@@ -163,7 +163,7 @@ public class InventoryAction extends TopAction{
 	}
 	return list;
     }
-    @StrutsParameter
+
     public String getNext_fire_time(){
 	String ret = "";
 	MailUserList mlist = new MailUserList();

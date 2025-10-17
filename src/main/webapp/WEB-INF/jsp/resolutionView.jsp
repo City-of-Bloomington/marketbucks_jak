@@ -23,77 +23,77 @@
     <tr>
 	<th width="35%"><b>Dispute ID:</b></th>
 	<td align="left">
-	    <a href="<s:property value='#application.url' />disputeEdit.action?id=<s:property value='resolution.dispute_id' />"> <s:property value="resolution.dispute_id" /></a></td>					
+	    <a href="<s:property value='#application.url' />disputeEdit.action?id=<s:property value='dispute_id' />"> <s:property value="dispute_id" /></a></td>					
     </tr>
     <tr>
 	<th><b>Disputed MB/GC ID:</b></th>
-	<td align="left"><s:property value="resolution.dispute.buck_id" /></td>
+	<td align="left"><s:property value="buck_id" /></td>
     </tr>
     <tr>
 	<th valign="top" width="35%"><b>Reason:</b></th>
-	<td align="left"><s:property value="resolution.dispute.reason" /></td>
+	<td align="left"><s:property value="reason" /></td>
     </tr>
-    <s:if test="resolution.id != ''">
+    <s:if test="id != ''">
 	<tr>
 	    <th valign="top"><b>Status:</b></th>
-	    <td align="left"><s:property value="resolution.status" /></td>
+	    <td align="left"><s:property value="status" /></td>
 	</tr>					
     </s:if>		  		  
-    <s:if test="resolution.dispute.reason == 'Expired'">
+    <s:if test="reason == 'Expired'">
 	<tr>
 	    <th valign="top" width="35%"><b>New Expire Date:</b></th>
-	    <td align="left"><s:property value="%{resolution.expire_date}" /></td>
+	    <td align="left"><s:property value="%{expire_date}" /></td>
 	</tr>
     </s:if>
-    <s:elseif test="%{resolution.dispute.reason == 'Not Exist'}">
+    <s:elseif test="reason == 'Not Exist'">
 	<tr>
 	    <th width="35%"><b>New MB/GC ID:</b></th>
-	    <td align="left"><s:property value="%{resolution.new_buck_id}" /></td>
+	    <td align="left"><s:property value="%{new_buck_id}" /></td>
 	</tr>
 	<tr>
 	    <th valign="top" width="35%"><b>Value/Expire Date:</b></th>
-	    <td align="left"><s:property value="%{resolution.conf.info}" /></td>
+	    <td align="left"><s:property value="%{info}" /></td>
 	</tr>
-	<s:if test="%{resolution.buck.buck_type_id == 1}">
+	<s:if test="%{buck_type_id == 1}">
 	    <tr>
 		<th valign="top" width="35%"><b>Authorization #:</b></th>
-		<td align="left"><s:property value="%{resolution.approve}" /></td>
+		<td align="left"><s:property value="%{approve}" /></td>
 	    </tr>
 	    <tr>
 		<th valign="top"><b>Customer Card #:</b></th>
-		<td align="left"><s:property value="%{resolution.card_last_4}" /></td>
+		<td align="left"><s:property value="%{card_last_4}" /></td>
 	    </tr>
 	</s:if>
 	<s:else>
 	    <tr>
 		<th valign="top" width="35%"><b>Payment Type:</b></th>
-		<td align="left"><s:property value="%{resolution.pay_type}" /></td>
+		<td align="left"><s:property value="%{pay_type}" /></td>
 	    </tr>
 	    <tr>
 		<th valign="top"><b>Check #:</b></td>
-		<td align="left"><s:property value="%{resolution.check_no}" /></td>
+		<td align="left"><s:property value="%{check_no}" /></td>
 	    </tr>
 	</s:else>
     </s:elseif>
-    <s:elseif test="%{resolution.dispute.reason == 'Not Issued'}">
-	<s:if test="%{resolution.buck.buck_type_id == 1}">
+    <s:elseif test="reason == 'Not Issued'">
+	<s:if test="buck_type_id == 1">
 	    <tr>
 		<th valign="top" width="35%"><b>Authorization #:</b></th>
-		<td align="left"><s:property value="%{resolution.approve}" /></td>
+		<td align="left"><s:property value="%{approve}" /></td>
 	    </tr>
 	    <tr>
 		<th valign="top"><b>Customer Card #:</b></th>
-		<td align="left"><s:property value="%{resolution.card_last_4}" /></td>
+		<td align="left"><s:property value="%{card_last_4}" /></td>
 	    </tr>
 	</s:if>
 	<s:else>
 	    <tr>
 		<th valign="top" width="35%"><b>Payment Type:</b></th>
-		<td align="left"><s:property value="%{resolution.pay_type}" /></td>
+		<td align="left"><s:property value="%{pay_type}" /></td>
 	    </tr>
 	    <tr>
 		<th valign="top"><b>Check #:</b></th>
-		<td align="left"><s:property value="%{resolution.check_no}" /></td>
+		<td align="left"><s:property value="%{check_no}" /></td>
 	    </tr>
 	</s:else>
     </s:elseif>

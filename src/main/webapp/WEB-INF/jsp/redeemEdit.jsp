@@ -60,18 +60,18 @@
 	      <th>&nbsp;</th>
 	      <td>
 		  <s:submit name="action" type="button" value="Update" />
-		  <s:if test="redeem.canCancel()">
+		  <s:if test="canCancel()">
 		      <s:submit name="action" type="button" value="Cancel" />
 		  </s:if>
-		  <button onclick="document.location='<s:property value='#application.url' />RedeemInvoice.do?id=<s:property value='redeem.id' />';return false;">Generate Invoice</button>
+		  <button onclick="document.location='<s:property value='#application.url' />RedeemInvoice.do?id=<s:property value='id' />';return false;">Generate Invoice</button>
 	      </td>
 	  </s:else>
       </tr>
   </table>
 </s:form>
-<s:if test="redeem.canFinalize()">
+<s:if test="canFinalize()">
   <s:form action="redeemAdd" id="form_2" method="post">
-      <s:hidden name="redeem.id" />
+      <s:hidden name="redeem.id" value="%{id}" />
       <table border="1" width="90%">
 	  <tr>
 	      <td>If you are done, click on 'Finalize' to complete this transaction and produce the 'Invoice':

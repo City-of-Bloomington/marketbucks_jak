@@ -61,9 +61,15 @@ public class ResolutionAction extends TopAction{
 	else if(!id.equals("")){
 	    ret = populate();
 	}
+	else {
+	    resolution = new Resolution();
+	    if(!dispute_id.isEmpty()){
+		resolution.setDispute_id(dispute_id);
+	    }
+	}
 	return ret;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public Resolution getResolution(){ // starting a new redeem
 	if(resolution == null){
 	    resolution = new Resolution(debug);
@@ -73,7 +79,11 @@ public class ResolutionAction extends TopAction{
 	}		
 	return resolution;
     }
-    @StrutsParameter
+    public boolean hasResolutions(){
+	getResolutions();
+	return resolutions != null && resolutions.size() > 0;
+    }
+    @StrutsParameter(depth=2)
     public List<Resolution> getResolutions(){
 	ResolutionList bl = new ResolutionList(debug);
 	String back = bl.find();
@@ -82,7 +92,7 @@ public class ResolutionAction extends TopAction{
 	}
 	return resolutions;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public List<BuckConf> getConfs(){
 	if(confs == null){
 	    BuckConfList bcl = new BuckConfList(debug);
@@ -94,12 +104,10 @@ public class ResolutionAction extends TopAction{
 	}		
 	return confs;
     }
-    @StrutsParameter
     public void setResolution(Resolution val){
 	if(val != null)
 	    resolution = val;
     }
-    @StrutsParameter
     @Override
     public String getId(){
 	if(id.equals("") && resolution != null){
@@ -107,21 +115,88 @@ public class ResolutionAction extends TopAction{
 	}
 	return id;
     }
-    @StrutsParameter
+    @Override
+    @StrutsParameter(depth=1)    
+    public void setId(String val){
+	if(val != null){
+	    id = val;
+	}
+    }
+    @StrutsParameter(depth=1)
+    public void setDispute_id(String val){
+	if(val != null){
+	    dispute_id = val;
+	}
+    }        
+    public String getNew_buck_id(){
+	return resolution.getNew_buck_id();
+    }
+    public String getBuck_id(){
+	return resolution.getBuck().getId();
+    }	
+    public String getDispute_id(){
+	return resolution.getDispute_id();
+    }
+    public String getConf_id(){
+	return resolution.getConf_id();
+    }	
+    public String getDate_time(){
+		
+	return resolution.getDate_time();
+    }
+    public String getValue(){
+	return resolution.getValue();
+    }
+    public String getApprove(){
+	return resolution.getApprove();
+    }	
+    public String getCard_last_4(){
+	return resolution.getCard_last_4();
+    }
+    public String getPay_type(){
+	return resolution.getPay_type();
+    }
+    public String getCheck_no(){
+	return resolution.getCheck_no();
+    }
+    public String getStatus(){
+	return resolution.getStatus();
+    }
+    public String getInfo(){
+	return resolution.getConf().getInfo();
+    }    
+    @StrutsParameter(depth=2)
+    public User getResolve_user(){
+	return resolution.getUser();
+    }
+    @StrutsParameter(depth=2)
+    public Buck getBuck(){
+	return resolution.getBuck();
+    }
+    public String getBuck_type_id(){
+	return resolution.getBuck().getBuck_type_id();
+    }	    
+    @StrutsParameter(depth=2)	
+    public Dispute getDispute(){
+	return resolution.getDispute();
+    }
+    public String getReason(){
+	return resolution.getDispute().getReason();
+    }
+    public String getExpire_date(){
+	return resolution.getExpire_date();
+    }    
+    @StrutsParameter(depth=2)
+    public BuckConf getConf(){
+	return resolution.getConf();
+    }	    
     public String getBucksTitle(){
 	return bucksTitle;
     }
-    @StrutsParameter
     public String getResolutionsTitle(){
 	return resolutionsTitle;
     }
-    @StrutsParameter
-    public void setDispute_id(String val){
-	if(val != null)
-	    dispute_id = val;
-    }	
     // we need this for auto_complete
-    @StrutsParameter
     public void setVendorName(String val){
 	// just ignore 
     }	

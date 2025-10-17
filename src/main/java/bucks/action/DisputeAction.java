@@ -80,7 +80,7 @@ public class DisputeAction extends TopAction{
 	}		
 	return ret;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public Dispute getDispute(){ // starting a new redeem
 	if(dispute == null){
 	    if(!id.equals("")){
@@ -92,16 +92,14 @@ public class DisputeAction extends TopAction{
 	}		
 	return dispute;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public void setDispute(Dispute val){
 	if(val != null)
 	    dispute = val;
     }
-    @StrutsParameter
     public String getDisputesTitle(){
 	return disputesTitle;
     }
-    @StrutsParameter
     @Override
     public String getId(){
 	if(id.equals("") && dispute != null){
@@ -109,7 +107,59 @@ public class DisputeAction extends TopAction{
 	}
 	return id;
     }
-    @StrutsParameter
+    public boolean hasResolution(){
+	return dispute.hasResolution();
+    }
+    public boolean isWaiting(){
+	return dispute.isWaiting();
+    }
+    public String getResolution_id(){
+	return dispute.getResolution_id();
+    }
+    public String getRedeem_id(){
+	return dispute.getRedeem_id();
+    }
+    public String getBuck_id(){
+	return dispute.getBuck_id();
+    }        
+    public boolean hasNotes(){
+	return dispute.hasNotes();
+    }
+    public boolean canEdit(){
+	return dispute.canEdit();
+    }
+    @StrutsParameter(depth=2)
+    public User getDispute_user(){
+	return dispute.getUser();
+    }
+    @StrutsParameter(depth=2)
+    public Buck getBuck(){
+	return dispute.getBuck();
+    }
+    @StrutsParameter(depth=2)
+    public Redeem getRedeem(){
+	return dispute.getRedeem();
+    }        
+    public String getReason(){
+	return dispute.getReason();
+    }
+    public String getDate_time(){
+	return dispute.getDate_time();
+    }    
+    public String getStatus(){
+	return dispute.getStatus();
+    }    
+    public String getSuggestions(){
+	return dispute.getSuggestions();
+    }
+    public String getNotes(){
+	return dispute.getNotes();
+    }
+    public boolean hasDisputes(){
+	getDisputes();
+	return disputes != null && disputes.size() > 0;
+    }
+    @StrutsParameter(depth=2)
     public List<Dispute> getDisputes(){ // starting a new redeem
 	if(disputes == null){
 	    DisputeList dl = new DisputeList(debug);

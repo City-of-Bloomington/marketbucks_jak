@@ -55,7 +55,7 @@
 <br />
 <a href="<s:property value='#application.url'/>redeemSearch.action">Advance Search </a>
 <br />
-<s:if test="redeems != null && redeems.size() > 0">
+<s:if test="hasRedeems()">
   <s:set var="redeems" value="redeems" />
   <s:set var="redeemsTitle" value="redeemsTitle" />
   <%@  include file="redeems.jsp" %>	

@@ -9,12 +9,13 @@
 	-->
 <s:if test="canEdit()">
     <s:form action="vendor" method="post" id="form_id">
-	<s:if test="vendor.id == ''">
+	<s:if test="id == ''">
 	    <h4>New Vendor</h4>
 	</s:if>
 	<s:else>
 	    <h3>Edit Vendor</h3>
-	    <s:hidden name="vendor.id" value="%{vendor.id}" />
+	    <s:hidden name="vendor.id" value="%{id}" />
+	    <s:hidden name="id" value="%{id}" />	    
 	</s:else>
 	<s:if test="hasActionErrors()">
 	    <div class="errors">
@@ -32,43 +33,43 @@
 	    ** indicates a required field <br />
 	</p>
 	<table border="0" width="90%">
-	    <s:if test="vendor.id != ''">
+	    <s:if test="id != ''">
 		<tr>
 		    <th><b>Vendor ID:</b></th>
-		    <td align="left"><s:property value="%{vendor.id}" />
-			<a href="<s:property value='#application.url' />vendor.action?id=<s:property value='vendor.id' />&action=setInactive"> Set as inactive </a></td>
+		    <td align="left"><s:property value="%{id}" />
+			<a href="<s:property value='#application.url' />vendor.action?id=<s:property value='id' />&action=setInactive"> Set as inactive </a></td>
 		</tr>
 	    </s:if>
 	    <tr>
 		<th><label for="num">* Vendor Number:</label></th>
 		<td align="left">
-		    <s:textfield name="vendor.vendorNum" maxlength="10" size="10" value="%{vendor.vendorNum}" required="true" id="num" />
+		    <s:textfield name="vendor.vendorNum" maxlength="10" size="10" value="%{vendorNum}" required="true" id="num" />
 		</td>
 	    </tr>
 	    <tr>
 		<th><label for="lname">* Last Name:</label></th>
-		<td align="left"><s:textfield name="vendor.lname" maxlength="50" size="40" required="true" value="%{vendor.lname}" id="lname" /> </td>
+		<td align="left"><s:textfield name="vendor.lname" maxlength="50" size="40" required="true" value="%{lname}" id="lname" /> </td>
 	    </tr>
 	    <tr>
 		<th><label for="fname">First Name:</label></th>
-		<td align="left"><s:textfield name="vendor.fname" maxlength="30" size="30" value="%{vendor.fname}" id="fname" /></td>
+		<td align="left"><s:textfield name="vendor.fname" maxlength="30" size="30" value="%{fname}" id="fname" /></td>
 	    </tr>
 	    <tr>
 		<th><label for="bus">Related Business:</label></th>
-		<td align="left"><s:textfield name="vendor.businessName" maxlength="50" size="30" value="%{vendor.businessName}" id="bus" />(business name if different from Last Name)</td>
+		<td align="left"><s:textfield name="vendor.businessName" maxlength="50" size="30" value="%{businessName}" id="bus" />(business name if different from Last Name)</td>
 	    </tr>
 	    <tr>
 		<th><label for="act">Active? </label></th>
-		<td align="left"><s:checkbox name="vendor.active" value="%{vendor.active}" id="act" />Yes (uncheck to inactivate)
+		<td align="left"><s:checkbox name="vendor.active" value="%{active}" id="act" />Yes (uncheck to inactivate)
 		</td>
 	    </tr>
 	    <tr>
 		<th><label for="ptype">Allowed Pay Type:</label></th>
-		<td align="left" align="left"><s:radio name="vendor.payType" value="%{vendor.payType}" list="#{'-1':'None','GC':'GC only','MB:GC':'MB and GC'}" i="ptype" /></td>
+		<td align="left" align="left"><s:radio name="vendor.payType" value="%{payType}" list="#{'-1':'None','GC':'GC only','MB:GC':'MB and GC'}" i="ptype" /></td>
 	    </tr>
 	    <tr>
 		<td>&nbsp;</td>
-		<s:if test="vendor.id == ''">
+		<s:if test="id == ''">
 		    <td>
 			<s:submit name="action" type="button" value="Save" id="save_button" />
 		    </td>

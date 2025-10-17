@@ -162,6 +162,12 @@ public class Dispute implements java.io.Serializable{
     public String getNotes(){
 	return notes;
     }
+    public String getResolution_id(){
+	if(hasResolution()){
+	    return resolution.getId();
+	}
+	return "";
+    }
     public boolean hasNotes(){
 	return !notes.equals("");
     }

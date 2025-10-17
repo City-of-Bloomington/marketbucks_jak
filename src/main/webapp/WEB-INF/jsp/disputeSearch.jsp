@@ -17,20 +17,20 @@
   <table width="90%"><caption>Search Options</caption>
       <tr>
 	  <th width="20%"><label for="status">Status:</label></th>
-	  <td align="left"><s:radio name="disputeList.status" value="%{disputeList.status}" list="#{'-1':'All','Waiting':'Waiting','Rejected':'Rejected','Resolved':'Resolved'}" id="status" /></td>
+	  <td align="left"><s:radio name="disputeList.status" value="%{status}" list="#{'-1':'All','Waiting':'Waiting','Rejected':'Rejected','Resolved':'Resolved'}" id="status" /></td>
       </tr>
       <tr>
 	  <th><label for="reason">Reason:</label></th>
-	  <td align="left"><s:radio name="disputeList.reason" value="%{disputeList.reason}" list="#{'-1':'All','Expired':'Expired','Not Exist':'Do not Exist','Not Issued':'Not Issued','Redeemed':'Already Redeemed'}" id="reason" /></td>
+	  <td align="left"><s:radio name="disputeList.reason" value="%{reason}" list="#{'-1':'All','Expired':'Expired','Not Exist':'Do not Exist','Not Issued':'Not Issued','Redeemed':'Already Redeemed'}" id="reason" /></td>
       </tr>		
       <tr>
 	  <th><label for="redeem_id">Redemption ID:</label></th>
-	  <td align="left"><s:textfield name="disputeList.redeem_id" maxlength="10" size="10" value="%{disputeList.redeem_id}" id="redeem_id" /></td>
+	  <td align="left"><s:textfield name="disputeList.redeem_id" maxlength="10" size="10" value="%{redeem_id}" id="redeem_id" /></td>
       </tr>	  
       <tr>
 	  <th valign="top"><label for="date_from">Date from:</label></th>
-	  <td align="left"><s:textfield name="disputeList.date_from" maxlength="10" size="10" value="%{disputeList.date_from}" cssClass="date"  id="date_from" /><label for="date_to"> to</label>
-	      <s:textfield name="disputeList.date_to" maxlength="10" size="10" value="%{disputeList.date_to}" cssClass="date" id="date_to" /></td>
+	  <td align="left"><s:textfield name="disputeList.date_from" maxlength="10" size="10" value="%{date_from}" cssClass="date"  id="date_from" /><label for="date_to"> to</label>
+	      <s:textfield name="disputeList.date_to" maxlength="10" size="10" value="%{date_to}" cssClass="date" id="date_to" /></td>
       </tr>
       <tr>
 	  <td>&nbsp;</td>	  
@@ -42,14 +42,11 @@
   </table>
 </s:form>
 
-<s:if test="disputes != null && disputes.size() > 0">
+<s:if test="hasDisputes()">
     <s:set var="disputes" value="disputes" />
     <s:set var="disputesTitle" value="disputesTitle" />
     <%@  include file="disputes.jsp" %>	
 </s:if>
-<s:elseif test="action !='' ">
-  <p><s:property value="disputesTitle" /></p>
-</s:elseif>
 
 <%@  include file="footer.jsp" %>	
 

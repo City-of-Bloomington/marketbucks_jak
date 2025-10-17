@@ -30,7 +30,7 @@
 	    <td><s:property value="notes" /></td>	
 	    <td>
 		<s:if test="hasResolution()" >
-		    <a href="<s:property value='#application.url' />resolutionView.action?id=<s:property value='resolution.id' />">View <s:property value="resolution.id" /></a>	  
+		    <a href="<s:property value='#application.url' />resolutionView.action?id=<s:property value='resolution_id' />">View <s:property value="resolution_id" /></a>	  
 		</s:if>
 		<s:else>
 		    &nbsp;

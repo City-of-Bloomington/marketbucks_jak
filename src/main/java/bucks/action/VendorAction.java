@@ -82,7 +82,7 @@ public class VendorAction extends TopAction{
 	}
 	return ret;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public List<Vendor> getVendors(){
 	if(vendors == null){
 	    VendorList tl = new VendorList(debug);
@@ -93,24 +93,24 @@ public class VendorAction extends TopAction{
 	}
 	return vendors;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public void setVendor(Vendor val){
 	if(val != null)
 	    vendor = val;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=1)
     public void setId(String val){
 	if(val != null)
 	    id = val;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=1)
     public Vendor getVendor(){
 	if(vendor == null){
 	    vendor = new Vendor();
 	}
 	return vendor;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=1)
     @Override
     public String getId(){
 	if(id.equals("") && vendor != null){
@@ -118,7 +118,6 @@ public class VendorAction extends TopAction{
 	}
 	return id;
     }
-    @StrutsParameter
     public boolean hasVendors(){
 	getVendors();
 	return vendors != null && vendors.size() > 0;
@@ -127,10 +126,42 @@ public class VendorAction extends TopAction{
 	String ret = SUCCESS;
 	return ret;
     }
-    @StrutsParameter
     public String getVendorsTitle(){
 	return vendorsTitle;
     }
+    public String getVendorNum(){
+	return vendor.getVendorNum();
+    }		
+    public String getLname(){
+	return vendor.getLname();
+    }
+    public String getFname(){
+	return vendor.getFname();
+    }
+    public String getBusinessName(){
+	return vendor.getBusinessName();
+    }		
+    public String getPayType(){
+	return vendor.getPayType();
+    }
+    public String getPayTypeStr(){
+	return vendor.getPayTypeStr();
+    }
+    public String getFullName(){
+	return vendor.getFullName();
+    }
+    public String getCleanName(){
+	return vendor.getCleanName();
+    }
+    public boolean isInActive(){
+	return vendor.isInActive();
+    }		
+    public boolean getActive(){
+	return vendor.getActive();
+    }
+    public String getActiveStr(){
+	return vendor.getActiveStr();
+    }    
     /**
      * this is needed for systems that will not provide vendor separate database
      * this will allow to Add/Edit vendors through the interface
@@ -138,7 +169,6 @@ public class VendorAction extends TopAction{
      * have an external database for vendors (when true). If false, that mean
      * we have to add vendors through the interface
      */
-    @StrutsParameter
     public boolean canEdit(){
 	return true;
 	// disable this for now

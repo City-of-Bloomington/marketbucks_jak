@@ -25,7 +25,7 @@
 	<header>
 	    <h1><a href="<s:property value='#application.url'/>">Market Bucks</a></h1>
 	    <h3><a href="<s:property value='#application.url'/>">City of Bloomington, IN</a></h3>
-	    <s:if test="#session != null && #session.user != null">
+	    <s:if test="user != null">
 		<div id="div_top">
 		    <ul id="ul_top">
 			<li><a href="<s:property value='#application.url'/>snapStart.action">Online Purchase</a></li>
@@ -34,11 +34,11 @@
 			<li><a href="<s:property value='#application.url'/>seniorAdd.action">FMNP Senior</a></li>
 			<li><a href="<s:property value='#application.url'/>redeemStart.action">Redemptions</a></li>				
 			<li><a href="<s:property value='#application.url'/>otherMenu.action">More Options</a></li>
-			<s:if test="#session.user.isAdmin()">
+			<s:if test="isAdmin()">
 			    <li><a href="<s:property value='#application.url'/>settings">Settings</a></li>
 			</s:if>
 			<li><a href="<s:property value='#application.url'/>logout">log Out</a></li>
-			<li><s:property value='#session.user.fullName' /></li>
+			<li><s:property value='fullName' /></li>
 		    </ul>
 		</div>
 	    </s:if>

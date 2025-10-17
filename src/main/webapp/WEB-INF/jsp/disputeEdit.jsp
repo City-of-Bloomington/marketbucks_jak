@@ -23,8 +23,9 @@
 		<s:actionmessage/>
 	    </div>
 	</s:elseif>
-	<s:hidden name="dispute.id" value="%{dispute.id}" />
-	<s:if test="dispute.status == 'Waiting'">
+	<s:hidden name="dispute.id" value="%{id}" />
+	<s:hidden name="id" value="%{id}" />	
+	<s:if test="isWaiting()">
 	    <ul>
 		<li>if you think this case can not be resolved, change the status to "Rejected' and then click on 'Update'.</li>
 		<li>if you think this was a mistake, click on 'Delete'</li>
@@ -34,34 +35,34 @@
 	<table width="90%"><caption>Dispute Update</caption>
 	    <tr>
 		<th><b>View Redemption:</b></th>
-		<td><a href="<s:property value='#application.url' />redeemEdit.action?id=<s:property value='dispute.redeem_id'/>"> <s:property value="dispute.redeem_id" /></a></td>		  
+		<td><a href="<s:property value='#application.url' />redeemEdit.action?id=<s:property value='redeem_id'/>"> <s:property value="redeem_id" /></a></td>		  
 	    </tr>
 	    <tr>
 		<th><b>Buck ID:</b></th>
-		<td align="left"><s:property value="dispute.buck_id" /></td>
+		<td align="left"><s:property value="buck_id" /></td>
 	    </tr>
-	    <s:if test="dispute.canEdit()">
+	    <s:if test="canEdit()">
 		<tr><td colspan="2"><label for="notes"> Invoice Notes:</label> (the text entered here will show on vendor&#39;s invoice)</td></tr>
 		<tr>
 		    <th valign="top"><label></label></th>
-		    <td align="left"><s:textarea name="dispute.notes" value="%{dispute.notes}" rows="5" cols="70" id="notes" /></td>
+		    <td align="left"><s:textarea name="dispute.notes" value="%{notes}" rows="5" cols="70" id="notes" /></td>
 		</tr>
 	    </s:if>
-	    <s:elseif test="dispute.hasNotes()">
+	    <s:elseif test="hasNotes()">
 		<tr><td colspan="2"><b> Invoice Notes: </b>(the text entered here will show on vendor&#39;s invoice)</td></tr>					
 		<tr>
 		    <th valign="top">&nbsp;</th>
-		    <td align="left"><s:property value="%{dispute.notes}" /></td>
+		    <td align="left"><s:property value="%{notes}" /></td>
 		</tr>
 	    </s:elseif>
 	    <tr>
 		<th width="35%"><b>Status:</b></th>
 		<td align="left">
-		    <s:if test="dispute.isResolved()">
+		    <s:if test="isResolved()">
 			Resolved
 		    </s:if>
 		    <s:else>
-			<s:if test="dispute.isWaiting()">
+			<s:if test="isWaiting()">
 			    <input type="radio" name="dispute.status" value="Waiting" checked="true" id="waiting" /><label for="waiting">Waiting</label>
 			    <input type="radio" name="dispute.status" value="Rejected" id="rejected" /><label for="rejected">Rejected</label>
 			</s:if>
@@ -75,17 +76,17 @@
                     	    
 	    <tr>
 		<th valign="top"><b>Reason:</b></th>
-		<td align="left"><s:property value="dispute.reason" /></td>
+		<td align="left"><s:property value="reason" /></td>
 	    </tr>
 	    <tr>
 		<th valign="top"><b>User:</b></th>
-		<td align="left"><s:property value="dispute.user" /></td>
+		<td align="left"><s:property value="dispute_user" /></td>
 	    </tr>
 	    <tr>
 		<th valign="top"><b>Date & Time:</b></th>
-		<td align="left"><s:property value="dispute.date_time" /></td>
+		<td align="left"><s:property value="date_time" /></td>
 	    </tr>		
-	    <s:if test="dispute.isWaiting()">
+	    <s:if test="isWaiting()">
 		<tr>
 		    <td align="left">
 			<s:submit name="action" type="button" value="Update" />
@@ -99,11 +100,11 @@
 		<tr>
 		    <td>&nbsp;</td>
 		    <td>
-			<s:if test="dispute.hasResolution()">
-			    <button onclick="document.location='<s:property value='#application.url' />resolutionView.action?id=<s:property value='dispute.resolution.id' />';return false;">View Resolution</button>
+			<s:if test="hasResolution()">
+			    <button onclick="document.location='<s:property value='#application.url' />resolutionView.action?id=<s:property value='resolution_id' />';return false;">View Resolution</button>
 			</s:if>
 			<s:else>
-			<button onclick="document.location='<s:property value='#application.url' />resolutionEdit.action?dispute_id=<s:property value='dispute.id' />';return false;">Start Resolution</button>
+			<button onclick="document.location='<s:property value='#application.url' />resolutionEdit.action?dispute_id=<s:property value='id' />';return false;">Start Resolution</button>
 			</s:else>
 		    </td>
 		</tr>
@@ -111,7 +112,7 @@
 	</table>
 </s:form>
 
-<s:if test="disputes != null && disputes.size() > 0">
+<s:if test="hasDisputes()">
   <s:set var="disputes" value="disputes" />
   <s:set var="disputesTitle" value="disputesTitle" />  
   <%@  include file="disputes.jsp" %>	

@@ -103,18 +103,21 @@ public class IssueAction extends TopAction{
 	return id;
     }
     @StrutsParameter(depth=1)    
+    public List<Buck> getBucks(){
+	return ebt.getBucks();
+    }
     public String getBucksTitle(){
 	return bucksTitle;
-    }	
-    @StrutsParameter(depth = 1)    
+    }
+    public String getBucksTotal(){
+	return ebt.getBucksTotal();
+    }    
     public String getAmount(){
 	return ebt.getAmount();
     }
-    @StrutsParameter(depth = 1)
     public String getDmb_amount(){
 	return ebt.getDmb_amount();
     }
-    @StrutsParameter(depth = 1)    
     public String getApprove(){
 
 	return ebt.getApprove();

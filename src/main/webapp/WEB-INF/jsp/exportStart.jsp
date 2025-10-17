@@ -21,12 +21,14 @@
   </s:elseif>
   <table width="90%">
       <caption>Export</caption>
-      <s:if test="redeems != null && redeems.size() > 0 ">
-	  <tr><td align="center">
-	      <s:set var="redeems" value="redeems" />
-	      <s:set var="redeemsTitle" value="redeemsTitle" />
-	      <%@  include file="redeems.jsp" %>	
-	  </td></tr>
+      <s:if test="hasRedeems() ">
+	  <tr>
+	      <td align="center">
+		  <s:set var="redeems" value="redeems" />
+		  <s:set var="redeemsTitle" value="redeemsTitle" />
+		  <%@  include file="redeems.jsp" %>	
+	      </td>
+	  </tr>
 	  <tr>
 	      <s:if test="hasDisputes()">
 		  <td valign="top" align="left">
@@ -46,7 +48,7 @@
   </table>
 </s:form>
 
-<s:if test="exports != null && exports.size() > 0">
+<s:if test="hasExports()">
   <s:set var="exports" value="exports" />
   <s:set var="exportsTitle" value="exportsTitle" />
   <%@  include file="exports.jsp" %>	

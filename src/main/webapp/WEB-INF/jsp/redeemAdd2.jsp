@@ -24,7 +24,7 @@
   	 <caption>Pick Vendor</caption>
       <tr>
 	  <td align="right" width="35%"><label for="vend_id">* Vendor:</label></td>
-	  <td align="left">$<s:select name="redeem.vendor_id" required="true" value="%{redeem.vendor_id}" list="vendors" listKey="id" listValue="fullName" headerKey="-1" headerValue="Pick Vendor" id="vend_id" /></td>
+	  <td align="left">$<s:select name="redeem.vendor_id" required="true" value="%{vendor_id}" list="vendors" listKey="id" listValue="fullName" headerKey="-1" headerValue="Pick Vendor" id="vend_id" /></td>
       </tr>
       <tr>
 	  <td>&nbsp;</td>

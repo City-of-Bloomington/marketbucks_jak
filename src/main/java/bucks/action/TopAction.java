@@ -53,10 +53,14 @@ public abstract class TopAction extends ActionSupport implements ServletContextA
     public void setAction2(String val) {
         if (val != null && !val.equals("")) { action = val; }
     }
-
+    @StrutsParameter(depth=1)
     public String getAction() {
         return action;
     }
+    @StrutsParameter(depth=1)
+    public String getFullName() {
+        return user !=null ? user.getFullName():"";
+    }    
     @StrutsParameter(depth=1)
     public void setId(String val) {
         if (val != null) { id = val; }
@@ -68,6 +72,10 @@ public abstract class TopAction extends ActionSupport implements ServletContextA
     @StrutsParameter(depth=1)
     public User getUser() {
         return user;
+    }
+    @StrutsParameter(depth=1)    
+    public boolean isAdmin(){
+	return user != null && user.isAdmin();
     }
 
     String doPrepare() {

@@ -97,7 +97,7 @@ public class RedeemAction extends TopAction{
 	    }
 	}		
 	else if(action.startsWith("Scan")){ // go to adding more bucks
-	    back = redeem.doSelect();	
+	    populate();
 	    ret = "redeem";
 	}		
 	else if(action.equals("Update")){ // adding a buck
@@ -193,10 +193,10 @@ public class RedeemAction extends TopAction{
     public Vendor getVendor(){
 	return redeem.getVendor();
     }
-    @StrutsParameter(depth=1)        
+    @StrutsParameter(depth=1)    
     public User getRedeemUser(){
 	return redeem.getUser();
-    }
+    }    
     @StrutsParameter(depth=1)
     public String getDate_time(){
 	return redeem.getDate_time();
@@ -221,13 +221,13 @@ public class RedeemAction extends TopAction{
 	    redeem.setNotes(val);
 	}
     }
-    @StrutsParameter(depth=1)    
     public boolean hasBucks(){
-	if(redeem == null)
-	    getRedeem();
+	if(redeem == null){
+	    populate();
+	}
 	return redeem.hasBucks();
     }
-    @StrutsParameter(depth=1)
+    @StrutsParameter(depth=2)
     public List<Buck> getBucks(){
 	if(hasBucks()){
 	    if(bucks == null)
@@ -235,10 +235,9 @@ public class RedeemAction extends TopAction{
 	}
 	return bucks;
     }
-    @StrutsParameter(depth=1)    
     public boolean hasDisputes(){
 	if(redeem == null)
-	    getRedeem();
+	    populate();
 	return redeem.hasDisputes();
     }
     @StrutsParameter(depth=1)
@@ -248,6 +247,12 @@ public class RedeemAction extends TopAction{
 		disputes = redeem.getDisputes();
 	}
 	return disputes;
+    }
+    public boolean canFinalize(){
+	return redeem.canFinalize();
+    }
+    public boolean canCancel(){
+	return redeem.canCancel();
     }    
     public String populate(){
 	String ret = SUCCESS;

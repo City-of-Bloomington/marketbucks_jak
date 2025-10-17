@@ -68,6 +68,8 @@ public class RedeemStartAction extends TopAction{
 	    // we do this as needed espacially if the vendor is not
 	    // in the list, but once a day
 	    //
+	    /**
+	       //ignore this now
 	    if(enableVendorsAutoUpdate){						
 		if(!redeem.isVendorAvailable()){
 		    RefreshVendors rv = new RefreshVendors(debug,
@@ -90,7 +92,9 @@ public class RedeemStartAction extends TopAction{
 		    }
 		}
 	    }
-	    if(redeem.isVendorAvailable()){			
+	    */
+	    if(redeem.isVendorAvailable()){
+		System.err.println(" saving redeem");
 		back = redeem.doSave();
 		if(!back.equals("")){
 		    addActionError(back);
@@ -142,6 +146,15 @@ public class RedeemStartAction extends TopAction{
 	}
 	return vendors;
     }
+    public boolean hasRedeems(){
+	getRedeems();
+	return redeems != null && redeems.size() > 0;
+    }
+    @StrutsParameter(depth=1)
+    public User getRedeemUser(){
+	return redeem.getUser();
+    }
+	
     @StrutsParameter(depth=1)
     public boolean hasVendors(){
 	getVendors();
