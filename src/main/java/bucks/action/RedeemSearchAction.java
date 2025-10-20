@@ -89,6 +89,40 @@ public class RedeemSearchAction extends TopAction {
 	return redeemsTitle;
     }
     @Override
+    public String getId(){
+	return redeemList.getId();
+    }
+    public String getBuck_id(){
+	return redeemList.getBuck_id();
+    }	
+    public String getVendor_id(){
+	return redeemList.getVendor_id();
+    }
+    public String getVendor_num(){
+	return redeemList.getVendor_num();
+    }	    
+    public String getWhich_date(){
+	return redeemList.getWhich_date();
+    }
+    public String getDate_from(){
+	return redeemList.getDate_from() ;
+    }
+    public String getDate_to(){
+	return redeemList.getDate_to() ;
+    }
+    public String getSortBy(){
+	return redeemList.getSortBy() ;
+    }
+    public String getPayType(){
+	return redeemList.getPayType() ;
+    }
+    public String getExport(){
+	return redeemList.getExport() ;
+    }	
+    public String getStatus(){
+	return redeemList.getStatus();
+    }	    
+    @Override
     public void withServletContext(ServletContext ctx) {
         this.ctx = ctx;
     }

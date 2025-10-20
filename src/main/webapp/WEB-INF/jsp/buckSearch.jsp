@@ -21,17 +21,17 @@
     <table width="90%">
 	<caption>Search Options</caption>
 	<tr><th><label for="list_id">MB or GC ID:</label></th>
-	    <td align="left"><s:textfield name="buckList.id" value="%{buckList.id}" size="8" id="list_id" /></td>
+	    <td align="left"><s:textfield name="buckList.id" value="%{id}" size="8" id="list_id" /></td>
 	</tr>
 	<tr><th><label for="stats">Status:</label></th>
-	    <td align="left"><s:radio name="buckList.type" value="%{buckList.type}" list="#{'-1':'All','issued':'Issued','unissued':'Unissued'}" id="status" /></td>
+	    <td align="left"><s:radio name="buckList.type" value="%{type}" list="#{'-1':'All','issued':'Issued','unissued':'Unissued'}" id="status" /></td>
 	</tr>					
 	<tr><th><label for="batch_id">Batch ID:</label></th>
-	    <td align="left"><s:textfield name="buckList.batch_id" value="%{buckList.batch_id}" size="8" id="batch_id" /></td>
+	    <td align="left"><s:textfield name="buckList.batch_id" value="%{batch_id}" size="8" id="batch_id" /></td>
 	</tr>
 	<tr>
 	    <th><b>Printed Batch Date:</b></th>
-	    <td align="left"><label for="from"> From</label><s:textfield name="buckList.date_from" value="%{buckList.date_from}" size="10" maxlength="10" cssClass="date" id="from" /><label for="to"> To </label><s:textfield name="buckList.date_to" value="%{buckList.date_to}" size="10" maxlength="10" cssClass="date" id="to" /></td>
+	    <td align="left"><label for="from"> From</label><s:textfield name="buckList.date_from" value="%{date_from}" size="10" maxlength="10" cssClass="date" id="from" /><label for="to"> To </label><s:textfield name="buckList.date_to" value="%{date_to}" size="10" maxlength="10" cssClass="date" id="to" /></td>
 	</tr>  
 	<tr>
 	    <td>&nbsp;</td>
@@ -41,7 +41,7 @@
       </tr>
   </table>
 </s:form>
-<s:if test="action != '' && bucks != null">
+<s:if test="action !='' && bucks != null">
   <s:set var="bucks" value="bucks" />
   <s:set var="bucksTitle" value="bucksTitle" />
   <%@  include file="bucksView.jsp" %>	  

@@ -105,6 +105,7 @@ public class FmnpSearchAction extends TopAction{
 	}
 	return seniorsTotal;
     }
+    @Override
     public String getId(){
 	return fmnp.getId();
     }

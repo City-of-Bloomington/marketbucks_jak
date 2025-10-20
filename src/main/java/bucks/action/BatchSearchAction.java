@@ -87,26 +87,55 @@ public class BatchSearchAction extends TopAction{
 	}		
 	return ret;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=1)
+    @Override
+    public String getId(){
+	if(id.isEmpty())
+	    return batchList.getId();
+	return id;
+    }
+    @StrutsParameter(depth=1)
+    public String getSeq_id(){
+	return batchList.getSeq_id() ;
+    }    
+    @StrutsParameter(depth=1)
+    public String getDate_from(){
+	return batchList.getDate_from() ;
+    }
+    @StrutsParameter(depth=1)
+    public String getDate_to(){
+	return batchList.getDate_to() ;
+    }
+    @StrutsParameter(depth=1)    
+    public String getSortBy(){
+	return batchList.getSortBy() ;
+    }
+    @StrutsParameter(depth=1)
+    public String getStatus(){
+	return batchList.getStatus();
+    }
+    @StrutsParameter(depth=1)    
+    public String getType_id(){
+	return batchList.getType_id();
+    }		    
+    @StrutsParameter(depth=2)
     public BatchList getBatchList(){ 
 	if(batchList == null){
 	    batchList = new BatchList(debug);
 	}		
 	return batchList;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public List<Batch> getBatches(){
 	return batches;
     }
-    @StrutsParameter
     public String getBucksTitle(){
 	return bucksTitle;
     }
-    @StrutsParameter
     public String getBatchesTitle(){
 	return batchesTitle;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public List<Type> getBuck_types(){
 	if(buck_types == null){
 	    TypeList bcl = new TypeList(debug, "buck_types");
@@ -120,7 +149,7 @@ public class BatchSearchAction extends TopAction{
 	return buck_types;
     }	
     // we need this for auto_complete
-    @StrutsParameter
+    @StrutsParameter(depth=1)
     public void setVendorName(String val){
 	// just ignore 
     }	

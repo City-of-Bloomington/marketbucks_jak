@@ -69,23 +69,35 @@ public class VendorSearchAction extends TopAction{
 	}
 	return ret;
     }
-    @StrutsParameter
+    @Override
+    public String getId(){
+	return vendLst.getId();
+    }
+    public String getName(){
+	return vendLst.getName();
+    }
+    public String getVendorNum(){
+	return vendLst.getVendorNum();
+    }
+    public String getActiveStatus(){
+	return vendLst.getActiveStatus();
+    }    
+    @StrutsParameter(depth=1)
     public List<Vendor> getVendors(){
 	return vendors;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public void setVendLst(VendorList val){
 	if(val != null)
 	    vendLst = val;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public VendorList getVendLst(){
 	if(vendLst == null){
 	    vendLst = new VendorList();
 	}
 	return vendLst;
     }
-    @StrutsParameter
     public boolean hasVendors(){
 	getVendors();
 	return vendors != null && vendors.size() > 0;
@@ -94,7 +106,6 @@ public class VendorSearchAction extends TopAction{
 	String ret = SUCCESS;
 	return ret;
     }
-    @StrutsParameter
     public String getVendorsTitle(){
 	return vendorsTitle;
     }

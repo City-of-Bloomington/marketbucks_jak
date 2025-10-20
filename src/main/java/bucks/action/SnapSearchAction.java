@@ -44,7 +44,7 @@ public class SnapSearchAction extends TopAction{
 		System.err.println(ex);
 	    }	
 	}		
-	if(action.equals("Search")){
+	if(!action.isEmpty()){
 	    ret = SUCCESS;
 	    snapList.setNoLimit();
 	    back = snapList.find();
@@ -65,28 +65,38 @@ public class SnapSearchAction extends TopAction{
 	}		
 	return ret;
     }
-    @StrutsParameter
+    @Override
+    public String getId(){
+	return snapList.getId();
+    }
+    public String getCardNumber(){
+	return snapList.getCardNumber();
+    }
+    public String getAuthorization(){
+	return snapList.getAuthorization();
+    }
+    public String getAmount(){
+	return snapList.getAmount();
+    }
+    @StrutsParameter(depth=2)
     public SnapList getSnapList(){ 
 	if(snapList == null){
 	    snapList = new SnapList(debug);
 	}		
 	return snapList;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public List<Snap> getSnaps(){
 	return snaps;
     }
-    @StrutsParameter
     public boolean hasSnaps(){
 				
 	return snaps != null && snaps.size() > 0;
 
     }
-    @StrutsParameter
     public String getSnapsTitle(){
 	return snapsTitle;
     }
-    @StrutsParameter
     public String getSnapTotal(){
 	if(hasSnaps()){
 	    if(snapTotal == 0){
@@ -101,13 +111,11 @@ public class SnapSearchAction extends TopAction{
 	}
 	return dblf.format(snapTotal);
     }
-    @StrutsParameter
     public String getDblTotal(){
 	if(snapTotal == 0)
 	    getSnapTotal();
 	return dblf.format(dblTotal);
     }
-    @StrutsParameter
     public String getEbtTotal(){
 	if(snapTotal == 0)
 	    getSnapTotal();

@@ -63,6 +63,54 @@ public class BuckSearchAction extends TopAction{
 	}		
 	return ret;
     }
+    @Override
+    public String getId(){
+	if(id.isEmpty())
+	    return buckList.getId();
+	return id;
+    }
+    public String getEbt_id(){
+	return buckList.getEbt_id();
+    }
+    public String getRx_id(){
+	return buckList.getRx_id();
+    }
+    public String getWic_id(){
+	return buckList.getWic_id();
+    }
+    public String getSenior_id(){
+	return buckList.getSenior_id();
+    }
+    public String getBatch_id(){
+	return buckList.getBatch_id();
+    }		
+    public String getGift_id(){
+	return buckList.getGift_id();
+    }	
+    public String getRedeem_id(){
+	return buckList.getRedeem_id();
+    }	
+    public String getFund_type(){
+	return buckList.getFund_type();
+    }
+    public String getExport_id(){
+	return buckList.getExport_id();
+    }
+    public String getWhich_date(){
+	return buckList.getWhich_date(); // bs.date is batch date
+    }
+    public String getDate_from(){
+	return buckList.getDate_from() ;
+    }
+    public String getDate_to(){
+	return buckList.getDate_to() ;
+    }
+    public String getSortBy(){
+	return buckList.getSortBy() ;
+    }
+    public String getType(){
+	return buckList.getType();
+    }    
     @StrutsParameter(depth = 1)
     public BuckList getBuckList(){ 
 	if(buckList == null){

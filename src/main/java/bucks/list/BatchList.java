@@ -88,6 +88,9 @@ public class BatchList implements java.io.Serializable{
     public String getDate_to(){
 	return date_to ;
     }
+    public String getSeq_id(){
+	return seq_id ;
+    }    
     public String getSortBy(){
 	if(sortBy.equals("")){
 	    return "-1";

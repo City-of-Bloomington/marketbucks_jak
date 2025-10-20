@@ -100,15 +100,12 @@ public class EbtSearchAction extends TopAction {
         }
         return dmbTotal;
     }
-    @StrutsParameter(depth = 1)
     public boolean hasEbts() {
         return ebts != null && ebts.size() > 0;
     }
-    @StrutsParameter(depth = 1)
     public String getBucksTitle() {
         return bucksTitle;
     }
-    @StrutsParameter(depth = 1)
     public String getEbtsTitle() {
         return ebtsTitle;
     }

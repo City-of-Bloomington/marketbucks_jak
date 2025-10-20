@@ -63,18 +63,46 @@ public class RxSearchAction extends TopAction{
 	}		
 	return ret;
     }
-    @StrutsParameter
+    public String getId(){
+	return rxList.getId();
+    }
+    public String getBuck_id(){
+	return rxList.getBuck_id();
+    }
+    public String getAmount(){
+	return rxList.getAmount();
+    }
+    public String getWhich_date(){
+	return rxList.getWhich_date();
+    }
+    public String getDate_from(){
+	return rxList.getDate_from() ;
+    }
+    public String getDate_to(){
+	return rxList.getDate_to() ;
+    }
+
+    public String getSortBy(){
+	return rxList.getSortBy() ;
+    }
+    public String getCancelled(){
+	return rxList.getCancelled() ;
+    }
+    public String getDispute_resolution(){
+	return rxList.getDispute_resolution() ;
+    }	
+    
+    @StrutsParameter(depth=1)
     public MarketRxList getRxList(){ 
 	if(rxList == null){
 	    rxList = new MarketRxList(debug);
 	}		
 	return rxList;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public List<MarketRx> getRxes(){
 	return rxes;
     }
-    @StrutsParameter
     public int getRxTotal(){
 	if(hasRxes()){
 	    if(rxTotal == 0){
@@ -87,17 +115,14 @@ public class RxSearchAction extends TopAction{
 	}
 	return rxTotal;
     }
-    @StrutsParameter
     public boolean hasRxes(){
 				
 	return rxes != null && rxes.size() > 0;
 
     }
-    @StrutsParameter
     public String getBucksTitle(){
 	return bucksTitle;
     }
-    @StrutsParameter
     public String getRxesTitle(){
 	return rxesTitle;
     }

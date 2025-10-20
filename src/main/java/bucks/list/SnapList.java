@@ -74,15 +74,7 @@ public class SnapList implements java.io.Serializable{
 	    else if(val.equals("Not Included")) setNotIncludedOnly();
 	    doubleRequest = val;
 	}
-    }    
-    public String getStatus(){
-	if(status.isEmpty()) return "-1";
-	return status;
     }
-    public String getDoubleRequest(){
-	if(doubleRequest.isEmpty()) return "-1";
-	return doubleRequest;
-    }    
     public void setAmount(String val){
 	if(val != null)
 	    amount = val;
@@ -91,6 +83,15 @@ public class SnapList implements java.io.Serializable{
 	if(val != null &&  !val.equals("-1"))
 	    sortBy = val;
     }
+    
+    public String getStatus(){
+	if(status.isEmpty()) return "-1";
+	return status;
+    }
+    public String getDoubleRequest(){
+	if(doubleRequest.isEmpty()) return "-1";
+	return doubleRequest;
+    }    
     public void setNoLimit(){
 	limit = "";
     }

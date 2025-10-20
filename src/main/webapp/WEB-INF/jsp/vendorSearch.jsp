@@ -24,22 +24,22 @@
 	<tr>
 	    <th><label for="vid">MB Vendor ID #:</label></th>
 	    <td align="left">
-		<s:textfield name="vendLst.id" maxlength="10" size="10" value="%{vendLst.id}" id="vid" />
+		<s:textfield name="vendLst.id" maxlength="10" size="10" value="%{id}" id="vid" />
 	    </td>
 	</tr>
 	<tr>
 	    <th><label for="vnum">Vendor Number:</label></th>
 	    <td align="left">
-		<s:textfield name="vendLst.vendorNum" maxlength="10" size="10" value="%{vendLst.vendorNum}" id="vnum" />
+		<s:textfield name="vendLst.vendorNum" maxlength="10" size="10" value="%{vendorNum}" id="vnum" />
 	    </td>
 	</tr>
 	<tr>
 	    <th><label for="name">Name:</label></th>
-	    <td align="left"><s:textfield name="vendLst.name" maxlength="50" size="40" value="%{vendLst.name}" id="name" /> </td>
+	    <td align="left"><s:textfield name="vendLst.name" maxlength="50" size="40" value="%{name}" id="name" /> </td>
 	</tr>
 	<tr>
 	    <th><label for="status">Active Status:</label></th> 
-	    <td align="left" align="left"><s:radio name="vendLst.activeStatus" value="%{vendLst.activeStatus}" list="#{'-1':'All','y':'Active','n':'Inactive'}"  id="status" /></td>
+	    <td align="left" align="left"><s:radio name="vendLst.activeStatus" value="%{activeStatus}" list="#{'-1':'All','y':'Active','n':'Inactive'}"  id="status" /></td>
 	</tr>
 	<tr>
 	    <td>&nbsp;</td>

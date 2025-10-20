@@ -63,22 +63,21 @@ public class CancelledSearchAction extends TopAction{
 	}		
 	return ret;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public CancelledBuckList getBucksList(){ 
 	if(bucksList == null){
 	    bucksList = new CancelledBuckList(debug);
 	}		
 	return bucksList;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public List<CancelledBuck> getBucks(){
 	return bucks;
     }
-    @StrutsParameter
     public String getBucksTitle(){
 	return bucksTitle;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=1)
     public List<Type> getBuck_types(){
 	if(buck_types == null){
 	    TypeList bcl = new TypeList(debug, "buck_types");

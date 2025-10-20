@@ -45,7 +45,7 @@ public class GiftSearchAction extends TopAction{
 		System.err.println(ex);
 	    }	
 	}		
-	if(action.equals("Search")){
+	if(!action.isEmpty()){
 	    ret = SUCCESS;
 	    giftList.setNoLimit();
 	    back = giftList.find();
@@ -64,26 +64,57 @@ public class GiftSearchAction extends TopAction{
 	}		
 	return ret;
     }
-    @StrutsParameter
+    @Override
+    public String getId(){
+	return giftList.getId();
+    }
+    public String getBuck_id(){
+	return giftList.getBuck_id();
+    }
+    public String getAmount(){
+	return giftList.getAmount();
+    }
+    public String getCheck_no(){
+	return giftList.getCheck_no();
+    }	
+    public String getWhich_date(){
+	return giftList.getWhich_date();
+    }
+    public String getDate_from(){
+	return giftList.getDate_from() ;
+    }
+    public String getDate_to(){
+	return giftList.getDate_to() ;
+    }
+    public String getPay_type(){
+	return giftList.getPay_type() ;
+    }	
+    public String getSortBy(){
+	return giftList.getSortBy() ;
+    }
+    public String getCancelled(){
+	return giftList.getCancelled() ;
+    }
+    public String getDispute_resolution(){
+	return giftList.getDispute_resolution() ;
+    }		    
+    @StrutsParameter(depth=2)
     public GiftList getGiftList(){ 
 	if(giftList == null){
 	    giftList = new GiftList(debug);
 	}		
 	return giftList;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public List<Gift> getGifts(){
 	return gifts;
     }
-    @StrutsParameter
     public String getBucksTitle(){
 	return bucksTitle;
     }
-    @StrutsParameter
     public String getGiftsTitle(){
 	return giftsTitle;
     }
-    @StrutsParameter
     // we need this for auto_complete
     public void setVendorName(String val){
 	// just ignore 
