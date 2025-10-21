@@ -31,7 +31,9 @@ public class ReportAction extends TopAction{
     List<String> years = null;
     List<Vendor> vendors = null;
     public String execute(){
-	String ret = INPUT;            // default
+	String ret = INPUT;
+	doPrepare();
+        // default
 	if(action.equals("Submit")){
 	    ret = SUCCESS;
 	    String back = report.find();
@@ -47,28 +49,26 @@ public class ReportAction extends TopAction{
 	}
 	return ret;
     }
-    @StrutsParameter    
+    @StrutsParameter(depth=2)    
     public Report getReport(){
 	if(report == null){
 	    report = new Report(debug);
 	}
 	return report;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=2)
     public void setReport(Report val){
 	if(val != null)
 	    report = val;
     }
-    @StrutsParameter
     public void setFormat(boolean val){
 	if(val)
 	    format = "csv";
     }
-    @StrutsParameter
     public boolean getFormat(){
 	return !format.equals("");
     }
-    @StrutsParameter
+    @StrutsParameter(depth=1)
     public List<String> getYears(){
 	if(years == null){
 	    int start_year = 2014;
@@ -81,7 +81,7 @@ public class ReportAction extends TopAction{
 	}
 	return years;
     }
-    @StrutsParameter
+    @StrutsParameter(depth=1)
     public List<Vendor> getVendors(){
 	VendorList vl = new VendorList(debug);
 	String back = vl.find();
@@ -90,6 +90,90 @@ public class ReportAction extends TopAction{
 	}
 	return vendors;
     }
+    public String getYear(){
+	return report.getYear();
+    }
+    public String getPrev_year(){
+	return report.getPrev_year();
+    }
+    public String getNext_year(){
+	return report.getNext_year();
+    }	
+    public String getDay(){
+	return report.getDay();
+    }	
+    public String getDate_from(){
+	return report.getDate_from() ;
+    }	
+    public String getDate_to(){
+	return report.getDate_to() ;
+    }
+    public String getBy(){
+	return report.getBy() ;
+    }
+    public String getType(){
+	return report.getType();
+    }
+    public boolean getDistributeMB(){
+	return report.getDistributeMB();
+    }
+    public boolean getDistributeGC(){
+	return report.getDistributeGC();
+    }
+    public boolean getDistributeRX(){
+	return report.getDistributeRX();
+    }
+    public boolean getDistributeWic(){
+	return report.getDistributeWic();
+    }
+    public boolean getDistributeSenior(){
+	return report.getDistributeSenior();
+    }
+    public boolean getRedeemRX(){
+	return report.getRedeemRX();
+    }
+    public boolean getRedeemWic(){
+	return report.getRedeemWic();
+    }
+    public boolean getRedeemSenior(){
+	return report.getRedeemSenior();
+    }		
+    public boolean getIssued(){
+	return report.getIssued();
+    }
+    public boolean getUnissued(){
+	return report.getUnissued();
+    }
+    public boolean getRedeem(){
+	return report.getRedeem();
+    }
+    public boolean getParticipate(){
+	return report.getParticipate();
+    }
+    public boolean getInventory(){
+	return report.getInventory();
+    }
+    public boolean getRedeemOld(){
+	return report.getRedeemOld();
+    }
+    public boolean getIssuedNotRedeemed(){
+	return report.getIssuedNotRedeemed();
+    }		
+    public String getTitle(){
+	return report.getTitle();
+    }	
+    public List<ReportRow> getRows(){
+	return report.getRows();
+    }
+    public List<List<ReportRow>> getAll(){
+	return report.getAll();
+    }
+    public List<ReportRow> getInventoryList(){
+	return report.getInventoryList();
+    }
+    public ReportRow getColumnTitle(){
+	return report.getColumnTitle();
+    }    
     @Override
     public void withServletContext(ServletContext ctx) {
         this.ctx = ctx;

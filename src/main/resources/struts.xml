@@ -29,12 +29,10 @@
       <interceptor-ref name="defaultStack"></interceptor-ref>
       <result>/WEB-INF/jsp/help.jsp</result>
     </action>
-    <action name="otherMenu">
-      <interceptor-ref name="defaultStack"></interceptor-ref>
+    <action name="otherMenu" class="bucks.action.OtherMenuAction">      
       <result>/WEB-INF/jsp/otherMenu.jsp</result>
     </action>
-   <action name="settings">
-      <interceptor-ref name="defaultStack"></interceptor-ref>
+    <action name="settings" class="bucks.action.SettingAction">      
       <result>/WEB-INF/jsp/settings.jsp</result>
     </action>    
     <action name="training">

@@ -7,7 +7,7 @@
  *
  *
 	-->
-<s:iterator value="report.all" status="allStatus">
+<s:iterator value="all" status="allStatus">
     <table border="1" width="90%">
       <s:iterator status="rowStatus">
 	  <s:if test="#rowStatus.index == 0">
@@ -39,7 +39,7 @@
       </s:iterator>
   </table>
 </s:iterator>
-<s:if test="report.inventory">
+<s:if test="inventory">
     <%@  include file="reportInventory.jsp" %>
 </s:if>
 <%@  include file="footer.jsp" %>
