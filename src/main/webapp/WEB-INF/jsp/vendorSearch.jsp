@@ -6,19 +6,20 @@
  * @author W. Sibo <sibow@bloomington.in.gov>
  *
  *
-	-->
+-->
+<h1>Search Vendors</h1>
+<s:if test="hasActionErrors()">
+    <div class="errors">
+	<s:actionerror/>
+    </div>
+</s:if>
+<s:elseif test="hasActionMessages()">
+    <div class="welcome">
+	<s:actionmessage/>
+    </div>
+</s:elseif>
 <s:form action="vendorSearch" method="post" id="form_id">
-    <h4>Search Vendors</h4>
-    <s:if test="hasActionErrors()">
-	<div class="errors">
-	    <s:actionerror/>
-	</div>
-    </s:if>
-    <s:elseif test="hasActionMessages()">
-	<div class="welcome">
-	    <s:actionmessage/>
-	</div>
-    </s:elseif>
+
     <table border="0" width="90%">
 	<caption>Search Options</caption>
 	<tr>

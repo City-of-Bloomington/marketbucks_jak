@@ -6,7 +6,7 @@
  *
  *
 	-->
-<h3>Market Bucks</h3>
+<h1>Market Bucks</h1>
 <s:if test="hasActionErrors()">
   <div class="errors">
     <s:actionerror/>

@@ -8,10 +8,10 @@
 -->
 <s:form action="disputeEdit" method="post">
     <s:if test="dispute.canEdit()">
-	<h3>Edit Dispute</h3>
+	<h1>Edit Dispute</h1>
 	</s:if>
 	<s:else>
-	    <h3>View Dispute</h3>
+	    <h1>View Dispute</h1>
 	</s:else>
 	<s:if test="hasActionErrors()">
 	    <div class="errors">

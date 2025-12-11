@@ -7,20 +7,20 @@
  *
  *
 	-->
+<h1>Issue FMNP WIC Bucks</h1>
+<s:if test="hasActionErrors()">
+    <div class="errors">
+	<s:actionerror/>
+    </div>
+</s:if>
+<s:elseif test="hasActionMessages()">
+    <div class="welcome">
+	<s:actionmessage/>
+    </div>
+</s:elseif>
 <s:form action="wicAdd" method="post">    
-  <h4>Issue FMNP WIC Bucks</h4>
-  <s:hidden name="wic.id" value="%{id}" />
+	<s:hidden name="wic.id" value="%{id}" />
   <s:hidden name="wic.ticketNum" value="%{ticketNum}" />
-  <s:if test="hasActionErrors()">
-      <div class="errors">
-	  <s:actionerror/>
-      </div>
-  </s:if>
-  <s:elseif test="hasActionMessages()">
-      <div class="welcome">
-	  <s:actionmessage/>
-      </div>
-  </s:elseif>
   <p>*indicate a required field </p>
   <table border="0" width="90%">
       <caption>Issue FMNP WIC </caption>

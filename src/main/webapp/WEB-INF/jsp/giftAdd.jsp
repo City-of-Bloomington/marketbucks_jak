@@ -9,10 +9,10 @@
 	-->
 <s:form action="giftAdd" method="post" onsubmit="return confirmForCancel()">
   <s:if test="id == ''">
-      <h3>Add New Gift Transaction</h3>
+      <h1>Add New Gift Transaction</h1>
   </s:if>
   <s:else>
-      <h3>Edit Gift Transaction</h3>
+      <h1>Edit Gift Transaction</h1>
       <s:hidden name="gift.id" value="%{id}" />
       <s:if test="!isCancelled()">
 	  <ul>

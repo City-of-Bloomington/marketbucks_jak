@@ -9,10 +9,10 @@
 	-->
 <s:form action="seniorAdd" method="post" onsubmit="return confirmForCancel()">
   <s:if test="!hasId()">
-      <h3>Add New FMNP SENIOR Transaction</h3>
+      <h1>Add New FMNP SENIOR Transaction</h1>
   </s:if>
   <s:else>
-      <h3>Edit FMNP SENIOR Transaction</h3>
+      <h1>Edit FMNP SENIOR Transaction</h1>
       <s:hidden name="senior.id" value="%{id}" />
       <s:hidden name="senior.senior_max_amount" value="%{senior_max_amount}" />		
       <s:if test="!isCancelled()">

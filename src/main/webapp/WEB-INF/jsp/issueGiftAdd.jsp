@@ -7,6 +7,7 @@
  *
  *
 	-->
+<h1>Add GC</h1>
 <s:form action="issueGiftAdd" method="post">    
   <s:hidden name="gift.id" value="%{id}" />
   <s:if test="hasActionErrors()">

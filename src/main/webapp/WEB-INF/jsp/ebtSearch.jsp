@@ -7,7 +7,7 @@
  *
  *
 -->
-<h3>Search Ebt Transactions</h3>
+<h1>Search Ebt Transactions</h1> 
 <s:if test="hasActionErrors()">
     <s:actionerror/>
 </s:if>

@@ -7,19 +7,20 @@
  *
  *
 	-->
-<s:form action="snap" method="post" id="form_id">
-    <h4>New Online Purchase (SNAP)</h4>
-    <s:if test="hasActionErrors()">
-	<div class="errors">
-	    <s:actionerror/>
-	</div>
-    </s:if>
-    <s:elseif test="hasActionMessages()">
-	<div class="welcome">
-	    <s:actionmessage/>
-	</div>
-    </s:elseif>
-    <p>*indicates a required field</p>
+<h1>New Online Purchase (SNAP)</h1>
+<s:if test="hasActionErrors()">
+    <div class="errors">
+	<s:actionerror/>
+    </div>
+</s:if>
+<s:elseif test="hasActionMessages()">
+    <div class="welcome">
+	<s:actionmessage/>
+    </div>
+</s:elseif>
+<p>*indicates a required field</p>
+    <s:form action="snap" method="post" id="form_id">
+
     <hr />
     <table border="0" width="90%">
 	<caption>Online Purchase</caption>

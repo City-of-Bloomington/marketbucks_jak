@@ -8,7 +8,7 @@
  *
 	-->
 <s:form action="redeemStart" method="post">    
-  <h3>Add New Redemption</h3>
+  <h1>Add New Redemption</h1>
   <s:if test="hasActionErrors()">
 	<div class="errors">
       <s:actionerror/>

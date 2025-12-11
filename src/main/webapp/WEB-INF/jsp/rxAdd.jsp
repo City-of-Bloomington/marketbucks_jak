@@ -9,10 +9,10 @@
 	-->
 <s:form action="rxAdd" method="post" onsubmit="return confirmForCancel()">
   <s:if test="id == ''">
-      <h3>Add New Rx Transaction</h3>
+      <h1>Add New Rx Transaction</h1>
   </s:if>
   <s:else>
-      <h3>Edit Rx Transaction</h3>
+      <h1>Edit Rx Transaction</h1>
       <s:hidden name="rx.id" value="%{id}" />
       <s:hidden name="rx.rx_max_amount" value="%{rx_max_amount}" />		
       <s:if test="!isCancelled()">

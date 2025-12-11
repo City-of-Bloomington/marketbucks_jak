@@ -7,7 +7,7 @@
  *
  *
 	-->
-<h3>Search Issued Gift Certificates</h3>
+<h1>Search Issued Gift Certificates</h1>
 <s:if test="hasActionErrors()">
   <div class="errors">
     <s:actionerror/>

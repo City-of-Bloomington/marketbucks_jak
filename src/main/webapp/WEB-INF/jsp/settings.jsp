@@ -7,7 +7,7 @@
      *
      *
 -->
-<h3>Settings</h3>
+<h1>Settings</h1>
 <s:if test="hasActionErrors()">
   <div class="errors">
     <s:actionerror/>

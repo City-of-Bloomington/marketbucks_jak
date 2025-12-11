@@ -7,7 +7,7 @@
  *
  *
 -->
-<h3>Detailed Buck/Gift Info</h3>
+<h1>Detailed Buck/Gift Info</h1>
 <s:if test="hasActionErrors()">
     <div class="errors">
 	<s:actionerror/>

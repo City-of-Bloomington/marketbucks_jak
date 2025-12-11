@@ -7,19 +7,20 @@
  *
  *
 	-->
+<h1> Marketbuck Reports</h1>
+<s:if test="hasActionErrors()">
+    <div class="errors">
+	<s:actionerror/>
+    </div>
+</s:if>
+<s:if test="hasActionMessages()">
+    <div class="welcome">
+	<s:actionmessage/>
+    </div>
+</s:if>
+<p>Select one or more of report types.</p>
 <s:form action="report" method="post">    
-    <h3> Marketbuck Reports</h3>
-    <s:if test="hasActionErrors()">
-	<div class="errors">
-	    <s:actionerror/>
-	</div>
-  </s:if>
-  <s:if test="hasActionMessages()">
-	<div class="welcome">
-      <s:actionmessage/>
-	</div>
-  </s:if>
-  <p>Select one or more of report types.</p>
+
   <table width="90%">
       <caption>Report Options</caption>
       <tr>

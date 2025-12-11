@@ -9,10 +9,10 @@
 	-->
 <s:form action="snap" method="post" id="form_id" onsubmit="return confirmForCancel()">
   <s:if test="snap.id == ''">
-      <h4>New Online Purchase</h4>
+      <h1>New Online Purchase</h1>
   </s:if>
   <s:else>
-      <h3>Edit Online Purchase</h3>
+      <h1>Edit Online Purchase</h1>
       <p>Note: if you make a mistake you can Update the record or Cancel.
 	  If Cancelled the record will not be deleted but marked as
 	  Cancelled (Inactive)</p>

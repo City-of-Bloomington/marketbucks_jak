@@ -7,7 +7,7 @@
  *
  *
 	-->
-<h3>Search Redemptions</h3>
+<h1>Search Redemptions</h1>
 <s:form action="redeemSearch" method="post">
     <table width="90%">
 	<caption>Search Options</caption>

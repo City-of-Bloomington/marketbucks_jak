@@ -1,26 +1,26 @@
 <%@  include file="header.jsp" %>
 <%@ page session="false" %>
 <!--  
- * @copyright Copyright (C) 2014-2016 City of Bloomington, Indiana. All rights reserved.
- * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.txt
- * @author W. Sibo <sibow@bloomington.in.gov>
- *
- *
-	-->
+     * @copyright Copyright (C) 2014-2016 City of Bloomington, Indiana. All rights reserved.
+     * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.txt
+     * @author W. Sibo <sibow@bloomington.in.gov>
+     *
+     *
+-->
+<h1>Issue FMNP Senior Bucks</h1>
+<s:if test="hasActionErrors()">
+    <div class="errors">
+	<s:actionerror/>
+    </div>
+</s:if>
+<s:elseif test="hasActionMessages()">
+    <div class="welcome">
+	<s:actionmessage/>
+    </div>
+</s:elseif>
 <s:form action="seniorAdd" method="post">    
-  <h4>Issue FMNP Senior Bucks</h4>
   <s:hidden name="senior.id" value="%{senior.id}" />
-	<s:hidden name="senior.ticketNum" value="%{senior.ticketNum}" />
-  <s:if test="hasActionErrors()">
-      <div class="errors">
-	  <s:actionerror/>
-      </div>
-  </s:if>
-  <s:elseif test="hasActionMessages()">
-      <div class="welcome">
-	  <s:actionmessage/>
-      </div>
-  </s:elseif>
+  <s:hidden name="senior.ticketNum" value="%{senior.ticketNum}" />
   <p>*indicate a required field </p>
   <table border="0" width="90%">
       <caption> Issue FMNP </caption>

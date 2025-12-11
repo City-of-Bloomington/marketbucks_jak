@@ -6,7 +6,7 @@
  *
  *
 	-->
-<h3>Search Voided MB & GC</h3>
+<h1>Search Voided MB & GC</h1>
 <s:if test="hasActionErrors()">
   <div class="errors">
     <s:actionerror/>

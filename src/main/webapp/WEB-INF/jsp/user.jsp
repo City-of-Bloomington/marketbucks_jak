@@ -9,10 +9,10 @@
 	-->
 <s:form action="user" method="post" id="form_id">
     <s:if test="id == ''">
-	<h4>New User</h4>
+	<h1>New User</h1>
     </s:if>
     <s:else>
-	<h3>Edit User</h3>
+	<h1>Edit User</h1>
 	<s:hidden name="person.id" value="%{id}" />
 	<s:hidden name="id" value="%{id}" />	
     </s:else>

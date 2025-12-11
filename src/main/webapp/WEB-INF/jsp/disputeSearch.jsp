@@ -7,7 +7,7 @@
  *
 	-->
 <s:form action="disputeSearch" method="post">    
-  <h3>Dispute Search</h3>
+  <h1>Dispute Search</h1> 
   <s:if test="hasActionErrors()">
       <s:actionerror/>
   </s:if>

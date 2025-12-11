@@ -6,7 +6,7 @@
  *
  *
 	-->
-<h2>Marketbucks User Guide</h2>
+<h1>Marketbucks User Guide</h1>
 
 <h3>Content Table</h3>
 <ul>

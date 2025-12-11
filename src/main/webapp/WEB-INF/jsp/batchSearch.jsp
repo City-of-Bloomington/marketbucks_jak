@@ -7,7 +7,7 @@
  *
  *
 	-->
-<h3>Search Batches</h3>
+<h1>Search Batches</h1>
 <s:if test="hasActionErrors()">
     <s:actionerror/>
 </s:if>

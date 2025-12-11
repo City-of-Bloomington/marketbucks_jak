@@ -6,14 +6,15 @@
  * @author W. Sibo <sibow@bloomington.in.gov>
  *
  *
-	-->
+-->
+
 <s:if test="canEdit()">
     <s:form action="vendor" method="post" id="form_id">
 	<s:if test="id == ''">
-	    <h4>New Vendor</h4>
+	    <h1>New Vendor</h1>
 	</s:if>
 	<s:else>
-	    <h3>Edit Vendor</h3>
+	    <h1>Edit Vendor</h1>
 	    <s:hidden name="vendor.id" value="%{id}" />
 	    <s:hidden name="id" value="%{id}" />	    
 	</s:else>

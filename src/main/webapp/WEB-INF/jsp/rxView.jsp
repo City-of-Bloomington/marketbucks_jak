@@ -1,25 +1,26 @@
 <%@  include file="header.jsp" %>
 <%@ page session="false" %>
 <!--  
- * @copyright Copyright (C) 2014-2016 City of Bloomington, Indiana. All rights reserved.
- * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.txt
- * @author W. Sibo <sibow@bloomington.in.gov>
- *
- *
-	-->
+     * @copyright Copyright (C) 2014-2016 City of Bloomington, Indiana. All rights reserved.
+     * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.txt
+     * @author W. Sibo <sibow@bloomington.in.gov>
+     *
+     *
+-->
+<h1>View MarketRx </h1>
+<s:if test="hasActionErrors()">
+    <div class="errors">
+	<s:actionerror/>
+    </div>
+</s:if>
+<s:elseif test="hasActionMessages()">
+    <div class="welcome">
+	<s:actionmessage/>
+    </div>
+</s:elseif>
+
 <s:form action="rxView" method="post" id="form_id" >
   <s:hidden name="rx.id" value="%{rx.id}" />
-  <h3>View MarketRx </h3>
-  <s:if test="hasActionErrors()">
-      <div class="errors">
-	  <s:actionerror/>
-      </div>
-  </s:if>
-  <s:elseif test="hasActionMessages()">
-      <div class="welcome">
-	  <s:actionmessage/>
-      </div>
-  </s:elseif>
   <table border="0" width="90%"><caption>MB Rx</caption>
       <tr>
 	  <th width="30%"><b>Voucher #:</b></th>

@@ -1,25 +1,26 @@
 <%@  include file="header.jsp" %>
 <%@ page session="false" %>
 <!--  
- * @copyright Copyright (C) 2014-2016 City of Bloomington, Indiana. All rights reserved.
- * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.txt
- * @author W. Sibo <sibow@bloomington.in.gov>
- *
- *
-	-->
+     * @copyright Copyright (C) 2014-2016 City of Bloomington, Indiana. All rights reserved.
+     * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.txt
+     * @author W. Sibo <sibow@bloomington.in.gov>
+     *
+     *
+-->
+<h1>Redeem MB & GC</h1>
+<s:hidden name="redeem.id" value="%{id}" />
+<s:if test="hasActionErrors()">
+    <div class="errors">
+	<s:actionerror/>
+    </div>
+</s:if>
+<s:elseif test="hasActionMessages()">
+    <div class="welcome">
+	<s:actionmessage/>
+    </div>
+</s:elseif>
+
 <s:form action="redeemAdd" id="form_1" method="post">    
-  <h3>Redeem MB & GC</h3>
-  <s:hidden name="redeem.id" value="%{id}" />
-  <s:if test="hasActionErrors()">
-	<div class="errors">
-      <s:actionerror/>
-	</div>
-  </s:if>
-  <s:elseif test="hasActionMessages()">
-	<div class="welcome">
-      <s:actionmessage/>
-	</div>
-  </s:elseif>
   <p>*indicates a required field</p>
   <table border="0" width="90%">
       <caption>Redemption ID:<s:property value="id" /></caption>

@@ -6,7 +6,7 @@
  *
  *
 	-->
-<h3>Search Market Bucks or GC</h3>
+<h1>Search Market Bucks or GC</h1>
 <s:if test="hasActionErrors()">
   <div class="errors">
     <s:actionerror/>

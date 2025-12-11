@@ -7,21 +7,21 @@
      *
      *
 -->
+<h1>Update Export</h1>
+<s:if test="hasActionErrors()">
+    <div class="errors">
+	<s:actionerror/>
+    </div>
+</s:if>
+<s:elseif test="hasActionMessages()">
+    <div class="welcome">
+	<s:actionmessage/>
+    </div>
+</s:elseif>
 <s:form action="exportAdd" id="form_id" method="post">
     <s:hidden name="export.id" value="%{id}" />
     <s:hidden name="id" value="%{id}" />    
-  <h3>Update Export</h3>
-  <s:if test="hasActionErrors()">
-      <div class="errors">
-      <s:actionerror/>
-      </div>
-  </s:if>
-  <s:elseif test="hasActionMessages()">
-      <div class="welcome">
-      <s:actionmessage/>
-      </div>
-  </s:elseif>
-  <s:if test="isOpen()">
+   <s:if test="isOpen()">
       To do the export, please do the following:
       <ul>
 	  <li> Run 'Generate Export File' first. </li>

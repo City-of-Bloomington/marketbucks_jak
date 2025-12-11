@@ -9,15 +9,15 @@
 	-->
 <s:form action="batchEdit" method="post">    
     <s:if test="!hasId()">
-	<h3>Generate & Print Bucks</h3>
+	<h1>Generate & Print Bucks</h1>
   </s:if>
   <s:else>
       <s:hidden name="batch.id" value="%{id}" />
       <s:if test="hasId() && status == 'Waiting'">
-	  <h3>Update Batch</h3>
+	  <h1>Update Batch</h1>
       </s:if>
       <s:else>
-	  <h3>Batch Info</h3>	  
+	  <h1>Batch Info</h1>	  
       </s:else>
   </s:else>
   <s:hidden name="batch.conf_id" value="%{conf_id}" />  

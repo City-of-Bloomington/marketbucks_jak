@@ -7,12 +7,13 @@
  *
  *
 	-->
+
 <s:form action="resolutionEdit" method="post">
   <s:if test="id == ''">
-      <h3>New Resolution</h3>
+      <h1>New Resolution</h1>
   </s:if>
   <s:else>
-      <h3>Edit Resolution <s:property value="id" /></h3>
+      <h1>Edit Resolution <s:property value="id" /></h1>
       <s:hidden name="resolution.id" value="%{id}" />
       <s:hidden name="id" value="%{id}" />      
   </s:else>

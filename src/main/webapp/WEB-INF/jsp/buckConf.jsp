@@ -8,11 +8,11 @@
  *
 -->
 <s:if test="id == ''">
-    <h3>New Configuration</h3>
+    <h1>New Configuration</h1>
     Select MB/GC type from the list below, many of the fields will be set for you.<br />
 </s:if>
 <s:else>
-    <h3>Edit Configuration</h3>
+    <h1>Edit Configuration</h1>
 </s:else>
 <s:if test="hasActionErrors()">
     <div class="errors">

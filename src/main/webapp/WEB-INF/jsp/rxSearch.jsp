@@ -7,7 +7,7 @@
  *
  *
 	-->
-<h3>Search MarketRx Bucks</h3>
+<h1>Search MarketRx Bucks</h1>
 <s:if test="hasActionErrors()">
   <div class="errors">
     <s:actionerror/>

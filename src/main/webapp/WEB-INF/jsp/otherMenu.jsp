@@ -7,7 +7,7 @@
      *
      *
 -->
-<h3>Other Menu Options</h3>
+<h1>Other Menu Options</h1>
 <s:if test="hasActionErrors()">
   <div class="errors">
     <s:actionerror/>

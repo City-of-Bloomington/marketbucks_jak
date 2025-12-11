@@ -8,7 +8,7 @@
  *
 	-->
 <s:form action="exportStart" id="form_id" method="post">
-  <h3>Redemptions Export</h3>
+  <h1>Redemptions Export</h1>
   <s:if test="hasActionErrors()">
       <div class="errors">
       <s:actionerror/>

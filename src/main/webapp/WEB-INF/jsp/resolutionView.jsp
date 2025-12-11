@@ -7,7 +7,7 @@
  *
  *
 	-->
-<h3>Resolution <s:property value="resolution.id" /></h3>
+<h1>Resolution <s:property value="resolution.id" /></h1>
 <s:if test="hasActionErrors()">
     <div class="errors">
     <s:actionerror/>

@@ -7,7 +7,7 @@
  *
  *
 	-->
-<h3>Generate & Print Bucks</h3>
+<h1>Generate & Print Bucks</h1>
 <s:if test="hasActionErrors()">
   <div class="errors">
     <s:actionerror/>

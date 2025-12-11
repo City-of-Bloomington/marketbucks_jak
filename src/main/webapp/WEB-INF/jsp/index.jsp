@@ -6,7 +6,7 @@
  *
  *
 	-->
-<h3>Welcome to Marketbucks </h3>
+<h1>Welcome to Marketbucks </h1>
 
 <p>Please pick an option from the menu above.</p>
 

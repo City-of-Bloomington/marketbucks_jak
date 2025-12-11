@@ -7,7 +7,7 @@
  *
  *
 	-->
-<h3>Search FMNP transactions</h3>
+<h1>Search FMNP transactions</h1>
 <s:if test="hasActionErrors()">
   <div class="errors">
     <s:actionerror/>

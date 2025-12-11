@@ -7,8 +7,9 @@
  *
  *
 	-->
+<h1>Issue Market Bucks</h1>
 <s:form action="issueAdd" method="post">    
-    <h4>Issue Market Bucks</h4>
+
     <s:hidden name="ebt.id" value="%{id}" />
     <s:hidden name="id" value="%{id}" />    
     <s:if test="hasActionErrors()">

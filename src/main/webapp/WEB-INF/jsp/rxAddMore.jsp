@@ -6,9 +6,8 @@
  * @author W. Sibo <sibow@bloomington.in.gov>
  *
  *
-	-->
-<s:form action="rxAdd" method="post">    
-  <h4>Issue MarketRx Bucks</h4>
+-->
+  <h1>Issue MarketRx Bucks</h1>
   <s:hidden name="rx.id" value="%{id}" />
   <s:if test="hasActionErrors()">
       <div class="errors">
@@ -21,6 +20,8 @@
       </div>
   </s:elseif>
   <p>* Indicate a required field </p>
+  <s:form action="rxAdd" method="post">    
+
   <table border="0" width="90%">
       <caption>Transaction ID:<s:property value="%{id}" /></caption>
       <tr>

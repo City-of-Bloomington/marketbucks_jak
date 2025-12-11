@@ -8,7 +8,7 @@
  *
 	-->
 <s:form action="redeemEdit" id="form_1" method="post">    
-    <h3>Redeem MB & GC</h3>
+    <h1>Redeem MB & GC</h1>
     <input type="hidden" name="id" value="<s:property value='id' />" />
     <input type="hidden" name="redeem.id" value="<s:property value='id' />" />
     <s:if test="hasActionErrors()">

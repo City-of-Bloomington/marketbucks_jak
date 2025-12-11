@@ -9,10 +9,10 @@
 	-->
 <s:form action="wicAdd" method="post" onsubmit="return confirmForCancel()">
   <s:if test="!hasId()">
-      <h3>Add New FMNP WIC Transaction</h3>
+      <h1>Add New FMNP WIC Transaction</h1>
   </s:if>
   <s:else>
-      <h3>Edit FMNP WIC Transaction</h3>
+      <h1>Edit FMNP WIC Transaction</h1>
       <s:hidden name="wic.id" value="%{wic.id}" />
       <s:hidden name="wic.wic_max_amount" value="%{wic_max_amount}" />		
       <s:if test="!wic.isCancelled()">
