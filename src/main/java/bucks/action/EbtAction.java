@@ -105,6 +105,7 @@ public class EbtAction extends TopAction{
 		    addActionError(back);
 		}
 		else{
+		    ebt.doSelect();
 		    addActionMessage("Added Successfully");
 		}
 	    }
@@ -191,6 +192,16 @@ public class EbtAction extends TopAction{
     public Integer getEbt_donor_max(){
 	return ebt_donor_max;
     }
+    /**
+    @StrutsParameter(depth = 1)
+    public String getBalance(){
+	return ebt.getBalance();
+    }
+    @StrutsParameter(depth = 1)    
+    public boolean hasBalance(){
+	return ebt.hasBalance();
+    }
+    */
     public String populate(){
 	String ret = SUCCESS;
 	if(!id.equals("")){
@@ -199,6 +210,7 @@ public class EbtAction extends TopAction{
 	    if(!back.equals("")){
 		addActionError(back);
 	    }
+	    ebt.getBucksTotal();
 	}
 	return ret;
     }

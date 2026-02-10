@@ -334,7 +334,11 @@ public class FmnpWic implements java.io.Serializable{
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	String msg = "";
-	String qq = " select sum(total) from                                               (select count(*) total from ebt_bucks where buck_id=?                           union select count(*) total from wic_bucks where buck_id=?                      union select count(*) total from rx_bucks where buck_id=?                       union select count(*) total from senior_bucks where buck_id=?                   union select count(*) total from gift_bucks where buck_id=? )tt ";
+	String qq = " select sum(tt.total) from                                               (select count(*) total from ebt_bucks where buck_id=?                           union select count(*) total from wic_bucks where buck_id=?                      union select count(*) total from rx_bucks where buck_id=?                       union select count(*) total from senior_bucks where buck_id=?                   union select count(*) total from gift_bucks where buck_id=? )tt ";
+	
+	/**
+	String qq = "select count(*) from bucks where id=? and expire_date is null ";
+	*/
 	//
 	logger.debug(qq);
 	con = Helper.getConnection();

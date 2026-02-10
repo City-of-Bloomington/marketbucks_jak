@@ -317,8 +317,12 @@ public class Ebt implements java.io.Serializable{
 	return ""+donated_amount;
     }
     public String getTotal(){
+	if(total == 0) getBucksTotal();
 	return ""+total;
     }
+    public String getAllTotal(){
+	return ""+total;
+    }    
     public String getBucksTotal(){
 	if(total == 0){
 	    getBucks();
@@ -331,6 +335,8 @@ public class Ebt implements java.io.Serializable{
 	return ""+total;
     }		
     public String getBalance(){
+	if(total == 0)
+	    getBucksTotal();
 	int balance = (amount+dmb_amount) - paid_amount - donated_amount;		
 	return ""+balance;
     }
@@ -430,7 +436,7 @@ public class Ebt implements java.io.Serializable{
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	String msg = "";
-	String qq = " select sum(total) from                                               (select count(*) total from ebt_bucks where buck_id=?                           union select count(*) total from rx_bucks where buck_id=?                       union select count(*) total from wic_bucks where buck_id=?                      union select count(*) total from senior_bucks where buck_id=?                   union select count(*) total from gift_bucks where buck_id=? )tt ";
+	String qq = " select sum(tt.total) from                                               (select count(*) total from ebt_bucks where buck_id=?                           union select count(*) total from rx_bucks where buck_id=?                       union select count(*) total from wic_bucks where buck_id=?                      union select count(*) total from senior_bucks where buck_id=?                   union select count(*) total from gift_bucks where buck_id=? )tt ";
 	//
 	logger.debug(qq);
 	con = Helper.getConnection();

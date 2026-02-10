@@ -62,7 +62,7 @@
       </tr>
   </table>
 </s:form>
-<s:if test="action != '' && hasEbts()">
+<s:if test="hasEbts()">
     <s:set var="ebts" value="ebts" />
   <s:set var="ebtsTitle" value="ebtsTitle" />
   <%@  include file="ebts.jsp" %>	  

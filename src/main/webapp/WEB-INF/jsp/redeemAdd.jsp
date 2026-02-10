@@ -20,8 +20,9 @@
     </div>
 </s:elseif>
 
-<s:form action="redeemAdd" id="form_1" method="post">    
-  <p>*indicates a required field</p>
+<s:form action="redeemAdd" id="form_1" method="post">
+    <s:hidden name="redeem.id" value="%{id}" />
+    <p>*indicates a required field</p>
   <table border="0" width="90%">
       <caption>Redemption ID:<s:property value="id" /></caption>
       <tr>

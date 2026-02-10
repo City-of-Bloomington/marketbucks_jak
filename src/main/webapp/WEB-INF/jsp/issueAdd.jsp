@@ -33,7 +33,16 @@
 	    <td align="left"><s:property value="approve" /></td>
 	</tr>
 	<tr> <th><b>Card #: </b></th>
-	    <td align="left"><s:property value="card_last_4" /></td>		    </tr>
+	    <td align="left"><s:property value="card_last_4" /></td>
+	</tr>
+	<tr>
+	    <th><b>Date & Time: </b></th>
+	    <td align="left"><s:property value="date_time" /></td>
+	</tr>
+	<tr>
+	    <th><b>User:</b></th>
+	    <td align="left"><s:property value="ebt_user" /></td>
+	</tr>
 	<tr>				
 	    <th><b>Request Amount: </b></th>
 	    <td align="left">$<s:property value="amount" />.00</td>
@@ -46,17 +55,10 @@
 	    <th><b>Issued EBT: </b></th>
 	    <td align="left">$<s:property value="paid_amount" />.00</td>
 	</tr>
-	<tr>
-	    <th><b>Date & Time: </b></th>
-	    <td align="left"><s:property value="date_time" /></td>
-	</tr>
+
 	<tr>			
 	    <th><b>Issued DMB: </b></th>
 	    <td align="left">$<s:property value="donated_amount" />.00</td>
-	</tr>
-	<tr>
-	    <th><b>User:</b></th>
-	    <td align="left"><s:property value="ebt_user" /></td>
 	</tr>
 	<tr>
 	    <th><b>Total: </b></th>

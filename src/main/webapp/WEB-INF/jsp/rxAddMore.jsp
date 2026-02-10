@@ -21,8 +21,8 @@
   </s:elseif>
   <p>* Indicate a required field </p>
   <s:form action="rxAdd" method="post">    
-
-  <table border="0" width="90%">
+      <s:hidden name="rx.id" value="%{id}" />
+      <table border="0" width="90%">
       <caption>Transaction ID:<s:property value="%{id}" /></caption>
       <tr>
 	  <th><b>Amount:</b></th>
@@ -78,7 +78,7 @@
 	      </tr>
 	  </s:else>
 	  <tr>
-	      <th><a href="<s:property value='#application.url' />rxAdd.action?id=<s:property value='id' />">Edit/Cancel This Transaction </a>
+	      <th><a href="<s:property value='#application.url' />rxAdd.action?id=<s:property value='id' />&action=Cancel">Cancel This Transaction </a>
 	      </td>
 	  </tr>		  
       </s:if>

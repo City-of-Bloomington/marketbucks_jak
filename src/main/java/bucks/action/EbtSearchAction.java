@@ -66,6 +66,16 @@ public class EbtSearchAction extends TopAction {
                 }
             }
         }
+	else if(action.isEmpty()){
+	    getEbtList();
+            back = ebtList.find();
+            if (!back.equals("")) {
+                addActionError(back);
+            }
+            else {
+                ebts = ebtList.getEbts();
+	    }
+	}
         return ret;
     }
     @StrutsParameter(depth = 1)

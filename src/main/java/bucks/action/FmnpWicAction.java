@@ -70,23 +70,6 @@ public class FmnpWicAction extends TopAction{
 		addActionMessage("Updated Successfully");
 	    }
 	}
-	else if(action.equals("Add")){ // adding a buck
-	    ret = SUCCESS;
-	    back = wic.doSelect();
-	    if(!back.equals("")){
-		addActionError(back);
-	    }
-	    else{
-		back = wic.handleAddingBuck();
-		if(!back.equals("")){
-		    addActionError(back);
-		}
-		else{
-		    addActionMessage("Added Successfully");
-		}
-	    }
-	    ret ="issue"; 			
-	}
 	else if(action.equals("Add Bucks")){ // when there is a balance
 	    ret = SUCCESS;			
 	    back = wic.doSelect();
@@ -94,7 +77,7 @@ public class FmnpWicAction extends TopAction{
 		addActionError(back);
 	    }
 	    ret="issue";
-	}										
+	}
 	else if(action.equals("Cancel")){
 	    ret = SUCCESS;
 	    back = wic.doCancel();
@@ -149,6 +132,7 @@ public class FmnpWicAction extends TopAction{
 		    addActionMessage("Added Successfully");
 		}
 	    }
+	    
 	}		
 	else if(!id.equals("")){
 	    populate();

@@ -149,6 +149,7 @@ public class FmnpSeniorAction extends TopAction{
 		    addActionMessage("Added Successfully");
 		}
 	    }
+	    ret="issue";
 	}		
 	else if(!id.equals("")){
 	    populate();

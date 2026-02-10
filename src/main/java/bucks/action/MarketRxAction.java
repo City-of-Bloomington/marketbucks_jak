@@ -100,6 +100,7 @@ public class MarketRxAction extends TopAction{
 	}										
 	else if(action.equals("Cancel")){
 	    ret = SUCCESS;
+	    getRx();
 	    back = rx.doCancel();
 	    if(!back.equals("")){
 		addActionError(back);

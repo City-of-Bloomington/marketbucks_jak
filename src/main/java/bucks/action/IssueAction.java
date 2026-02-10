@@ -160,6 +160,13 @@ public class IssueAction extends TopAction{
     public boolean hasBalance(){
 	return ebt.hasBalance();
     }
+    public String getBalance(){
+	return ebt.getBalance();
+    }
+    public String getTotal(){
+	return ebt.getTotal();
+    }
+	
     public boolean needMoreIssue(){
 	return ebt.needMoreIssue();
     }    

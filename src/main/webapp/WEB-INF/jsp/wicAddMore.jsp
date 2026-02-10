@@ -19,8 +19,8 @@
     </div>
 </s:elseif>
 <s:form action="wicAdd" method="post">    
-	<s:hidden name="wic.id" value="%{id}" />
-  <s:hidden name="wic.ticketNum" value="%{ticketNum}" />
+    <s:hidden name="wic.id" value="%{id}" />
+    <s:hidden name="wic.ticketNum" value="%{ticketNum}" />
   <p>*indicate a required field </p>
   <table border="0" width="90%">
       <caption>Issue FMNP WIC </caption>

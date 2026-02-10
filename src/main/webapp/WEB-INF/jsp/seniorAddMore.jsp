@@ -19,7 +19,7 @@
     </div>
 </s:elseif>
 <s:form action="seniorAdd" method="post">    
-  <s:hidden name="senior.id" value="%{senior.id}" />
+  <s:hidden name="senior.id" value="%{id}" />
   <s:hidden name="senior.ticketNum" value="%{senior.ticketNum}" />
   <p>*indicate a required field </p>
   <table border="0" width="90%">
