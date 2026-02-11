@@ -87,7 +87,7 @@
 	  </s:else>
 	  <tr>
 	      <td>&nbsp;</td>
-	      <td><a href="<s:property value='#application.url' />seniorAdd.action?id=<s:property value='id' />">Edit/Cancel Transaction <s:property value="id" /></a>.
+	      <td><a href="<s:property value='#application.url' />seniorAdd.action?id=<s:property value='id' />&action=Cancel">Cancel Transaction <s:property value="id" /></a>.
 	      </td>
 	  </tr>		  
       </s:if>

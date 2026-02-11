@@ -42,8 +42,8 @@ public class FmnpWicAction extends TopAction{
 	    }catch(Exception ex){
 		System.err.println(ex);
 	    }	
-	}		
-	else if(action.equals("Next")){
+	}
+	if(action.equals("Next")){
 	    ret = SUCCESS;
 	    wic.setUser_id(user.getId());
 	    wic.setWic_max_amount(wic_max_amount);
@@ -80,9 +80,11 @@ public class FmnpWicAction extends TopAction{
 	}
 	else if(action.equals("Cancel")){
 	    ret = SUCCESS;
+	    getWic();
 	    back = wic.doCancel();
 	    if(!back.equals("")){
 		addActionError(back);
+		ret = "issue";
 	    }
 	    else{
 		List<Buck> bucks = wic.getBucks();

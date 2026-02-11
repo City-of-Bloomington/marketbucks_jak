@@ -43,7 +43,7 @@ public class FmnpSeniorAction extends TopAction{
 		System.err.println(ex);
 	    }	
 	}		
-	else if(action.equals("Next")){
+	if(action.equals("Next")){
 	    ret = SUCCESS;
 	    senior.setUser_id(user.getId());
 	    senior.setSenior_max_amount(senior_max_amount);
@@ -97,6 +97,7 @@ public class FmnpSeniorAction extends TopAction{
 	}										
 	else if(action.equals("Cancel")){
 	    ret = SUCCESS;
+	    getSenior();
 	    back = senior.doCancel();
 	    if(!back.equals("")){
 		addActionError(back);

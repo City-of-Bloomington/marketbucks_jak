@@ -92,7 +92,7 @@
 	  <tr>
 	      <th>&nbsp;</th>
 	      <td>
-		  <a href="<s:property value='#application.url' />wicAdd.action?id=<s:property value='id' />">To Edit/Cancel this transaction</a>.
+		  <a href="<s:property value='#application.url' />wicAdd.action?id=<s:property value='id' />&action=Cancel">Cancel this transaction</a>.
 	      </td>
 	  </tr>		  
       </s:if>
