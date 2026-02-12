@@ -49,7 +49,7 @@
 	  <td align="left"><s:textfield name="ebt.card_last_4" maxlength="4" size="4" required="true" id="cust_num" value="%{card_last_4}" /></td>
       </tr>
       <tr>
-	  <th><label for="inc_dbl">Include Double? </label></th>
+	  <th><b>Include Double? </b></th>
 	  <td align="left">
 	      <s:radio name="ebt.includeDouble"
 		       value="%{includeDouble}"

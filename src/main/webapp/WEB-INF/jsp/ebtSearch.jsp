@@ -36,11 +36,11 @@
 	    <td align="left"><s:textfield name="ebtList.amount" value="%{ebtList.amount}" size="4" maxlength="4" id="ebt_amnt" /> </td>
 	</tr>
 	<tr>
-	    <th><label for="status">Status:</label></th>
+	    <th><b>Status:</b></th>
 	    <td align="left"><s:radio name="ebtList.cancelled" value="%{ebtList.cancelled}" list="#{'-1':'All','n':'Active','y':'Cancelled'}" id="status" /> </td>
 	</tr>
 	<tr>
-	    <th><label for="dispute">Dispute Resolution?</label></th>
+	    <th><b>Dispute Resolution?</label></b>
 	    <td align="left"><s:radio name="ebtList.dispute_resolution" value="%{ebtList.dispute_resolution}" list="#{'-1':'All','n':'No','y':'Yes'}" id="dispute" /> </td>
 	</tr>					
 	<tr>

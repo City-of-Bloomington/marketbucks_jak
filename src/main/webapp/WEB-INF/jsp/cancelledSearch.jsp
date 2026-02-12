@@ -35,8 +35,7 @@
 			  list="#{'-1':'ID','b.date_time':'Date & Time'}" headerKey="-1" headerValue="ID" /></td>
 	</tr>  
 	<tr>
-	    <td>&nbsp;</td>	    
-	    <td>
+	    <td colspan="2" align="center">
 		<s:submit name="action" type="button" value="Submit" />
 	    </td>
 	</tr>

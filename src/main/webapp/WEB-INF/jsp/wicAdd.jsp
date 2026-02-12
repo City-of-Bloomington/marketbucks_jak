@@ -48,7 +48,7 @@
 	  </tr>
       </s:if>
       <tr>
-	  <th><label for="div5">Amount:</label></th>
+	  <th><label for="div3">Amount:</label></th>
 	  <td align="left">$<s:textfield name="wic.amount" maxlength="4" size="4" value="%{amount}" id="div3" cssClass="need_focus" readonly="true" onchange="checkDivBy3(this)" />.00 (Must be multiple of $3)</td>
       </tr>
       <s:if test="!hasId()">

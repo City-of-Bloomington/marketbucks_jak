@@ -65,7 +65,7 @@
 		</td>
 	    </tr>
 	    <tr>
-		<th><label for="ptype">Allowed Pay Type:</label></th>
+		<th><b>Allowed Pay Type:</b></th>
 		<td align="left" align="left"><s:radio name="vendor.payType" value="%{payType}" list="#{'-1':'None','GC':'GC only','MB:GC':'MB and GC'}" i="ptype" /></td>
 	    </tr>
 	    <tr>

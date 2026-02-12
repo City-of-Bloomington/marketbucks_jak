@@ -24,8 +24,7 @@
   
   <p>*indicate a required field</p>
   <table border="0" width="90%"><caption>Redemption</caption>
-      <tr><th>Select a vendor from the list or enter vendor number </th>
-	  <td>&nbsp;</td>
+      <tr><th colspan="2">Select a vendor from the list or enter vendor number </th>
       </tr>
       <tr>
 	  <th><label for="ven_id">Vendor:</label></th>

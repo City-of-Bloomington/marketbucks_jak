@@ -38,11 +38,11 @@
 	    <td align="left"><s:textfield name="snapList.amount" value="%{snapList.amount}" size="4" maxlength="4" id="amnt" /> </td>
 	</tr>
 	<tr>
-	    <th><label for="dbl">Double Request:</label></th>
+	    <th><b>Double Request:</b></th>
 	    <td align="left"><s:radio name="snapList.doubleRequest" value="%{snapList.doubleRequest}" list="#{'-1':'All','Included':'Included','Not Included':'Not Included'}" id="dbl" /> </td>
 	</tr>
 	<tr>
-	    <th><label for="status">Status:</label></th>
+	    <th><b>Status:</b></th>
 	    <td align="left"><s:radio name="snapList.status" value="%{snapList.status}" list="#{'-1':'All','Active':'Active','Cancelled':'Cancelled'}" id="status" /> </td>
 	</tr>		
 	<tr>

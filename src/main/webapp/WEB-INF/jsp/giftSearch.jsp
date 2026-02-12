@@ -28,7 +28,7 @@
 	  <td align="left"><s:textfield name="giftList.buck_id" value="%{buck_id}" size="8" id="gc_id" /></td>
       </tr>
       <tr>
-	  <th><label for="type">Payment Type:</label></th>
+	  <th><b>Payment Type:</b></th>
 	  <td align="left"><s:radio name="giftList.pay_type" value="%{pay_type}" list="{'All','Cash','Check','Money Order','Credit Card','Honorary'}" id="type" /></td>
       </tr>	  		  
       <tr>
@@ -40,11 +40,11 @@
 	  <td align="left"><s:textfield name="giftList.amount" value="%{amount}" size="4" maxlength="4" id="amount" /> </td>
       </tr>
       <tr>
-	  <th><label for="status">Status:</label></th>
+	  <th><b>Status:</b></th>
 	  <td align="left"><s:radio name="giftList.cancelled" value="%{cancelled}" list="#{'-1':'All','n':'Active','y':'Cancelled'}" id="status" /> </td>
       </tr>
       <tr>
-	  <th><label for="dispute">Dispute Resolution?</label></th>
+	  <th><b>Dispute Resolution?</b></th>
 	  <td align="left"><s:radio name="giftList.dispute_resolution" value="%{dispute_resolution}" list="#{'-1':'All','y':'Yes','n':'No'}" id="dispute" /> </td>
       </tr>							
       <tr>

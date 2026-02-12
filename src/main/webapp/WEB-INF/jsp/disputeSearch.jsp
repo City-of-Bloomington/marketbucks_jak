@@ -16,11 +16,11 @@
   </s:elseif>
   <table width="90%"><caption>Search Options</caption>
       <tr>
-	  <th width="20%"><label for="status">Status:</label></th>
+	  <th width="20%"><b>Status:</b></th>
 	  <td align="left"><s:radio name="disputeList.status" value="%{status}" list="#{'-1':'All','Waiting':'Waiting','Rejected':'Rejected','Resolved':'Resolved'}" id="status" /></td>
       </tr>
       <tr>
-	  <th><label for="reason">Reason:</label></th>
+	  <th><b>Reason:</b></th>
 	  <td align="left"><s:radio name="disputeList.reason" value="%{reason}" list="#{'-1':'All','Expired':'Expired','Not Exist':'Do not Exist','Not Issued':'Not Issued','Redeemed':'Already Redeemed'}" id="reason" /></td>
       </tr>		
       <tr>
@@ -33,8 +33,7 @@
 	      <s:textfield name="disputeList.date_to" maxlength="10" size="10" value="%{date_to}" cssClass="date" id="date_to" /></td>
       </tr>
       <tr>
-	  <td>&nbsp;</td>	  
-	  <td valign="top">
+	  <td colspan="2" align="center">
 	      <s:submit name="action" type="button" value="Find" />
 	  </td>
 

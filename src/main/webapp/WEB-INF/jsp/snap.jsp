@@ -40,7 +40,7 @@
 	  <td align=left">$<s:textfield name="snap.snapAmount" maxlength="8" size="8" required="true" value="%{snapAmount}" id="amount" cssClass="need_focus" />(xx.xx format only)</td>
       </tr>
       <tr>
-	  <th><label for="dbl">Include Double:</label></th>
+	  <th><b>Include Double:</b></th>
 	  <td align="left">
 	      <s:radio name="snap.includeDouble"
 		       value="%{includeDouble}"

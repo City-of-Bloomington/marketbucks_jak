@@ -23,7 +23,7 @@
 	<tr><th><label for="list_id">MB or GC ID:</label></th>
 	    <td align="left"><s:textfield name="buckList.id" value="%{id}" size="8" id="list_id" /></td>
 	</tr>
-	<tr><th><label for="stats">Status:</label></th>
+	<tr><th><b>Status:</b></th>
 	    <td align="left"><s:radio name="buckList.type" value="%{type}" list="#{'-1':'All','issued':'Issued','unissued':'Unissued'}" id="status" /></td>
 	</tr>					
 	<tr><th><label for="batch_id">Batch ID:</label></th>

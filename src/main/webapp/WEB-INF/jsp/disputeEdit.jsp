@@ -42,9 +42,9 @@
 		<td align="left"><s:property value="buck_id" /></td>
 	    </tr>
 	    <s:if test="canEdit()">
-		<tr><td colspan="2"><label for="notes"> Invoice Notes:</label> (the text entered here will show on vendor&#39;s invoice)</td></tr>
+		<tr><td colspan="2"><b>Note: that the text entered here will show on vendor&#39;s invoice)</td></tr>
 		<tr>
-		    <th valign="top"><label></label></th>
+		    <th valign="top"><label for="notes">Invoice Notes</label></th>
 		    <td align="left"><s:textarea name="dispute.notes" value="%{notes}" rows="5" cols="70" id="notes" /></td>
 		</tr>
 	    </s:if>
@@ -67,8 +67,8 @@
 			    <input type="radio" name="dispute.status" value="Rejected" id="rejected" /><label for="rejected">Rejected</label>
 			</s:if>
 			<s:else>
-			    <input type="radio" name="dispute.status" value="Waiting" id="waiting" /><label for="waiting">Waiting</label>
-			    <input type="radio" name="dispute.status" value="Rejected" id="rejected" checked="true" /><label for="rejected">Rejected</label>
+			    <input type="radio" name="dispute.status" value="Waiting" id="waiting2" /><label for="waiting2">Waiting</label>
+			    <input type="radio" name="dispute.status" value="Rejected" id="rejected2" checked="true" /><label for="rejected2">Rejected</label>
 			</s:else>
 		    </s:else>
 		</td>

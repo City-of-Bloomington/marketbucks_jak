@@ -30,7 +30,7 @@
 	<caption>User </caption>
 	<s:if test="id != ''">
 	    <tr>
-		<th><label>User ID:</label></th>
+		<th><b>User ID:</b></th>
 		<td align="left">
 		    <s:property value="%{id}" />
 		</td>
@@ -47,7 +47,7 @@
 	    <td align="left"><s:textfield name="person.fullName" maxlength="30" size="50" required="true" value="%{fullName}" id="fname" /> ** </td>
 	</tr>
 	<tr>
-	    <th><label for="role">Role:</label></th>
+	    <th><b>Role:</b></th>
 	    <td align="left"><s:radio name="person.role" value="%{role}" list="#{'-1':'View only','Edit':'Edit Only','Edit:Delete':'Edit and Delete','Admin:Edit:Delete':'All (admin)'}" id="role" /></td>
 	</tr>
 	<tr>

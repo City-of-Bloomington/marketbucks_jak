@@ -34,11 +34,11 @@
 	    <td align="left"><s:textfield name="fmnp.amount" value="%{amount}" size="4" maxlength="4" id="amount" /> </td>
 	</tr>
 	<tr>
-	    <th><label for="type">FMNP Type:</label></th>
+	    <th><b>FMNP Type:</b></th>
 	    <td align="left"><s:radio name="fmnp.type" value="%{type}" list="#{'-1':'All','wic':'WIC','senior':'Senior'}" id="type" /> </td>
 	</tr>
 	<tr>
-	    <th><label for="status">Status:</label></th>
+	    <th><b>Status:</b></th>
 	    <td align="left"><s:radio name="fmnp.status" value="%{status}" list="#{'-1':'All','Active':'Active','Cancelled':'Cancelled'}" id="status" /> </td>
 	</tr>
 	<tr>

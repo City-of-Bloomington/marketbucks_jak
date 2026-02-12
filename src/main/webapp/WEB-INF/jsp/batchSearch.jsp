@@ -25,11 +25,11 @@
 	    <td align="left"><s:textfield name="batchList.seq_id" value="%{seq_id}" size="8" id="mb_id" /></td>
 	</tr>
 	<tr>
-	    <th><label for="status">Status:</label></th>
+	    <th><b>Status:</b></th>
 	    <td align="left"><s:radio name="batchList.status" value="%{status}" list="#{'-1':'All','Printed':'Printed','Waiting':'Waiting'}" headerKey="-1" headerValue="All" id="status" /> </td>
 	</tr>		  
 	<tr>
-	    <th><label for="type">Type:</label></th>
+	    <th><b>Type:</b></th>
 	    <td align="left"><s:radio name="batchList.type_id" value="%{type_id}" list="buck_types" listKey="id" listValue="name" headerKey="-1" headerValue="All" id="type" /> </td>
 	</tr>
 	<tr>

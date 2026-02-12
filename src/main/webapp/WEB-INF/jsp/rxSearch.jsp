@@ -36,11 +36,11 @@
 	    <td align="left"><s:textfield name="rxList.amount" value="%{amount}" size="4" maxlength="4" id="amount" /> </td>
 	</tr>
 	<tr>
-	    <th><label for="status">Status:</label></th>
+	    <th><b>Status:</b></th>
 	    <td align="left"><s:radio name="rxList.cancelled" value="%{cancelled}" list="#{'-1':'All','n':'Active','y':'Cancelled'}" id="status" /> </td>
 	</tr>
 	<tr>
-	    <th><label for="disp">Dispute Resolution?</label></th>
+	    <th><b>Dispute Resolution?</b></th>
 	    <td align="left"><s:radio name="rxList.dispute_resolution" value="%{dispute_resolution}" list="#{'-1':'All','n':'No','y':'Yes'}" id="disp" /> </td>
 	</tr>					
 	<tr>

@@ -32,7 +32,7 @@
   <table width="90%" border="0"><caption> Configuration</caption>
       <s:if test="id != ''">
 	  <tr>
-	      <th><label for="id">ID:</label></th>
+	      <th><b>ID:</b></th>
 	      <td align="left"><s:property value="id" /></td>
 	  </tr>
       </s:if>

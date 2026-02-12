@@ -39,7 +39,7 @@
 	    <td align="left"><s:textfield name="vendLst.name" maxlength="50" size="40" value="%{name}" id="name" /> </td>
 	</tr>
 	<tr>
-	    <th><label for="status">Active Status:</label></th> 
+	    <th><b>Active Status:</b></th> 
 	    <td align="left" align="left"><s:radio name="vendLst.activeStatus" value="%{activeStatus}" list="#{'-1':'All','y':'Active','n':'Inactive'}"  id="status" /></td>
 	</tr>
 	<tr>
