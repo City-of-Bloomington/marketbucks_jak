@@ -40,12 +40,16 @@
 	  <td align=left">$<s:textfield name="snap.snapAmount" maxlength="8" size="8" required="true" value="%{snapAmount}" id="amount" cssClass="need_focus" />(xx.xx format only)</td>
       </tr>
       <tr>
-	  <th><b>Include Double:</b></th>
-	  <td align="left">
-	      <s:radio name="snap.includeDouble"
-		       value="%{includeDouble}"
-		       list="#{'y':'Yes','n':'No'}" listKey="key"
-		       listValue="value" />	
+	  <td>&nbsp;</td>
+	  <td>
+	      <fieldset>
+		  <legend>Include Double:</legend>
+		  
+		  <s:radio name="snap.includeDouble"
+			   value="%{includeDouble}"
+			   list="#{'y':'Yes','n':'No'}" listKey="key"
+			   listValue="value" />
+	      </fieldset>
 	  </td>
       </tr>
       <tr>	      

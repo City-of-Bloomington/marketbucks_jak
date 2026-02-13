@@ -39,8 +39,13 @@
 	  <td align="left">$<s:textfield name="gift.amount" maxlength="4" size="4" required="true" value="%{amount}" id="div5" cssClass="need_focus" onchange="checkDivBy5(this)" />.00 (Must be divisible by $5)</td>
       </tr>
       <tr>
-	  <th><b>* Payment Type:</b></th>
-	  <td align="left"><s:radio name="gift.pay_type" required="true" value="%{pay_type}" list="{'Cash','Check','Money Order','Credit Card','Honorary'}" id="type" /></td>
+	  <td>&nbsp;</td>
+	  <td>
+	      <fieldset>
+		  <legend>* Payment Type:</legend>
+		  <s:radio name="gift.pay_type" required="true" value="%{pay_type}" list="{'Cash','Check','Money Order','Credit Card','Honorary'}" headerKey="Cash" headerValue="Cash" />
+	      </fieldset>
+	  </td>
       </tr>	  
       <tr>
 	  <th><label for="check_no">Check #/RecTrac:</label></th>

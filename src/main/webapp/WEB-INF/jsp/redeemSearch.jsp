@@ -33,16 +33,31 @@
 	    <td align="left"><s:textfield name="vendorName" value="" size="30" maxlength="30" id="vendorName" /> </td>
 	</tr>
 	<tr>
-	    <th><label for="status">Status:</label></th>
-	    <td align="left"><s:radio name="redeemList.status" value="%{status}" list="#{'-1':'All','Open':'Open','Completed':'Finalized'}" headerKey="-1" headerValue="All" id="status" /> </td>
+	    <td>&nbsp;</td>
+	    <td>
+	      <fieldset>
+		  <legend>Status:</legend>
+		  <s:radio name="redeemList.status" value="%{status}" list="#{'-1':'All','Open':'Open','Completed':'Finalized'}" headerKey="-1" headerValue="All" />
+	      </fieldset>
+	    </td>
 	</tr>		  
 	<tr>
-	    <th><label for="type">Payment Type:</label></th>
-	    <td align="left"><s:radio name="redeemList.payType" value="%{payType}" list="#{'-1':'All','MB:GC':'MB & GC','GC':'GC Only'}" headerKey="-1" headerValue="All" id="type" /> </td>
+	    <td>&nbsp;</td>
+	    <td>
+		<fieldset>	    
+		    <legend>Payment Type:</legend>
+		    <s:radio name="redeemList.payType" value="%{payType}" list="#{'-1':'All','MB:GC':'MB & GC','GC':'GC Only'}" headerKey="-1" headerValue="All" />
+		</fieldset>
+	    </td>
 	</tr>
 	<tr>
-	    <th><label for="exp">Redemption Export:</label></th>
-	    <td align="left"><s:radio name="redeemList.export" value="%{export}" list="#{'-1':'All','exported':'Exported Only','notExported':'Not Exported Yet'}" headerKey="-1" headerValue="All" id="exp" /> </td>
+	    <td>&nbsp;</td>
+	    <td>
+		<fieldset>	    
+		    <legend>Redemption Export:</legend>
+		    <s:radio name="redeemList.export" value="%{export}" list="#{'-1':'All','exported':'Exported Only','notExported':'Not Exported Yet'}" headerKey="-1" headerValue="All" />
+		</fieldset>
+	    </td>
 	</tr>		 
 	<tr>
 	    <th><b>Date:</b></th>

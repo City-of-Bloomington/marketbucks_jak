@@ -28,8 +28,13 @@
 	  <td align="left"><s:textfield name="giftList.buck_id" value="%{buck_id}" size="8" id="gc_id" /></td>
       </tr>
       <tr>
-	  <th><b>Payment Type:</b></th>
-	  <td align="left"><s:radio name="giftList.pay_type" value="%{pay_type}" list="{'All','Cash','Check','Money Order','Credit Card','Honorary'}" id="type" /></td>
+	  <td>&nbsp;</td>
+	  <td>
+	      <fieldset>
+		  <legend>Payment Type:</legend>
+		  <s:radio name="giftList.pay_type" value="%{pay_type}" list="{'All','Cash','Check','Money Order','Credit Card','Honorary'}" id="type" />
+	      </fieldset>
+	  </td>
       </tr>	  		  
       <tr>
 	  <th><label for="check_no">Check #/RecTrac #:</label></th>
@@ -40,12 +45,22 @@
 	  <td align="left"><s:textfield name="giftList.amount" value="%{amount}" size="4" maxlength="4" id="amount" /> </td>
       </tr>
       <tr>
-	  <th><b>Status:</b></th>
-	  <td align="left"><s:radio name="giftList.cancelled" value="%{cancelled}" list="#{'-1':'All','n':'Active','y':'Cancelled'}" id="status" /> </td>
+	  <td>&nbsp;</td>
+	  <td>
+	      <fieldset>	  
+		  <legend>Status:</legend>
+		  <s:radio name="giftList.cancelled" value="%{cancelled}" list="#{'-1':'All','n':'Active','y':'Cancelled'}" id="status" />
+	      </fieldset>
+	  </td>
       </tr>
       <tr>
-	  <th><b>Dispute Resolution?</b></th>
-	  <td align="left"><s:radio name="giftList.dispute_resolution" value="%{dispute_resolution}" list="#{'-1':'All','y':'Yes','n':'No'}" id="dispute" /> </td>
+	  <td>&nbsp;</td>
+	  <td>
+	      <fieldset>
+		  <legend>Dispute Resolution?</legend>
+		  <s:radio name="giftList.dispute_resolution" value="%{dispute_resolution}" list="#{'-1':'All','y':'Yes','n':'No'}" id="dispute" />
+	      </fieldset>
+	  </td>
       </tr>							
       <tr>
 	  <th><b>Date:</b></th>

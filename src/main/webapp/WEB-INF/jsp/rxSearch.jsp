@@ -36,12 +36,22 @@
 	    <td align="left"><s:textfield name="rxList.amount" value="%{amount}" size="4" maxlength="4" id="amount" /> </td>
 	</tr>
 	<tr>
-	    <th><b>Status:</b></th>
-	    <td align="left"><s:radio name="rxList.cancelled" value="%{cancelled}" list="#{'-1':'All','n':'Active','y':'Cancelled'}" id="status" /> </td>
+	    <td>&nbsp;</td>
+	    <td>
+		<fieldset>
+		    <legend>Status:</legend>
+		    <s:radio name="rxList.cancelled" value="%{cancelled}" list="#{'-1':'All','n':'Active','y':'Cancelled'}" id="status" />
+		</fieldset>
+	    </td>
 	</tr>
 	<tr>
-	    <th><b>Dispute Resolution?</b></th>
-	    <td align="left"><s:radio name="rxList.dispute_resolution" value="%{dispute_resolution}" list="#{'-1':'All','n':'No','y':'Yes'}" id="disp" /> </td>
+	    <td>&nbsp;</td>
+	    <td>
+		<fieldset>
+		    <legend>Dispute Resolution?</legend>
+		    <s:radio name="rxList.dispute_resolution" value="%{dispute_resolution}" list="#{'-1':'All','n':'No','y':'Yes'}" id="disp" />
+		</fieldset>
+	    </td>
 	</tr>					
 	<tr>
 	    <th><b>Date:</b></th>

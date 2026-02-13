@@ -47,8 +47,13 @@
 	    <td align="left"><s:textfield name="person.fullName" maxlength="30" size="50" required="true" value="%{fullName}" id="fname" /> ** </td>
 	</tr>
 	<tr>
-	    <th><b>Role:</b></th>
-	    <td align="left"><s:radio name="person.role" value="%{role}" list="#{'-1':'View only','Edit':'Edit Only','Edit:Delete':'Edit and Delete','Admin:Edit:Delete':'All (admin)'}" id="role" /></td>
+	    <td>&nbsp;</td>
+	    <td>
+		<fieldset>
+		    <legend>Role:</legend>
+		    <s:radio name="person.role" value="%{role}" list="#{'-1':'View only','Edit':'Edit Only','Edit:Delete':'Edit and Delete','Admin:Edit:Delete':'All (admin)'}" id="role" />
+		</fieldset>
+	    </td>
 	</tr>
 	<tr>
 	    <th><label for="inactive">Inactive:</label></th>

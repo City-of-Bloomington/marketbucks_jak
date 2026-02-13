@@ -49,12 +49,14 @@
 	  <td align="left"><s:textfield name="ebt.card_last_4" maxlength="4" size="4" required="true" id="cust_num" value="%{card_last_4}" /></td>
       </tr>
       <tr>
-	  <th><b>Include Double? </b></th>
-	  <td align="left">
+	  <td>&nbsp;</td>
+	  <td><fieldset>
+	      <legend>Include Double? </legend>
 	      <s:radio name="ebt.includeDouble"
 		       value="%{includeDouble}"
 		       list="#{'y':'Yes','n':'No'}" listKey="key"
 		       listValue="value" />
+	  </fieldset>
 	  </td>
       </tr>
       <s:if test="ebt.isCancelled()">

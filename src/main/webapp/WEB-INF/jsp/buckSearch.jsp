@@ -23,9 +23,16 @@
 	<tr><th><label for="list_id">MB or GC ID:</label></th>
 	    <td align="left"><s:textfield name="buckList.id" value="%{id}" size="8" id="list_id" /></td>
 	</tr>
-	<tr><th><b>Status:</b></th>
-	    <td align="left"><s:radio name="buckList.type" value="%{type}" list="#{'-1':'All','issued':'Issued','unissued':'Unissued'}" id="status" /></td>
-	</tr>					
+	<tr>
+	    <td>&nbsp;</td>
+	    <td>
+		<fieldset>
+		    <legend>Status</legend>
+		    <s:radio name="buckList.type" value="%{type}" list="#{'-1':'All','issued':'Issued','unissued':'Unissued'}" headerKey="-1" headerValue="All"  />
+		</fieldset>		
+	    </td>
+	</tr>
+
 	<tr><th><label for="batch_id">Batch ID:</label></th>
 	    <td align="left"><s:textfield name="buckList.batch_id" value="%{batch_id}" size="8" id="batch_id" /></td>
 	</tr>

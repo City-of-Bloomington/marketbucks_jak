@@ -65,8 +65,13 @@
 		</td>
 	    </tr>
 	    <tr>
-		<th><b>Allowed Pay Type:</b></th>
-		<td align="left" align="left"><s:radio name="vendor.payType" value="%{payType}" list="#{'-1':'None','GC':'GC only','MB:GC':'MB and GC'}" i="ptype" /></td>
+		<td>&nbsp;</td>
+		<td>
+		    <fieldset>
+			<legend>Allowed Pay Type:</legend>
+			<s:radio name="vendor.payType" value="%{payType}" list="#{'-1':'None','GC':'GC only','MB:GC':'MB and GC'}" i="ptype" />
+		    </fieldset>
+		</td>
 	    </tr>
 	    <tr>
 		<td>&nbsp;</td>

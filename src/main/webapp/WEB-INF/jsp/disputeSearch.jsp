@@ -16,12 +16,22 @@
   </s:elseif>
   <table width="90%"><caption>Search Options</caption>
       <tr>
-	  <th width="20%"><b>Status:</b></th>
-	  <td align="left"><s:radio name="disputeList.status" value="%{status}" list="#{'-1':'All','Waiting':'Waiting','Rejected':'Rejected','Resolved':'Resolved'}" id="status" /></td>
+	  <td>&nbsp;</td>
+	    <td>
+		<fieldset>
+		    <legend>Status:</legend>
+		    <s:radio name="disputeList.status" value="%{status}" list="#{'-1':'All','Waiting':'Waiting','Rejected':'Rejected','Resolved':'Resolved'}" headerKey="-1" headerValue="All" />
+		</fieldset>
+	    </td>
       </tr>
       <tr>
-	  <th><b>Reason:</b></th>
-	  <td align="left"><s:radio name="disputeList.reason" value="%{reason}" list="#{'-1':'All','Expired':'Expired','Not Exist':'Do not Exist','Not Issued':'Not Issued','Redeemed':'Already Redeemed'}" id="reason" /></td>
+	  <td>&nbsp;</td>
+	    <td>
+		<fieldset>
+		    <legend>Reason:</legend>
+		    <s:radio name="disputeList.reason" value="%{reason}" list="#{'-1':'All','Expired':'Expired','Not Exist':'Do not Exist','Not Issued':'Not Issued','Redeemed':'Already Redeemed'}" headerKey="-1" headerValue="All" />
+		</fieldset>
+	    </td>
       </tr>		
       <tr>
 	  <th><label for="redeem_id">Redemption ID:</label></th>

@@ -244,11 +244,11 @@ public class BuckList implements java.io.Serializable{
 	    }
 	    if(type.equals("unissued")){
 		if(!qw.equals("")) qw += " and ";
-		qw += " b.id not in (select buck_id from ebt_bucks union select buck_id from gift_bucks) ";
+		qw += " b.expire_date is null ";
 	    }
 	    else if(type.equals("issued")){
 		if(!qw.equals("")) qw += " and ";
-		qw += " b.id in (select buck_id from ebt_bucks union select buck_id from gift_bucks) ";
+		qw += " b.expire_date is not null ";
 	    }
 	    if(!which_date.equals("")){
 		if(!date_from.equals("")){

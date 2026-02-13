@@ -26,11 +26,11 @@
 	</tr>
 	<tr>
 	    <th><b>Status:</b></th>
-	    <td align="left"><s:radio name="batchList.status" value="%{status}" list="#{'-1':'All','Printed':'Printed','Waiting':'Waiting'}" headerKey="-1" headerValue="All" id="status" /> </td>
+	    <td align="left"><s:radio name="batchList.status" value="%{status}" list="#{'-1':'All','Printed':'Printed','Waiting':'Waiting'}" headerKey="-1" headerValue="All"  /> </td>
 	</tr>		  
 	<tr>
 	    <th><b>Type:</b></th>
-	    <td align="left"><s:radio name="batchList.type_id" value="%{type_id}" list="buck_types" listKey="id" listValue="name" headerKey="-1" headerValue="All" id="type" /> </td>
+	    <td align="left"><s:radio name="batchList.type_id" value="%{type_id}" list="buck_types" listKey="id" listValue="name" headerKey="-1" headerValue="All"  /> </td>
 	</tr>
 	<tr>
 	    <th><b>Date:</b></th>

@@ -38,8 +38,13 @@
 	    <td align="left"><s:textfield name="snapList.amount" value="%{snapList.amount}" size="4" maxlength="4" id="amnt" /> </td>
 	</tr>
 	<tr>
-	    <th><b>Double Request:</b></th>
-	    <td align="left"><s:radio name="snapList.doubleRequest" value="%{snapList.doubleRequest}" list="#{'-1':'All','Included':'Included','Not Included':'Not Included'}" id="dbl" /> </td>
+	    <td>&nbsp;</td>
+	    <td>
+		<fieldset>
+		    <legend>Double Request:</legend>
+		    <s:radio name="snapList.doubleRequest" value="%{snapList.doubleRequest}" list="#{'-1':'All','Included':'Included','Not Included':'Not Included'}"  />
+		</fieldset>
+	    </td>
 	</tr>
 	<tr>
 	    <th><b>Status:</b></th>

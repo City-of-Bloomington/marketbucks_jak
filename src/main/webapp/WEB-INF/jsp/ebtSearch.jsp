@@ -1,3 +1,4 @@
+
 <%@  include file="header.jsp" %>
 <%@ page session="false" %>
 <!--  
@@ -35,13 +36,23 @@
 	    <th><label for="ebt_amnt">EBT Amount ($):</label></th>
 	    <td align="left"><s:textfield name="ebtList.amount" value="%{ebtList.amount}" size="4" maxlength="4" id="ebt_amnt" /> </td>
 	</tr>
-	<tr>
-	    <th><b>Status:</b></th>
-	    <td align="left"><s:radio name="ebtList.cancelled" value="%{ebtList.cancelled}" list="#{'-1':'All','n':'Active','y':'Cancelled'}" id="status" /> </td>
+	<tr><td>&nbsp;</td>
+	    <td>
+		<fieldset>
+		    <legend>Status:</legend>
+		    <s:radio name="ebtList.cancelled" value="%{ebtList.cancelled}" list="#{'-1':'All','n':'Active','y':'Cancelled'}" id="status" />
+		</fieldset>
+	    </td>
 	</tr>
 	<tr>
-	    <th><b>Dispute Resolution?</label></b>
-	    <td align="left"><s:radio name="ebtList.dispute_resolution" value="%{ebtList.dispute_resolution}" list="#{'-1':'All','n':'No','y':'Yes'}" id="dispute" /> </td>
+	    <td>&nbsp;</td>
+	    <td>
+		<fieldset>
+		    <legend>Dispute/Resolution?</legend>
+		    
+		    <s:radio name="ebtList.dispute_resolution" value="%{ebtList.dispute_resolution}" list="#{'-1':'All','n':'No','y':'Yes'}" id="dispute" />
+		</fieldset>
+	    </td>
 	</tr>					
 	<tr>
 	    <th><b>Date:</b></th>
