@@ -21,6 +21,7 @@
 <ul>
     <li><a href="<s:property value='#application.url'/>buckConf.action">Configuration</a></li>
     <li><a href="<s:property value='#application.url'/>batchStart.action">Generate & Print</a></li>
+    <li><a href="<s:property value='#application.url'/>AuditSheet.do?recentOnly=y">Printable Audit Sheet</a></li>
     <li><a href="<s:property value='#application.url'/>cancelledSearch.action">Voided MB/GC</a></li>
     <li><a href="<s:property value='#application.url'/>mailNotification.action">Inventory Mail Notifications</a></li>				
     <li><a href="<s:property value='#application.url'/>exportStart.action">Exports</a></li>

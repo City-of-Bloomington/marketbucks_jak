@@ -63,9 +63,20 @@ public class RedeemList implements java.io.Serializable{
 	if(val != null)
 	    which_date = val;
     }
-    public void setDate_from(String val){
+    public void setRecentOnly(String val){
 	if(val != null)
-	    date_from = val;
+	    date_from = Helper.getOneWeekBeforeDate();
+    }    
+    public void setDate_from(String val){
+	if(val != null){
+	    if(val.trim().startsWith("recent")){ // recent batch 
+		// last week
+	       date_from = Helper.getOneWeekBeforeDate();
+	    }
+	    else{
+		date_from = val;
+	    }
+	}
     }
     public void setDate_to(String val){
 	if(val != null){
@@ -163,7 +174,6 @@ public class RedeemList implements java.io.Serializable{
 	}
 	else {
 	    if(!buck_id.equals("")){
-		qf += " left join redeem_bucks rb on r.id=rb.redeem_id ";
 		if(!qw.equals("")) qw += " and ";
 		qw += " rb.buck_id = ? ";
 	    }
@@ -172,7 +182,6 @@ public class RedeemList implements java.io.Serializable{
 		qw += " r.vendor_id = ? ";
 	    }
 	    else if(!vendor_num.isEmpty()){
-		qf += " left join vendors v on r.vendor_id=v.id ";
 		if(!qw.equals("")) qw += " and ";
 		qw += " v.vendor_num = ? ";
 		
@@ -218,6 +227,7 @@ public class RedeemList implements java.io.Serializable{
 	if(!limit.equals("")){
 	    qq += " limit "+limit;
 	}
+	System.err.println(qq);
 	logger.debug(qq);
 	try{
 	    con = Helper.getConnection();

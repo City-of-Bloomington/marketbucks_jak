@@ -76,7 +76,10 @@ public class AuditSheet extends TopServlet{
 	    }
 	    else if(name.equals("seq_id")){
 		bl.setSeq_id(value);
-	    }			
+	    }
+	    else if(name.equals("recentOnly")){
+		bl.setRecentOnly(value);
+	    }	    
 	    else if(name.equals("date_from")){
 		bl.setDate_from(value);
 	    }
@@ -98,7 +101,7 @@ public class AuditSheet extends TopServlet{
 	}
 	message = bl.find();
 	batches = bl.getBatches();
-	if(batches.size() == 0){
+	if(batches == null || batches.size() == 0){
 	    message = "No records found ";
 	}
 	if(message.equals("")){

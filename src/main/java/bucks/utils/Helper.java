@@ -588,6 +588,17 @@ public class Helper{
 	}
 	return ret;
     }
+    public final static String getOneWeekBeforeDate(){
+	String ret = "";
+	int yy = 0, mm = 0, dd = 0;	
+	Calendar cal = Calendar.getInstance();
+	cal.add(Calendar.DATE, -7);
+	mm = cal.get(Calendar.MONTH);
+	dd = cal.get(Calendar.DATE);
+	yy = cal.get(Calendar.YEAR);
+	ret = mm+"/"+dd+"/"+yy;
+    	return ret;
+    }    
     public final static String todaySubtract(String years, String months){
 	Calendar cal = Calendar.getInstance();
 	int yy = 0, mm = 0, dd = 0;

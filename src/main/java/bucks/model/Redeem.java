@@ -639,10 +639,7 @@ public class Redeem implements java.io.Serializable{
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	String msg = "";
-	System.err.println(" updating notes ");
 	String qq = "update redeems set notes = ? where id=?";
-	System.err.println(" notes "+notes);
-	System.err.println(" id "+id);	
 	logger.debug(qq);
 	try{
 	    con = Helper.getConnection();

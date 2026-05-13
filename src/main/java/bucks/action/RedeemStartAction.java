@@ -94,7 +94,6 @@ public class RedeemStartAction extends TopAction{
 	    }
 	    */
 	    if(redeem.isVendorAvailable()){
-		System.err.println(" saving redeem");
 		back = redeem.doSave();
 		if(!back.equals("")){
 		    addActionError(back);

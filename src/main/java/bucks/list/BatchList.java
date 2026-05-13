@@ -58,6 +58,11 @@ public class BatchList implements java.io.Serializable{
 	if(val != null)
 	    date_to = val;
     }
+    public void setRecentOnly(String val){
+	if(val != null){
+	    date_from = Helper.getOneWeekBeforeDate();
+	}
+    }
     public void setSortBy(String val){
 	if(val != null && !val.equals("-1"))
 	    sortBy = val;
