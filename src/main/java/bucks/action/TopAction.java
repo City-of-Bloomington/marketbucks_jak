@@ -29,6 +29,7 @@ import bucks.list.*;
 import bucks.utils.*;
 
 public abstract class TopAction extends ActionSupport implements ServletContextAware, ParametersAware, SessionAware{
+
     static final long serialVersionUID = 80L;
     boolean debug = false;
     String action="", url="", id="";
