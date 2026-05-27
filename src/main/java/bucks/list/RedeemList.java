@@ -227,7 +227,6 @@ public class RedeemList implements java.io.Serializable{
 	if(!limit.equals("")){
 	    qq += " limit "+limit;
 	}
-	System.err.println(qq);
 	logger.debug(qq);
 	try{
 	    con = Helper.getConnection();
