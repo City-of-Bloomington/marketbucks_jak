@@ -2986,14 +2986,16 @@ public class Report{
 		
 	Connection con = null;
 	PreparedStatement pstmt = null;
-	PreparedStatement pstmt2 = null;		
+	PreparedStatement pstmt2 = null;
+	PreparedStatement pstmt3 = null;
+	PreparedStatement pstmt4 = null;		
 	ResultSet rs = null;
 
 	String msg = "";
 	String which_date = "";
-	String qq = "", qw="", qg="", qq2="";
+	String qq = "", qw="", qg="", qq2="", qq3="", qq4="";
 	which_date="e.date_time ";
-	title = "Issued MB's and GC's Issued but not Redeemed ";
+	title = "Issued MB, GC, WIC, and FMNP but not Redeemed ";
 	setTitle();
 	rows = new ArrayList<ReportRow>();		
 	ReportRow one = new ReportRow(debug, 2);
@@ -3012,6 +3014,11 @@ public class Report{
 	//
 	qq2 = " select count(*),b.value val from bucks b join gift_bucks eb on b.id=eb.buck_id join gifts e on e.id=eb.gift_id ";
 	qw = " where b.voided is null and not b.id in (select rb.buck_id from redeem_bucks rb)  ";
+	// WIC
+	qq3 = " select count(*),b.value val from bucks b join senior_bucks sb on b.id=sb.buck_id join fmnp_seniors e on e.id=sb.senior_id ";
+	// FMNP
+	qq4 = " select count(*),b.value val from bucks b join wic_bucks wb on b.id=wb.buck_id join fmnp_wics e on e.id=wb.wic_id ";
+	
 	qg = " group by val ";
 	if(!year.equals("")){
 	    qw += " and ";
@@ -3030,11 +3037,17 @@ public class Report{
 	if(!qw.equals("")){
 	    qq += qw;
 	    qq2 += qw;
+	    qq3 += qw;
+	    qq4 += qw;	    
 	}
 	qq += qg;
 	qq2 += qg;
+	qq3 += qg;
+	qq4 += qg;	
 	logger.debug(qq);
 	logger.debug(qq2);
+	logger.debug(qq3);
+	logger.debug(qq4);	
 	try{
 	    con = Helper.getConnection();
 	    if(con == null){
@@ -3045,21 +3058,34 @@ public class Report{
 	    qq = qq2;
 						
 	    pstmt2 = con.prepareStatement(qq2);
+	    qq = qq2;
+						
+	    pstmt3 = con.prepareStatement(qq3);
+	    qq = qq4;
+						
+	    pstmt4 = con.prepareStatement(qq4);	    
 	    int jj=1;
+	    
 	    if(!year.equals("")){
 		pstmt.setString(jj, year);
 		pstmt2.setString(jj, year);
+		pstmt3.setString(jj, year);
+		pstmt4.setString(jj, year);
 		jj++;
 	    }
 	    else {
 		if(!date_from.equals("")){
 		    pstmt.setDate(jj, new java.sql.Date(dateFormat.parse(date_from).getTime()));
 		    pstmt2.setDate(jj, new java.sql.Date(dateFormat.parse(date_from).getTime()));
+		    pstmt3.setDate(jj, new java.sql.Date(dateFormat.parse(date_from).getTime()));
+		    pstmt4.setDate(jj, new java.sql.Date(dateFormat.parse(date_from).getTime()));
 		    jj++;
 		}
 		if(!date_to.equals("")){
 		    pstmt.setTimestamp(jj, new java.sql.Timestamp(dfTime.parse(date_to_2).getTime()));
 		    pstmt2.setTimestamp(jj, new java.sql.Timestamp(dfTime.parse(date_to_2).getTime()));
+		    pstmt3.setTimestamp(jj, new java.sql.Timestamp(dfTime.parse(date_to_2).getTime()));
+		    pstmt4.setTimestamp(jj, new java.sql.Timestamp(dfTime.parse(date_to_2).getTime()));		    
 		    jj++;
 		}
 	    }
@@ -3072,7 +3098,7 @@ public class Report{
 		total += count;								
 		totalSum += sum;
 		one = new ReportRow(debug, 3);
-		one.setRow(""+val,
+		one.setRow("MB "+val,
 			   ""+count,
 			   "$"+sum+".00"
 			   );
@@ -3087,12 +3113,42 @@ public class Report{
 		sum = val*count;
 		totalSum += sum;
 		one = new ReportRow(debug, 3);
-		one.setRow(""+val,
+		one.setRow("GC "+val,
 			   ""+count,
 			   "$"+sum+".00"
 			   );
 		rows.add(one);
 	    }
+	    rs = pstmt3.executeQuery();
+	    count = 0;sum=0;
+	    while(rs.next()){
+		int val = rs.getInt(2);
+		count = rs.getInt(1);
+		total += count;
+		sum = val*count;
+		totalSum += sum;
+		one = new ReportRow(debug, 3);
+		one.setRow("WIC "+val,
+			   ""+count,
+			   "$"+sum+".00"
+			   );
+		rows.add(one);
+	    }
+	    rs = pstmt4.executeQuery();
+	    count = 0;sum=0;
+	    while(rs.next()){
+		int val = rs.getInt(2);
+		count = rs.getInt(1);
+		total += count;
+		sum = val*count;
+		totalSum += sum;
+		one = new ReportRow(debug, 3);
+		one.setRow("FMNP"+val,
+			   ""+count,
+			   "$"+sum+".00"
+			   );
+		rows.add(one);
+	    }	    
 	    one = new ReportRow(debug, 3);
 	    one.setRow("Total",""+total,"$"+totalSum+".00");
 	    rows.add(one);
@@ -3103,7 +3159,7 @@ public class Report{
 	    logger.error(msg);
 	}
 	finally{
-	    Helper.databaseDisconnect(con, rs, pstmt, pstmt2);
+	    Helper.databaseDisconnect(con, rs, pstmt, pstmt2, pstmt3, pstmt4);
 	}		
 	return msg;
     }		
