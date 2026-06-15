@@ -208,6 +208,9 @@ public class FmnpWic implements java.io.Serializable{
 		
 	return cancelled;
     }
+    public String getBuck_id(){
+	return buck_id;
+    }
     public String getDispute_resolution(){
 	return dispute_resolution;
     }
@@ -307,10 +310,8 @@ public class FmnpWic implements java.io.Serializable{
 	    int excess = (total + buck.getValue_int()) - amount;
 	    if(excess <= 0){
 		msg = addNewBuck(buck);
-		System.err.println(" add new buck msg "+msg);
 		if(!msg.equals("")){
 		    bucks.remove(0);
-		    
 		}
 		else{
 		    bucks.add(0, buck); // make it first
@@ -369,7 +370,6 @@ public class FmnpWic implements java.io.Serializable{
     }
     public String addNewBuck(Buck buck){
 	String msg="";
-	System.err.println(" adding buck ");
 	//
 	// expire date on gifts is one year from issue date
 	//

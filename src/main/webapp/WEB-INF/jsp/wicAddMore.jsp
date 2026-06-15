@@ -20,32 +20,33 @@
 </s:elseif>
 <s:form action="wicAdd" method="post">    
     <s:hidden name="wic.id" value="%{id}" />
+    <s:hidden name="id" value="%{id}" />    
     <s:hidden name="wic.ticketNum" value="%{ticketNum}" />
   <p>*indicate a required field </p>
   <table border="0" width="90%">
       <caption>Issue FMNP WIC </caption>
       <tr>
-	  <th>Transaction ID: </td><td align="left"> <s:property value="%{id}" /></td>
+	  <th>Transaction ID: </th><td align="left"> <s:property value="%{id}" /></td>
       </tr>
       <tr>
-	  <th><b>Amount:</b></td>
+	  <th><b>Amount:</b></th>
 	  <td align="left">$<s:property value="%{amount}" />.00</td>
       </tr>
       <tr>
-	  <th><b>Ticket #:</b></td>
+	  <th><b>Ticket #:</b></th>
 	  <td align="left"><s:property value="%{ticketNum}" /></td>		  
       </tr>
       <tr>
-	  <th><b>Date & Time:</b></td>
+	  <th><b>Date & Time:</b></th>
 	  <td align="left"><s:property value="%{date_time}" /></td>		  
       </tr>
       <tr>
-	  <th><b>User:</b></td>
+	  <th><b>User:</b></th>
 	  <td align="left"><s:property value="%{wic_user}" /></td>
 	  
       </tr>
       <tr>
-	  <th><b>Total:</b></td>
+	  <th><b>Total:</b></th>
 	  <td align="left">$<s:property value="%{total}" />.00</td>
       </tr>
       
@@ -57,7 +58,7 @@
       </s:if>
       <s:if test="isDispute_resolution()">
 	  <tr>
-	      <th><b>Status:</b></td>
+	      <th><b>Status:</b></th>
 	      <td align="left">Dispute resolution</td>
 	  </tr>
       </s:if>				
@@ -90,7 +91,7 @@
 	      </tr>
 	  </s:else>
 	  <tr>
-	      <th>&nbsp;</th>
+	      <td>&nbsp;</td>
 	      <td>
 		  <a href="<s:property value='#application.url' />wicAdd.action?id=<s:property value='id' />&action=Cancel">Cancel this transaction</a>.
 	      </td>

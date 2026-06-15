@@ -13,7 +13,7 @@
   </s:if>
   <s:else>
       <h1>Edit FMNP WIC Transaction</h1>
-      <s:hidden name="wic.id" value="%{wic.id}" />
+      <s:hidden name="wic.id" value="%{id}" />
       <s:hidden name="wic.wic_max_amount" value="%{wic_max_amount}" />		
       <s:if test="!wic.isCancelled()">
 	  <ul>

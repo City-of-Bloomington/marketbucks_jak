@@ -43,6 +43,7 @@ public class FmnpWicAction extends TopAction{
 		System.err.println(ex);
 	    }	
 	}
+	getWic();
 	if(action.equals("Next")){
 	    ret = SUCCESS;
 	    wic.setUser_id(user.getId());
@@ -70,17 +71,30 @@ public class FmnpWicAction extends TopAction{
 		addActionMessage("Updated Successfully");
 	    }
 	}
-	else if(action.equals("Add Bucks")){ // when there is a balance
-	    ret = SUCCESS;			
-	    back = wic.doSelect();
+	else if(action.startsWith("Add")){ // when there is a balance
+	    ret = SUCCESS;
+	    back = wic.handleAddingBuck();
 	    if(!back.equals("")){
 		addActionError(back);
 	    }
-	    ret="issue";
+	    else{
+		back = wic.doSelect();
+		if(!back.equals("")){
+		    addActionError(back);
+		}
+		else{
+		    addActionMessage("Added Successfully");
+		}
+	    }
+	    if(wic.hasBalance()){
+		ret="issue";
+	    }
+	    else{
+		addActionMessage("Transaction Completed");
+	    }
 	}
 	else if(action.equals("Cancel")){
 	    ret = SUCCESS;
-	    getWic();
 	    back = wic.doCancel();
 	    if(!back.equals("")){
 		addActionError(back);
@@ -118,7 +132,7 @@ public class FmnpWicAction extends TopAction{
 		    ret ="issue"; 			
 		}
 	    }
-	}		
+	}		// not needed anymore
 	else if(action.equals("Add")){ // adding a buck
 	    ret = SUCCESS;			
 	    back = wic.doSelect();
@@ -134,16 +148,13 @@ public class FmnpWicAction extends TopAction{
 		    addActionMessage("Added Successfully");
 		}
 	    }
-	    
 	}		
 	else if(!id.equals("")){
 	    populate();
 	    ret = "issue";
 	}
 	else{
-	    getWic();
-	    wic.setWic_max_amount(wic_max_amount);						
-	}
+	    wic.setWic_max_amount(wic_max_amount);					}
 	return ret;
     }
     @StrutsParameter(depth = 2)
@@ -221,6 +232,10 @@ public class FmnpWicAction extends TopAction{
 		
 	return wic.getCancelled();
     }
+    public boolean isCancelled(){
+		
+	return wic.isCancelled();
+    }    
     public boolean isDispute_resolution(){
 	return wic.isDispute_resolution();
     }	    
@@ -239,6 +254,7 @@ public class FmnpWicAction extends TopAction{
     public boolean hasBucks(){
 	return wic.hasBucks();
     }
+    @StrutsParameter(depth = 2)
     public List<Buck> getBucks(){
 	return wic.getBucks();
     }
