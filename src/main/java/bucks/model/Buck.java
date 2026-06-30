@@ -299,22 +299,41 @@ public class Buck implements java.io.Serializable{
     public boolean hasEbt(){
 	return !ebt_id.isEmpty();
     }
+    public String getEbt_id(){
+	return ebt_id;
+    }
+    
     public boolean hasGift(){
 	return !gift_id.isEmpty();				
 
     }
+    public String getGift_id(){
+	return gift_id;
+    }    
     public boolean hasRx(){
 	return !rx_id.isEmpty();
     }
+    public String getRx_id(){
+	return rx_id;
+    }    
     public boolean hasWic(){
 	return !wic_id.isEmpty();
     }
+    public String getWic_id(){
+	return wic_id;
+    }    
     public boolean hasSenior(){
 	return !senior_id.isEmpty();
     }		
     public boolean hasRedeem(){
 	return !redeem_id.isEmpty();
     }
+    public String getSenior_id(){
+	return senior_id;
+    }    
+    public String getRedeem_id(){
+	return redeem_id;
+    }    
     public boolean isRedeemed(){
 	return !redeem_id.isEmpty();
     }		

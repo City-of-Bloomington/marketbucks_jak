@@ -37,84 +37,39 @@
 	<th>Is Voided? </th><td><s:if test="isVoided()">Yes</s:if><s:else>No</s:else></td>	
     </tr>
 </table>
-<s:if test="hasEbt()">
-    
-    <table border="1"><caption>Related Ebt</caption>
-	<tr>
-	    <td align="center"><b>ID</b></td>
-	    <td align="center"><b>Amount</b></td>
-	    <td align="center"><b>DMB Amount</b></td>  
-	    <td align="center"><b>Authorization #</b></td>
-	    <td align="center"><b>Card #</b></td>  
-	    <td align="center"><b>User</b></td>
-	    <td align="center"><b>Date & Time</b></td>
-	    <td align="center"><b>Cancelled?</b></td>
-	</tr>
-	<tr>
-	    <td><a href="<s:property value='#application.url' />issueAdd.action?id=<s:property value='buck.ebt.id' />" id="view_ebt"><label for="view_ebt" View Ebt </label></a></td>
-	    <td align="right">$<s:property value="buck.ebt.amount" />.00</td>
-	    <td align="right">$<s:property value="buck.ebt.dmb_amount" />.00</td>	
-	    <td><s:property value="buck.ebt.approve" /></td>
-	    <td><s:property value="buck.ebt.card_last_4" /></td>
-	    <td><s:property value="buck.ebt.user" /></td>
-	    <td><s:property value="buck.ebt.date_time" /></td>
-	    <td>&nbsp;<s:if test="buck.ebt.isCancelled()">Yes</s:if><s:else>No</s:else></td>
-	</tr>
-    </table>
-</s:if>
-<s:else>
-    <p>No ebt info found </p>
-</s:else>
-<s:if test="hasGift()">
-    <table border="1"><caption>Related Gift</caption>
-	<tr>
-	    <td align="center"><b>Gift ID</b></td>
-	    <td align="center"><b>Amount</b></td>
-	    <td align="center"><b>Payment Type</b></td>
-	    <td align="center"><b>Check #/RecTrac</b></td>  
-	    <td align="center"><b>User</b></td>
-	    <td align="center"><b>Date & Time</b></td>
-	    <td align="center"><b>Cancelled?</b></td>
-	</tr>
-	<tr>
-	    <td><a href="<s:property value='#application.url' />issueGiftAdd.action?id=<s:property value='buck.gift.id' />">View Gift Info</a></td>
-	    <td align="right"><s:property value="buck.gift.amount" /></td>	
-	    <td><s:property value="buck.gift.pay_type" /></td>
-	    <td><s:property value="buck.gift.check_no" /></td>
-	    <td><s:property value="buck.gift.user" /></td>
-	    <td><s:property value="buck.gift.date_time" /></td>
-	    <td><s:if test="buck.gift.isCancelled()">Yes</s:if><s:else>No</s:else></td>
-	</tr>
-    </table>
-</s:if>
-<s:else>
-    <p>No gift info found </p>
-</s:else>
-<s:if test="hasRedeem()">
-    <table border="1"><caption>Related Redemption</caption>
-	<tr>
-	    <td align="center"><b>Redemption ID</b></td>
-	    <td align="center"><b>Vendor</b></td>
-	    <td align="center"><b>User</b></td>
-	    <td align="center"><b>Date & Time</b></td>
-	    <td align="center"><b>Total Value</b></td>
-	    <td align="center"><b>Status</b></td>
-	    <td align="center"><b>Disputes?</b></td>
-	</tr>
-	<tr>
-	    <td><a href="<s:property value='#application.url' />redeemEdit.action?id=<s:property value='buck.redeem.id' />">View Redemption </a></td>
-	    <td><s:property value="buck.redeem.vendor" /></td>
-	    <td><s:property value="buck.redeem.user" /></td>
-	    <td><s:property value="buck.redeem.date_time" /></td>
-	    <td align="right">$<s:property value="buck.redeem.total" />.00</td>
-	    <td><s:property value="buck.redeem.status" /></td>
-	    <td>&nbsp;<s:if test="buck.redeem.hasDisputes()">Yes</s:if><s:else>No</s:else></td>
-	</tr>
-    </table>
-</s:if>
-<s:else>
-    <p>No redemption info found </p>
-</s:else>
+<table border="1"><caption>Related Transactions</caption>
+    <tr>
+	<td>
+	    <s:if test="hasEbt()">
+		Related Ebt: <a href="<s:property value='#application.url' />issueAdd.action?id=<s:property value='ebt_id' />" id="view_ebt"> View Ebt </a>
+	    </s:if>
+	    <s:else>
+		No Ebt found 
+	    </s:else>
+	</td>
+    </tr>
+    <tr>
+	<td>
+	    <s:if test="hasGift()">
+		Related Gift: <a href="<s:property value='#application.url' />issueGiftAdd.action?id=<s:property value='gift_id' />">View Gift Info</a>
+	    </s:if>
+	    <s:else>
+		No related gift found 
+	    </s:else>
+	</td>
+    </tr>
+    <tr>
+	<td>
+	    <s:if test="hasRedeem()">
+		Related Redemption: <a href="<s:property value='#application.url' />redeemEdit.action?id=<s:property value='redeem_id' />">View Redemption </a>
+	    </s:if>
+	    <s:else>
+		No related Redemption found 
+	    </s:else>
+	</td>
+    </tr>
+</table>
+
 
 
 

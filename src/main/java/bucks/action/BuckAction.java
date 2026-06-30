@@ -48,17 +48,15 @@ public class BuckAction extends TopAction{
 		addActionError(back);
 	    }
 	    else{
-		/**
-		   back = buck.findOtherBuckInfo();
-		   if(!back.equals("")){
-		   addActionError(back);
-		   }
-		*/
+		back = buck.findOtherBuckInfo();
+		if(!back.equals("")){
+		    addActionError(back);
+		}
 	    }
 	}
 	return ret;
     }
-    @StrutsParameter(depth=1)
+    @StrutsParameter(depth=3)
     public Buck getBuck(){ 
 	if(buck == null){
 	    buck = new Buck(debug);
@@ -116,7 +114,17 @@ public class BuckAction extends TopAction{
     public boolean hasRedeem(){
 	return buck.hasRedeem();				
 
-    }        
+    }
+    public String getEbt_id(){
+	return buck.getEbt_id();
+    }
+    public String getGift_id(){
+	return buck.getGift_id();
+    }    
+    public String getRedeem_id(){
+	return buck.getRedeem_id();
+    }
+    
     @Override
     @StrutsParameter(depth=1)
     public String getId(){
