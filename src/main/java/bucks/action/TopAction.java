@@ -9,12 +9,12 @@ import java.io.*;
 import java.text.*;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
-import com.opensymphony.xwork2.ModelDriven;
+//import com.opensymphony.xwork2.ModelDriven;
 import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import com.opensymphony.xwork2.ActionSupport;
+//import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.dispatcher.SessionMap;
 import org.apache.struts2.dispatcher.HttpParameters;
@@ -28,7 +28,8 @@ import bucks.model.*;
 import bucks.list.*;
 import bucks.utils.*;
 
-public abstract class TopAction extends ActionSupport implements ServletContextAware, ParametersAware, SessionAware{
+public abstract class TopAction // extends ActionSupport
+    implements ServletContextAware, ParametersAware, SessionAware{
 
     static final long serialVersionUID = 80L;
     boolean debug = false;
@@ -39,12 +40,18 @@ public abstract class TopAction extends ActionSupport implements ServletContextA
     static String vendorsDatabase = null;
     static String vendorsUser = null;
     static String vendorsPassword = null;
+    static String LOGIN="login";
+    static String INPUT="input";    
+    static String SUCCESS="success";
+    static String ERROR="error";    
     static int ebt_donor_max = 27, ebt_buck_value=3, rx_max_amount=30,
     wic_max_amount=45, senior_max_amount=45; // 21, 24
     User user = null;
     ServletContext ctx;
     Map<String, Object> sessionMap;
     HttpParameters paramMap = null;
+    List<String> errors = new ArrayList<>();
+    List<String> messages = new ArrayList<>();
     // Map<String, String[]> paramMap = null;
     @StrutsParameter(depth=1)
     public void setAction(String val) {
@@ -78,7 +85,39 @@ public abstract class TopAction extends ActionSupport implements ServletContextA
     public boolean isAdmin(){
 	return user != null && user.isAdmin();
     }
-
+    public String execute() throws Exception {
+	return SUCCESS;
+    }
+    public void addActionMessage(String str){
+	messages.add(str);
+    }
+    public void addActionError(String str){
+	errors.add(str);
+    }
+    public boolean hasErrors(){
+	return errors.size() > 0;
+    }
+    public boolean hasMessages(){
+	return messages.size() > 0;
+    }
+    public boolean hasActionErrors(){
+	return errors.size() > 0;
+    }
+    public boolean hasActionMessages(){
+	return messages.size() > 0;
+    }    
+    public List<String> getErrors(){
+	return errors;
+    }
+    public List<String> getMessages(){
+	return messages;
+    }
+    public List<String> getActionErrors(){
+	return errors;
+    }
+    public List<String> getActionMessages(){
+	return messages;
+    }    
     String doPrepare() {
         String back = "";
         try {

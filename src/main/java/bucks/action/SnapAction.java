@@ -9,12 +9,12 @@ package bucks.action;
 import java.util.*;
 import java.io.*;
 import java.text.DecimalFormat;
-import com.opensymphony.xwork2.ModelDriven;
+//import com.opensymphony.xwork2.ModelDriven;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.HttpServletRequest;  
 import jakarta.servlet.http.HttpServletResponse;  
-import com.opensymphony.xwork2.ActionSupport;
+//import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;  
 import org.apache.struts2.dispatcher.SessionMap;
 import org.apache.struts2.dispatcher.HttpParameters;
@@ -33,13 +33,14 @@ public class SnapAction extends TopAction{
     static final long serialVersionUID = 25L;	
     static Logger logger = LogManager.getLogger(SnapAction.class);
     static DecimalFormat dblf = new DecimalFormat("0.00");
+    static String SUCCESS = "success";
     //
     Snap snap = null;
     List<Snap> snaps = null;
     String snapsTitle = "Most Recent Purchases";
     double snapTotal= 0, dblTotal = 0, ebtTotal=0;
     public String execute(){
-	String ret = SUCCESS;
+	String ret = "success";
 	String back = doPrepare();
 	getSnap();
 	if(!back.equals("")){
@@ -53,14 +54,14 @@ public class SnapAction extends TopAction{
 	    }			
 	}
 	if(action.equals("Next")){
-	    ret = SUCCESS;
+	    ret = "success";
 	    back = snap.doSplitSnapAmount();
 	    if(!back.equals("")){
 		addActionError(back);
 	    }
 	}	
 	if(action.equals("Save")){ 
-	    ret = SUCCESS;
+	    ret = "success";
 	    snap.setUser_id(user.getId());
 	    back = snap.doSave();
 	    if(!back.equals("")){
@@ -72,7 +73,7 @@ public class SnapAction extends TopAction{
 	    }
 	}
 	else if(action.equals("Update")){
-	    ret = SUCCESS;
+	    ret = "success";
 	    snap.setUser_id(user.getId());
 	    back = snap.doUpdate();
 	    if(!back.equals("")){
@@ -84,7 +85,7 @@ public class SnapAction extends TopAction{
 	    }
 	}
 	else if(action.startsWith("Cancel")){
-	    ret = SUCCESS;
+	    ret = "success";
 	    snap.setUser_id(user.getId());
 	    back = snap.doCancel();
 	    if(!back.equals("")){
